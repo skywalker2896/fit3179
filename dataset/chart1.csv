@@ -1,0 +1,22 @@
+date,day,week,matches,rounds
+2022-01-10,Mon,1,32,Qualifier
+2022-01-11,Tue,1,32,Qualifier
+2022-01-12,Wed,1,24,Qualifier
+2022-01-13,Thu,1,8,Qualifier
+2022-01-14,Fri,1,16,Qualifier
+2022-01-15,Sat,1,0,
+2022-01-16,Sun,1,0,
+2022-01-17,Mon,2,32,1st Round
+2022-01-18,Tue,2,32,1st Round
+2022-01-19,Wed,2,16,2nd Round
+2022-01-20,Thu,2,16,2nd Round
+2022-01-21,Fri,2,8,3rd Round
+2022-01-22,Sat,2,8,3rd Round
+2022-01-23,Sun,2,4,4th Round
+2022-01-24,Mon,3,4,4th Round
+2022-01-25,Tue,3,2,Quarterfinals
+2022-01-26,Wed,3,2,Quarterfinals
+2022-01-27,Thu,3,0,
+2022-01-28,Fri,3,2,Semifinals
+2022-01-29,Sat,3,0,
+2022-01-30,Sun,3,1,Final
