@@ -1,9 +1,73 @@
-<!doctype html>
-<html>
-  <head>
-    <title>FIT3179 DV2</title>
-  </head>
-  <body>
-    <p>Testing if this works</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Australian Open</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <section class="hero" aria-label="Introduction">
+
+        <div class="hero-meta">
+          <div class="brand">
+            <div class="brand-mark">🎾</div>
+            <div>
+              <div class="brand-name font-display">FIT3179</div>
+              <div class="label-tag">Data Visualisation 2</div>
+            </div>
+          </div>
+          <div class="hero-issue label-tag">
+            <span>October 2026</span>
+          </div>
+        </div>
+
+        <div class="hero-body">
+          <div>
+            <h1 class="hero-title">
+              Australian Open
+              <span class="hero-subtitle">A grand slam tournament</span>
+            </h1>
+            <p class="hero-intro">
+              Australian Open is a major tennis event for Australians
+            </p>
+          </div>
+        </div>
+
+      </section>
+    </header>
+
+    <!--
+      figure-grid puts two chart-cards side by side (each ~half width),
+      stacking to one column under 720px. To add a new chart:
+        1. drop its Vega-Lite spec in /js  (e.g. js/chart3.vl.json)
+        2. add a <div id="chart3" class="chart-vis placeholder-chart"></div>
+           inside a new chart-card (pair it in a figure-grid, or on its
+           own for a full-width chart)
+        3. register it in js/vega_lite_vis.js's chartConfigs array
+      No new <script> tag needed.
+    -->
+    <section class="figure-grid">
+
+      <div class="chart-card">
+        <div class="chart-header">
+          <span class="tag">Figure 01 · Calendar Heatmap</span>
+          <h1>Men's Singles Matches per Day</h1>
+        </div>
+        <div id="chart1" class="chart-vis placeholder-chart"></div>
+        <div class="chart-footer">Source: Kaggle</div>
+      </div>
+
+    </section>
+
+    <!-- Add further figure-grid sections here as you build C3, C4, ... -->
+  </div>
+
+<script src="js/vega_lite_vis.js"></script>
+</body>
 </html>

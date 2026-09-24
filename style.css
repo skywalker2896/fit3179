@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Platypi:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  --ao-navy: #0c2b5e;
+  --ao-navy-light: #e8eef8;
+  /* --bg: #faf8f4; */
+  --bg: #f4f8fa;
+  --card-bg: #ffffff;
+  --text-main: #1b1f24;
+  --text-muted: #6b6459;
+  --border: #e7e2d8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 48px 24px 64px;
+  background: var(--bg);
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  color: var(--text-main);
+}
+
+/* --- Utility --- */
+.font-display {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* --- Page container --- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* --- Hero / introduction --- */
+.hero {
+  padding: 0 0 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: var(--ao-navy-light);
+  border-radius: 8px;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.label-tag {
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero-issue {
+  color: var(--text-muted);
+}
+
+.hero-body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-title {
+  font-family: 'Platypi', sans-serif;
+  font-weight: 600;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+
+.hero-subtitle {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ao-navy);
+  font-size: 0.5em;
+}
+
+.hero-intro {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0;
+}
+
+/* --- Figure grid: two charts side by side, stacking on narrow screens --- */
+.figure-grid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .figure-grid { grid-template-columns: 1fr; }
+}
+
+.chart-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 26px 26px 18px;
+  box-shadow: 0 4px 18px rgba(12, 43, 94, 0.06);
+  width: 100%;
+}
+
+.chart-header {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.chart-header .tag {
+  display: block;
+  font-family: 'Platypi', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ao-navy);
+  margin-bottom: 8px;
+}
+
+.chart-header h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  margin: 0 0 6px;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.chart-header p {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.chart-vis {
+  display: flex;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.chart-footer {
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'Roboto', sans-serif;
+  text-align: right;
+}
+
+/* --- Loading / error states for chart placeholders --- */
+.placeholder-chart {
+  align-items: center;
+}
+
+.placeholder-chart span {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.chart-error {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: #b3271e;
+}

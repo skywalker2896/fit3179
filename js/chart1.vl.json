@@ -1,9 +1,6 @@
 
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Men's Singles Matches per Day — Australian Open 2022"
-  },
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart1.csv",
     "format": {
@@ -26,8 +23,8 @@
     "strokeWidth": 2,
     "cornerRadius": 3
   },
-  "width": 320,
-  "height": 130,
+  "width": 350,
+  "height": 200,
   "encoding": {
     "x": {
       "field": "day",
