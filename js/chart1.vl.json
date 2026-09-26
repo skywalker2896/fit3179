@@ -23,8 +23,8 @@
     "strokeWidth": 2,
     "cornerRadius": 3
   },
-  "width": 350,
-  "height": 200,
+  "width": "container",
+  "height": "container",
   "encoding": {
     "x": {
       "field": "day",

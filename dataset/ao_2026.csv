@@ -1,0 +1,240 @@
+round,round_number,stage,match_status,player_1,player_2,player_1_country,player_2_country,seed_1,seed_2,seed_diff,upset,score,winner,sets_won_p1,sets_won_p2,games_won_p1,games_won_p2,sets_played,tiebreaks_played,straight_sets_win,comeback_win,deciding_set,match_date,match_month,match_day_of_week
+F,7,Main Draw,completed,Carlos Alcaraz,Novak Djokovic,ES,RS,1,4,3.0,False,2-6 6-2 6-3 7-5,Carlos Alcaraz,3.0,1.0,21.0,16.0,4.0,0.0,False,True,False,2026-02-01,2,Sunday
+SF,6,Main Draw,completed,Carlos Alcaraz,Alexander Zverev,ES,DE,1,3,2.0,False,6-4 7-6 6-7 6-7 7-5,Carlos Alcaraz,3.0,2.0,32.0,29.0,5.0,2.0,False,False,True,2026-01-30,1,Friday
+SF,6,Main Draw,completed,Novak Djokovic,Jannik Sinner,RS,IT,4,2,2.0,True,3-6 6-3 4-6 6-4 6-4,Novak Djokovic,3.0,2.0,25.0,23.0,5.0,0.0,False,True,True,2026-01-30,1,Friday
+QF,5,Main Draw,completed,Carlos Alcaraz,Alex de Minaur,ES,AU,1,6,5.0,False,7-5 6-2 6-1,Carlos Alcaraz,3.0,0.0,19.0,8.0,3.0,0.0,True,False,False,2026-01-27,1,Tuesday
+QF,5,Main Draw,completed,Alexander Zverev,Learner Tien,DE,US,3,25,22.0,False,6-3 6-7 6-1 7-6,Alexander Zverev,3.0,1.0,25.0,17.0,4.0,1.0,False,False,False,2026-01-27,1,Tuesday
+QF,5,Main Draw,completed,Lorenzo Musetti,Novak Djokovic,IT,RS,5,4,1.0,False,6-4 6-3 1-3,Novak Djokovic,2.0,1.0,13.0,10.0,3.0,0.0,False,False,False,2026-01-28,1,Wednesday
+QF,5,Main Draw,completed,Ben Shelton,Jannik Sinner,US,IT,8,2,6.0,False,3-6 4-6 4-6,Jannik Sinner,0.0,3.0,11.0,18.0,3.0,0.0,True,False,False,2026-01-28,1,Wednesday
+R16,4,Main Draw,completed,Carlos Alcaraz,Tommy Paul,ES,US,1,19,18.0,False,7-6 6-4 7-5,Carlos Alcaraz,3.0,0.0,20.0,15.0,3.0,0.0,True,False,False,2026-01-25,1,Sunday
+R16,4,Main Draw,completed,Alexander Bublik,Alex de Minaur,KZ,AU,10,6,4.0,False,4-6 1-6 1-6,Alex de Minaur,0.0,3.0,6.0,18.0,3.0,0.0,True,False,False,2026-01-25,1,Sunday
+R16,4,Main Draw,completed,Alexander Zverev,Francisco Cerundolo,DE,AR,3,18,15.0,False,6-2 6-4 6-4,Alexander Zverev,3.0,0.0,18.0,10.0,3.0,0.0,True,False,False,2026-01-25,1,Sunday
+R16,4,Main Draw,completed,Daniil Medvedev,Learner Tien,RU,US,11,25,14.0,True,4-6 0-6 3-6,Learner Tien,0.0,3.0,7.0,18.0,3.0,0.0,True,False,False,2026-01-25,1,Sunday
+R16,4,Main Draw,completed,Lorenzo Musetti,Taylor Fritz,IT,US,5,9,4.0,False,6-2 7-5 6-4,Lorenzo Musetti,3.0,0.0,19.0,11.0,3.0,0.0,True,False,False,2026-01-26,1,Monday
+R16,4,Main Draw,completed,Jakub Mensik,Novak Djokovic,CZ,RS,16,4,12.0,False,,Novak Djokovic,,,,,,,,,,2026-01-26,1,Monday
+R16,4,Main Draw,completed,Ben Shelton,Casper Ruud,US,NO,8,12,4.0,False,3-6 6-4 6-3 6-4,Ben Shelton,3.0,1.0,21.0,17.0,4.0,0.0,False,True,False,2026-01-26,1,Monday
+R16,4,Main Draw,completed,Luciano Darderi,Jannik Sinner,IT,IT,22,2,20.0,False,1-6 3-6 6-7,Jannik Sinner,0.0,3.0,10.0,19.0,3.0,1.0,True,False,False,2026-01-26,1,Monday
+R32,3,Main Draw,completed,Carlos Alcaraz,Corentin Moutet,ES,FR,1,32,31.0,False,6-2 6-4 6-1,Carlos Alcaraz,3.0,0.0,18.0,7.0,3.0,0.0,True,False,False,2026-01-23,1,Friday
+R32,3,Main Draw,completed,Tommy Paul,Alejandro Davidovich Fokina,US,ES,19,14,5.0,True,6-1 6-1,Tommy Paul,2.0,0.0,12.0,2.0,2.0,0.0,True,False,False,2026-01-23,1,Friday
+R32,3,Main Draw,completed,Alexander Bublik,Tomas Martin Etcheverry,KZ,AR,10,,,False,7-6 7-6 6-4,Alexander Bublik,3.0,0.0,20.0,16.0,3.0,0.0,True,False,False,2026-01-23,1,Friday
+R32,3,Main Draw,completed,Frances Tiafoe,Alex de Minaur,US,AU,29,6,23.0,False,3-6 4-6 5-7,Alex de Minaur,0.0,3.0,12.0,19.0,3.0,0.0,True,False,False,2026-01-23,1,Friday
+R32,3,Main Draw,completed,Alexander Zverev,Cameron Norrie,DE,GB,3,26,23.0,False,7-5 4-6 6-3 6-1,Alexander Zverev,3.0,1.0,23.0,15.0,4.0,0.0,False,False,False,2026-01-23,1,Friday
+R32,3,Main Draw,completed,Francisco Cerundolo,Andrey Rublev,AR,RU,18,13,5.0,True,6-3 7-6 6-3,Francisco Cerundolo,3.0,0.0,19.0,12.0,3.0,0.0,True,False,False,2026-01-23,1,Friday
+R32,3,Main Draw,completed,Daniil Medvedev,Fabian Marozsan,RU,HU,11,,,False,6-7 4-6 7-5 6-0 6-3,Daniil Medvedev,3.0,2.0,29.0,21.0,5.0,1.0,False,True,True,2026-01-23,1,Friday
+R32,3,Main Draw,completed,Learner Tien,Nuno Borges,US,PT,25,,,False,7-6 6-4 6-2,Learner Tien,3.0,0.0,19.0,12.0,3.0,0.0,True,False,False,2026-01-23,1,Friday
+R32,3,Main Draw,completed,Lorenzo Musetti,Tomas Machac,IT,CZ,5,,,False,5-7 6-4 6-2 5-7 6-2,Lorenzo Musetti,3.0,2.0,28.0,22.0,5.0,0.0,False,True,True,2026-01-23,1,Friday
+R32,3,Main Draw,completed,Stan Wawrinka,Taylor Fritz,CH,US,WC,9,,False,6-7 6-2 4-6 4-6,Taylor Fritz,1.0,3.0,20.0,21.0,4.0,1.0,False,False,False,2026-01-24,1,Saturday
+R32,3,Main Draw,completed,Jakub Mensik,Ethan Quinn,CZ,US,16,,,False,6-2 7-6 7-6,Jakub Mensik,3.0,0.0,20.0,14.0,3.0,0.0,True,False,False,2026-01-24,1,Saturday
+R32,3,Main Draw,completed,Botic van de Zandschulp,Novak Djokovic,NL,RS,,4,,False,3-6 4-6 6-7,Novak Djokovic,0.0,3.0,13.0,19.0,3.0,1.0,True,False,False,2026-01-24,1,Saturday
+R32,3,Main Draw,completed,Ben Shelton,Valentin Vacherot,US,MC,8,30,22.0,False,6-4 6-4 7-6,Ben Shelton,3.0,0.0,19.0,14.0,3.0,0.0,True,False,False,2026-01-24,1,Saturday
+R32,3,Main Draw,completed,Marin Cilic,Casper Ruud,HR,NO,,12,,False,4-6 4-6 6-3 5-7,Casper Ruud,1.0,3.0,19.0,22.0,4.0,0.0,False,False,False,2026-01-24,1,Saturday
+R32,3,Main Draw,completed,Karen Khachanov,Luciano Darderi,RU,IT,15,22,7.0,True,6-7 6-3 3-6 4-6,Luciano Darderi,1.0,3.0,19.0,22.0,4.0,1.0,False,False,False,2026-01-23,1,Friday
+R32,3,Main Draw,completed,Eliot Spizzirri,Jannik Sinner,US,IT,,2,,False,6-4 3-6 4-6 4-6,Jannik Sinner,1.0,3.0,17.0,22.0,4.0,0.0,False,True,False,2026-01-24,1,Saturday
+R64,2,Main Draw,completed,Carlos Alcaraz,Yannick Hanfmann,ES,DE,1,,,False,7-6 6-3 6-2,Carlos Alcaraz,3.0,0.0,19.0,11.0,3.0,0.0,True,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Michael Zheng,Corentin Moutet,US,FR,Q,32,,False,6-3 1-6 3-6 0-2,Corentin Moutet,1.0,3.0,10.0,17.0,4.0,0.0,False,True,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Tommy Paul,Thiago Agustin Tirante,US,AR,19,,,False,6-3 6-4 6-2,Tommy Paul,3.0,0.0,18.0,9.0,3.0,0.0,True,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Reilly Opelka,Alejandro Davidovich Fokina,US,ES,,14,,False,3-6 6-7 7-5 6-4 4-6,Alejandro Davidovich Fokina,2.0,3.0,26.0,28.0,5.0,1.0,False,False,True,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Alexander Bublik,Marton Fucsovics,KZ,HU,10,,,False,7-5 6-4 7-5,Alexander Bublik,3.0,0.0,20.0,14.0,3.0,0.0,True,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Tomas Martin Etcheverry,Arthur Fery,AR,GB,,Q,,False,7-6 6-1 6-3,Tomas Martin Etcheverry,3.0,0.0,19.0,10.0,3.0,0.0,True,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Frances Tiafoe,Francisco Comesana,US,AR,29,,,False,6-4 6-3 4-6 6-2,Frances Tiafoe,3.0,1.0,22.0,15.0,4.0,0.0,False,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Hamad Medjedovic,Alex de Minaur,RS,AU,,6,,False,7-6 2-6 2-6 1-6,Alex de Minaur,1.0,3.0,12.0,24.0,4.0,0.0,False,True,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Alexander Zverev,Alexandre Muller,DE,FR,3,,,False,6-3 4-6 6-3 6-4,Alexander Zverev,3.0,1.0,22.0,16.0,4.0,0.0,False,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Emilio Nava,Cameron Norrie,US,GB,,26,,False,1-6 6-7 6-4 6-7,Cameron Norrie,1.0,3.0,19.0,24.0,4.0,2.0,False,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Francisco Cerundolo,Damir Dzumhur,AR,BA,18,,,False,6-3 6-2 6-1,Francisco Cerundolo,3.0,0.0,18.0,6.0,3.0,0.0,True,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Jaime Faria,Andrey Rublev,PT,RU,Q,13,,False,4-6 3-6 6-4 5-7,Andrey Rublev,1.0,3.0,18.0,23.0,4.0,0.0,False,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Daniil Medvedev,Quentin Halys,RU,FR,11,,,False,6-7 6-3 6-4 6-2,Daniil Medvedev,3.0,1.0,24.0,16.0,4.0,1.0,False,True,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Kamil Majchrzak,Fabian Marozsan,PL,HU,,,,False,3-6 4-6 6-7,Fabian Marozsan,0.0,3.0,13.0,19.0,3.0,1.0,True,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Learner Tien,Alexander Shevchenko,US,KZ,25,,,False,6-2 5-7 6-1 6-0,Learner Tien,3.0,1.0,23.0,10.0,4.0,0.0,False,False,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Jordan Thompson,Nuno Borges,AU,PT,WC,,,False,7-6 3-6 2-6 4-6,Nuno Borges,1.0,3.0,16.0,24.0,4.0,0.0,False,True,False,2026-01-21,1,Wednesday
+R64,2,Main Draw,completed,Lorenzo Musetti,Lorenzo Sonego,IT,IT,5,,,False,6-3 6-3 6-4,Lorenzo Musetti,3.0,0.0,18.0,10.0,3.0,0.0,True,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Tomas Machac,Stefanos Tsitsipas,CZ,GR,,31,,False,6-4 3-6 7-6 7-6,Tomas Machac,3.0,1.0,23.0,22.0,4.0,0.0,False,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Arthur Gea,Stan Wawrinka,FR,CH,Q,WC,,False,6-4 3-6 6-3 5-7 6-7,Stan Wawrinka,2.0,3.0,26.0,27.0,5.0,1.0,False,True,True,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Vit Kopriva,Taylor Fritz,CZ,US,,9,,False,1-6 4-6 6-7,Taylor Fritz,0.0,3.0,11.0,19.0,3.0,1.0,True,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Jakub Mensik,Rafael Jodar,CZ,ES,16,Q,,False,6-2 6-4 6-4,Jakub Mensik,3.0,0.0,18.0,10.0,3.0,0.0,True,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Hubert Hurkacz,Ethan Quinn,PL,US,,,,False,4-6 6-7 1-6,Ethan Quinn,0.0,3.0,11.0,19.0,3.0,1.0,True,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Botic van de Zandschulp,Juncheng Shang,NL,CN,,,,False,7-6 6-2 6-3,Botic van de Zandschulp,3.0,0.0,19.0,11.0,3.0,0.0,True,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Francesco Maestrelli,Novak Djokovic,IT,RS,Q,4,,False,3-6 2-6 2-6,Novak Djokovic,0.0,3.0,7.0,18.0,3.0,0.0,True,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Ben Shelton,Dane Sweeny,US,AU,8,Q,,False,6-3 6-2 6-2,Ben Shelton,3.0,0.0,18.0,7.0,3.0,0.0,True,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Rinky Hijikata,Valentin Vacherot,AU,MC,WC,30,,False,1-6 3-6 6-4 2-6,Valentin Vacherot,1.0,3.0,12.0,22.0,4.0,0.0,False,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Denis Shapovalov,Marin Cilic,CA,HR,21,,,False,4-6 3-6 2-6,Marin Cilic,0.0,3.0,9.0,18.0,3.0,0.0,True,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Jaume Munar,Casper Ruud,ES,NO,,12,,False,3-6 5-7 4-6,Casper Ruud,0.0,3.0,12.0,19.0,3.0,0.0,True,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Karen Khachanov,Nishesh Basavareddy,RU,US,15,Q,,False,6-1 6-4 6-3,Karen Khachanov,3.0,0.0,18.0,8.0,3.0,0.0,True,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Sebastian Baez,Luciano Darderi,AR,IT,,22,,False,3-6 6-1 4-6 3-6,Luciano Darderi,1.0,3.0,16.0,19.0,4.0,0.0,False,False,False,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,Eliot Spizzirri,Yibing Wu,US,CN,,Q,,False,6-2 6-4 6-7 4-6 6-3,Eliot Spizzirri,3.0,2.0,28.0,22.0,5.0,1.0,False,False,True,2026-01-22,1,Thursday
+R64,2,Main Draw,completed,James Duckworth,Jannik Sinner,AU,IT,WC,2,,False,1-6 4-6 2-6,Jannik Sinner,0.0,3.0,7.0,18.0,3.0,0.0,True,False,False,2026-01-22,1,Thursday
+R128,1,Main Draw,completed,Carlos Alcaraz,Adam Walton,ES,AU,1,,,False,6-3 7-6 6-2,Carlos Alcaraz,3.0,0.0,19.0,11.0,3.0,0.0,True,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Yannick Hanfmann,Zachary Svajda,DE,US,,Q,,False,7-5 4-6 6-4 7-6,Yannick Hanfmann,3.0,1.0,24.0,21.0,4.0,0.0,False,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Michael Zheng,Sebastian Korda,US,US,Q,,,False,6-4 6-4 3-6 6-7 6-3,Michael Zheng,3.0,2.0,27.0,24.0,5.0,1.0,False,False,True,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Tristan Schoolkate,Corentin Moutet,AU,FR,,32,,False,4-6 6-7 3-6,Corentin Moutet,0.0,3.0,13.0,19.0,3.0,1.0,True,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Tommy Paul,Aleksandar Kovacevic,US,US,19,,,False,6-4 6-3 6-3,Tommy Paul,3.0,0.0,18.0,10.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Thiago Agustin Tirante,Aleksandar Vukic,AR,AU,,,,False,7-5 6-2 6-2,Thiago Agustin Tirante,3.0,0.0,19.0,9.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Nicolai Budkov Kjaer,Reilly Opelka,NO,US,Q,,,False,4-6 3-6 4-6,Reilly Opelka,0.0,3.0,11.0,18.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Filip Misolic,Alejandro Davidovich Fokina,AT,ES,,14,,False,2-6 3-6 3-6,Alejandro Davidovich Fokina,0.0,3.0,8.0,18.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Alexander Bublik,Jenson Brooksby,KZ,US,10,,,False,6-4 6-4 6-4,Alexander Bublik,3.0,0.0,18.0,12.0,3.0,0.0,True,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Camilo Ugo Carabelli,Marton Fucsovics,AR,HU,,,,False,6-7 1-6 2-6,Marton Fucsovics,0.0,3.0,9.0,19.0,3.0,1.0,True,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Miomir Kecmanovic,Tomas Martin Etcheverry,RS,AR,,,,False,2-6 6-3 6-4 3-6 4-6,Tomas Martin Etcheverry,2.0,3.0,21.0,25.0,5.0,0.0,False,False,True,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Arthur Fery,Flavio Cobolli,GB,IT,Q,20,,False,7-6 6-4 6-1,Arthur Fery,3.0,0.0,19.0,11.0,3.0,0.0,True,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Frances Tiafoe,Jason Kubler,US,AU,29,Q,,False,7-6 6-3 6-2,Frances Tiafoe,3.0,0.0,19.0,11.0,3.0,0.0,True,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Patrick Kypson,Francisco Comesana,US,AR,WC,,,False,2-6 3-6 6-3 3-6,Francisco Comesana,1.0,3.0,14.0,21.0,4.0,0.0,False,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Mariano Navone,Hamad Medjedovic,AR,RS,,,,False,2-6 7-6 4-6 2-6,Hamad Medjedovic,1.0,3.0,15.0,24.0,4.0,0.0,False,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Mackenzie McDonald,Alex de Minaur,US,AU,LL,6,,False,2-6 2-6 3-6,Alex de Minaur,0.0,3.0,7.0,18.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Alexander Zverev,Gabriel Diallo,DE,CA,3,,,False,6-7 6-1 6-4 6-2,Alexander Zverev,3.0,1.0,24.0,14.0,4.0,1.0,False,True,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Alexei Popyrin,Alexandre Muller,AU,FR,,,,False,6-2 3-6 6-3 6-7 6-7,Alexandre Muller,2.0,3.0,27.0,25.0,5.0,2.0,False,True,True,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Emilio Nava,Kyrian Jacquet,US,FR,,WC,,False,6-2 7-5 6-7 4-6 7-6,Emilio Nava,3.0,2.0,30.0,26.0,5.0,1.0,False,False,True,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Benjamin Bonzi,Cameron Norrie,FR,GB,,26,,False,0-6 7-6 6-4 3-6 4-6,Cameron Norrie,2.0,3.0,20.0,28.0,5.0,0.0,False,False,True,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Francisco Cerundolo,Zhizhen Zhang,AR,CN,18,,,False,6-3 7-6 6-3,Francisco Cerundolo,3.0,0.0,19.0,12.0,3.0,0.0,True,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Liam Draxl,Damir Dzumhur,CA,BA,Q,,,False,5-7 0-6 4-6,Damir Dzumhur,0.0,3.0,9.0,19.0,3.0,0.0,True,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Alexander Blockx,Jaime Faria,BE,PT,LL,Q,,False,3-6 6-3 3-6 4-6,Jaime Faria,1.0,3.0,16.0,21.0,4.0,0.0,False,False,False,2026-01-18,1,Sunday
+R128,1,Main Draw,completed,Matteo Arnaldi,Andrey Rublev,IT,RU,,13,,False,4-6 2-6 3-6,Andrey Rublev,0.0,3.0,9.0,18.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Daniil Medvedev,Jesper de Jong,RU,NL,11,,,False,7-5 6-2 7-6,Daniil Medvedev,3.0,0.0,20.0,13.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Quentin Halys,Alejandro Tabilo,FR,CL,,,,False,6-2 6-2 7-6,Quentin Halys,3.0,0.0,19.0,10.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Kamil Majchrzak,Jacob Fearnley,PL,GB,,,,False,7-6 7-5 3-6 7-6,Kamil Majchrzak,3.0,1.0,24.0,23.0,4.0,0.0,False,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Fabian Marozsan,Arthur Rinderknech,HU,FR,,24,,False,6-3 6-4 6-7 6-4,Fabian Marozsan,3.0,1.0,24.0,18.0,4.0,1.0,False,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Learner Tien,Marcos Giron,US,US,25,,,False,7-6 4-6 3-6 7-6 6-2,Learner Tien,3.0,2.0,27.0,26.0,5.0,0.0,False,False,True,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Elias Ymer,Alexander Shevchenko,SE,KZ,Q,,,False,6-3 5-7 4-6 1-6,Alexander Shevchenko,1.0,3.0,16.0,22.0,4.0,0.0,False,True,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Juan Manuel Cerundolo,Jordan Thompson,AR,AU,,WC,,False,7-6 5-7 1-6 1-6,Jordan Thompson,1.0,3.0,14.0,25.0,4.0,0.0,False,True,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Nuno Borges,Felix Auger-Aliassime,PT,CA,,7,,False,3-6 6-4 6-4 0-0,Nuno Borges,2.0,1.0,15.0,14.0,3.0,0.0,False,True,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Lorenzo Musetti,Raphael Collignon,IT,BE,5,,,False,4-6 7-6 7-5 3-2,Lorenzo Musetti,3.0,1.0,21.0,19.0,4.0,0.0,False,True,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Lorenzo Sonego,Carlos Taberner,IT,ES,,,,False,6-4 6-0 6-3,Lorenzo Sonego,3.0,0.0,18.0,7.0,3.0,0.0,True,False,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Grigor Dimitrov,Tomas Machac,BG,CZ,,,,False,4-6 4-6 3-6,Tomas Machac,0.0,3.0,11.0,18.0,3.0,0.0,True,False,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Shintaro Mochizuki,Stefanos Tsitsipas,JP,GR,,31,,False,6-4 3-6 2-6 2-6,Stefanos Tsitsipas,1.0,3.0,13.0,22.0,4.0,0.0,False,True,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Jiri Lehecka,Arthur Gea,CZ,FR,17,Q,,False,5-7 6-7 5-7,Arthur Gea,0.0,3.0,16.0,21.0,3.0,1.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Laslo Djere,Stan Wawrinka,RS,CH,,WC,,False,7-5 3-6 4-6 6-7,Stan Wawrinka,1.0,3.0,20.0,24.0,4.0,1.0,False,True,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Vit Kopriva,Jan-Lennard Struff,CZ,DE,,,,False,4-6 6-2 2-6 6-3 6-1,Vit Kopriva,3.0,2.0,24.0,18.0,5.0,0.0,False,True,True,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Valentin Royer,Taylor Fritz,FR,US,,9,,False,6-7 7-5 1-6 3-6,Taylor Fritz,1.0,3.0,17.0,24.0,4.0,1.0,False,False,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Jakub Mensik,Pablo Carreno Busta,CZ,ES,16,,,False,7-5 4-6 2-6 7-6 6-3,Jakub Mensik,3.0,2.0,26.0,26.0,5.0,0.0,False,False,True,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Rei Sakamoto,Rafael Jodar,JP,ES,Q,Q,,False,6-7 1-6 7-5 6-4 3-6,Rafael Jodar,2.0,3.0,23.0,28.0,5.0,1.0,False,False,True,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Hubert Hurkacz,Zizou Bergs,PL,BE,,,,False,6-7 7-6 6-3 6-3,Hubert Hurkacz,3.0,1.0,25.0,19.0,4.0,1.0,False,True,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Ethan Quinn,Tallon Griekspoor,US,NL,,23,,False,6-2 6-3 6-2,Ethan Quinn,3.0,0.0,18.0,7.0,3.0,0.0,True,False,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Brandon Nakashima,Botic van de Zandschulp,US,NL,27,,,False,3-6 6-4 6-7 6-7,Botic van de Zandschulp,1.0,3.0,21.0,24.0,4.0,2.0,False,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Juncheng Shang,Roberto Bautista Agut,CN,ES,,,,False,6-4 6-7 6-4 6-0,Juncheng Shang,3.0,1.0,24.0,15.0,4.0,1.0,False,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Terence Atmane,Francesco Maestrelli,FR,IT,,Q,,False,4-6 6-3 7-6 1-6 1-6,Francesco Maestrelli,2.0,3.0,19.0,27.0,5.0,0.0,False,False,True,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Pedro Martinez,Novak Djokovic,ES,RS,,4,,False,3-6 2-6 2-6,Novak Djokovic,0.0,3.0,7.0,18.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Ben Shelton,Ugo Humbert,US,FR,8,,,False,6-3 7-6 7-6,Ben Shelton,3.0,0.0,20.0,15.0,3.0,0.0,True,False,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Dane Sweeny,Gael Monfils,AU,FR,Q,,,False,6-7 7-5 6-4 7-5,Dane Sweeny,3.0,1.0,26.0,21.0,4.0,1.0,False,True,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Adrian Mannarino,Rinky Hijikata,FR,AU,,WC,,False,3-6 3-6 1-6,Rinky Hijikata,0.0,3.0,7.0,18.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Martin Damm Jr,Valentin Vacherot,US,MC,Q,30,,False,4-6 4-6 4-6,Valentin Vacherot,0.0,3.0,12.0,18.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Denis Shapovalov,Yunchaokete Bu,CA,CN,21,WC,,False,6-3 7-6 6-1,Denis Shapovalov,3.0,0.0,19.0,10.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Daniel Altmaier,Marin Cilic,DE,HR,,,,False,0-6 0-6 6-7,Marin Cilic,0.0,3.0,6.0,19.0,3.0,1.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Jaume Munar,Dalibor Svrcina,ES,CZ,,,,False,3-6 6-2 6-7 7-5 6-3,Jaume Munar,3.0,2.0,28.0,23.0,5.0,1.0,False,True,True,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Mattia Bellucci,Casper Ruud,IT,NO,,12,,False,1-6 2-6 4-6,Casper Ruud,0.0,3.0,7.0,18.0,3.0,0.0,True,False,False,2026-01-19,1,Monday
+R128,1,Main Draw,completed,Karen Khachanov,Alex Michelsen,RU,US,15,,,False,4-6 6-4 6-3 5-7 6-3,Karen Khachanov,3.0,2.0,27.0,23.0,5.0,0.0,False,True,True,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Christopher O'Connell,Nishesh Basavareddy,AU,US,WC,Q,,False,6-4 6-7 7-6 2-6 3-6,Nishesh Basavareddy,2.0,3.0,24.0,29.0,5.0,1.0,False,True,True,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Giovanni Mpetshi Perricard,Sebastian Baez,FR,AR,,,,False,4-6 4-6 6-3 7-5 3-6,Sebastian Baez,2.0,3.0,24.0,26.0,5.0,0.0,False,False,True,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Cristian Garin,Luciano Darderi,CL,IT,,22,,False,6-7 5-7 6-7,Luciano Darderi,0.0,3.0,17.0,21.0,3.0,2.0,True,False,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Joao Fonseca,Eliot Spizzirri,BR,US,28,,,False,4-6 6-2 1-6 2-6,Eliot Spizzirri,1.0,3.0,13.0,20.0,4.0,0.0,False,False,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Luca Nardi,Yibing Wu,IT,CN,,Q,,False,5-7 6-4 4-6 2-6,Yibing Wu,1.0,3.0,17.0,23.0,4.0,0.0,False,False,False,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,James Duckworth,Dino Prizmic,AU,HR,WC,LL,,False,7-6 3-6 1-6 7-5 6-3,James Duckworth,3.0,2.0,24.0,26.0,5.0,0.0,False,False,True,2026-01-20,1,Tuesday
+R128,1,Main Draw,completed,Hugo Gaston,Jannik Sinner,FR,IT,,2,,False,2-6 1-6,Jannik Sinner,0.0,2.0,3.0,12.0,2.0,0.0,True,False,False,2026-01-20,1,Tuesday
+Qualification final,Q3,Qualifying,completed,Kimmer Coppejans,Zachary Svajda,BE,US,,29,,False,6-7 2-6,Zachary Svajda,0.0,2.0,8.0,13.0,2.0,1.0,True,False,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Michael Zheng,Lukas Klein,US,SK,Q,28,,False,4-6 6-3 7-6,Michael Zheng,2.0,1.0,17.0,15.0,3.0,0.0,False,True,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Pierre-Hugues Herbert,Nicolai Budkov Kjaer,FR,NO,,23,,False,2-6 3-6,Nicolai Budkov Kjaer,0.0,2.0,5.0,12.0,2.0,0.0,True,False,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Dino Prizmic,Arthur Fery,HR,GB,14,Q,,False,4-6 1-6,Arthur Fery,0.0,2.0,5.0,12.0,2.0,0.0,True,False,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Alexander Blockx,Jason Kubler,BE,AU,7,Q,,False,6-3 3-6 0-1,Jason Kubler,1.0,2.0,9.0,10.0,3.0,0.0,False,True,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Mackenzie McDonald,Liam Draxl,US,CA,6,20,14.0,True,6-3 6-7 2-6,Liam Draxl,1.0,2.0,14.0,16.0,3.0,1.0,False,True,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Jaime Faria,Marco Trungelliti,PT,AR,Q,18,,False,7-6 6-3,Jaime Faria,2.0,0.0,13.0,9.0,2.0,0.0,True,False,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Elias Ymer,Coleman Wong,SE,HK,Q,,,False,7-6 4-6 6-3,Elias Ymer,2.0,1.0,17.0,15.0,3.0,0.0,False,False,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Arthur Gea,Adolfo Daniel Vallejo,FR,PY,Q,30,,False,6-2 6-2,Arthur Gea,2.0,0.0,12.0,4.0,2.0,0.0,True,False,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Giulio Zeppieri,Rei Sakamoto,IT,JP,,Q,,False,2-6 2-6,Rei Sakamoto,0.0,2.0,4.0,12.0,2.0,0.0,True,False,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Rafael Jodar,Luca van Assche,ES,FR,Q,,,False,6-3 0-6 6-1,Rafael Jodar,2.0,1.0,12.0,10.0,3.0,0.0,False,False,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Dusan Lajovic,Francesco Maestrelli,RS,IT,13,24,11.0,True,6-4 4-6 3-6,Francesco Maestrelli,1.0,2.0,13.0,16.0,3.0,0.0,False,True,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Stefano Travaglia,Dane Sweeny,IT,AU,,Q,,False,6-7 6-7,Dane Sweeny,0.0,2.0,12.0,14.0,2.0,2.0,True,False,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Gilles Arnaud Bailly,Martin Damm Jr,BE,US,,Q,,False,5-7 5-7,Martin Damm Jr,0.0,2.0,10.0,14.0,2.0,0.0,True,False,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,George Loffhagen,Nishesh Basavareddy,GB,US,,Q,,False,7-5 4-6 4-6,Nishesh Basavareddy,1.0,2.0,15.0,17.0,3.0,0.0,False,True,False,2026-01-15,1,Thursday
+Qualification final,Q3,Qualifying,completed,Yibing Wu,Tristan Boyer,CN,US,Q,,,False,6-3 6-2,Yibing Wu,2.0,0.0,12.0,5.0,2.0,0.0,True,False,False,2026-01-15,1,Thursday
+Qualification round 1,Q2,Qualifying,completed,Hady Habib,Zachary Svajda,LB,US,,29,,False,1-6 3-6,Zachary Svajda,0.0,2.0,4.0,12.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Cruz Hewitt,Michael Zheng,AU,US,,Q,,False,3-6 3-6,Michael Zheng,0.0,2.0,6.0,12.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Yosuke Watanuki,Nicolai Budkov Kjaer,JP,NO,,23,,False,7-6 5-7 4-6,Nicolai Budkov Kjaer,1.0,2.0,16.0,19.0,3.0,0.0,False,True,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Arthur Fery,Edward Winter,GB,AU,Q,,,False,6-2 6-4,Arthur Fery,2.0,0.0,12.0,6.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Jason Kubler,Harold Mayot,AU,FR,Q,,,False,6-3 6-4,Jason Kubler,2.0,0.0,12.0,7.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Mackenzie McDonald,Dmitry Popko,US,KZ,6,,,False,6-7 6-4 7-5,Mackenzie McDonald,2.0,1.0,19.0,16.0,3.0,1.0,False,True,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Moerani Bouzige,Liam Draxl,AU,CA,,20,,False,6-7 3-6,Liam Draxl,0.0,2.0,9.0,13.0,2.0,1.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Alexander Blockx,Marco Cecchinato,BE,IT,7,,,False,6-3 6-4,Alexander Blockx,2.0,0.0,12.0,7.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Jaime Faria,Luka Mikrut,PT,HR,Q,,,False,7-6 7-5,Jaime Faria,2.0,0.0,14.0,11.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Alex Bolt,Elias Ymer,AU,SE,,Q,,False,6-7 6-7,Elias Ymer,0.0,2.0,12.0,14.0,2.0,2.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Zdenek Kolar,Arthur Gea,CZ,FR,,Q,,False,2-6 3-6,Arthur Gea,0.0,2.0,5.0,12.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Rei Sakamoto,Daniel Evans,JP,GB,Q,,,False,6-1 6-2,Rei Sakamoto,2.0,0.0,12.0,3.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Li Tu,Rafael Jodar,AU,ES,,Q,,False,2-6 1-6,Rafael Jodar,0.0,2.0,3.0,12.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Lorenzo Giustino,Francesco Maestrelli,IT,IT,,24,,False,6-7 1-6,Francesco Maestrelli,0.0,2.0,7.0,13.0,2.0,1.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Dane Sweeny,Andrea Pellegrino,AU,IT,Q,26,,False,6-2 4-6 6-3,Dane Sweeny,2.0,1.0,16.0,11.0,3.0,0.0,False,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Martin Damm Jr,Gauthier Onclin,US,BE,Q,,,False,6-3 3-6 6-4,Martin Damm Jr,2.0,1.0,15.0,13.0,3.0,0.0,False,False,False,2026-01-11,1,Sunday
+Qualification round 1,Q2,Qualifying,completed,Alexis Galarneau,Nishesh Basavareddy,CA,US,,Q,,False,4-6 2-6,Nishesh Basavareddy,0.0,2.0,6.0,12.0,2.0,0.0,True,False,False,2026-01-11,1,Sunday
+Qualification round 1,Q2,Qualifying,completed,Yibing Wu,Mitchell Krueger,CN,US,Q,,,False,7-5 6-4,Yibing Wu,2.0,0.0,13.0,9.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Dino Prizmic,Genaro Alberto Olivieri,HR,AR,14,,,False,6-1 6-4,Dino Prizmic,2.0,0.0,12.0,5.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Chun Hsin Tseng,Martin Landaluce,TW,ES,10,,,False,5-7 3-6,Martin Landaluce,0.0,2.0,8.0,13.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Kimmer Coppejans,Omar Jasika,BE,AU,,,,False,7-6 6-0,Kimmer Coppejans,2.0,0.0,13.0,6.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Murphy Cassone,Yu Hsiou Hsu,US,TW,,,,False,3-6 6-3 6-4,Murphy Cassone,2.0,1.0,15.0,13.0,3.0,0.0,False,True,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Bernard Tomic,Hugo Dellien,AU,BO,,25,,False,6-3 6-3,Bernard Tomic,2.0,0.0,12.0,6.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Coleman Wong,Ugo Blanchet,HK,FR,,31,,False,6-3 7-6,Coleman Wong,2.0,0.0,13.0,9.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Mark Lajal,Francesco Passaro,EE,IT,,27,,False,6-7 4-6,Francesco Passaro,0.0,2.0,10.0,13.0,2.0,1.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Roberto Carballes Baena,Arthur Bouquier,ES,FR,16,,,False,6-2 6-2,Roberto Carballes Baena,2.0,0.0,12.0,4.0,2.0,0.0,True,False,False,2026-01-11,1,Sunday
+Qualification round 1,Q2,Qualifying,completed,Marcelo Tomas Barrios Vera,Sascha Gueymard Wayenburg,CL,FR,4,,,False,6-2 7-6,Marcelo Tomas Barrios Vera,2.0,0.0,13.0,8.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Luca van Assche,Moez Echargui,FR,TN,,22,,False,6-4 6-4,Luca van Assche,2.0,0.0,12.0,8.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,August Holmgren,Sebastian Ofner,DK,AT,,19,,False,4-6 4-6,Sebastian Ofner,0.0,2.0,8.0,12.0,2.0,0.0,True,False,False,2026-01-11,1,Sunday
+Qualification round 1,Q2,Qualifying,completed,Blake Ellis,Stefano Travaglia,AU,IT,,,,False,3-6 6-4 1-6,Stefano Travaglia,1.0,2.0,10.0,16.0,3.0,0.0,False,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Alvaro Guillen Meza,Thiago Seyboth Wild,EC,BR,,,,False,5-7 3-6,Thiago Seyboth Wild,0.0,2.0,8.0,13.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Pavle Marinkov,James McCabe,AU,AU,,,,False,2-6 6-7,James McCabe,0.0,2.0,8.0,13.0,2.0,1.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Gustavo Heide,Jay Clarke,BR,GB,,,,False,6-3 6-3,Gustavo Heide,2.0,0.0,12.0,6.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Brandon Holt,Lukas Neumayer,US,AT,5,,,False,4-6 6-2 6-3,Brandon Holt,2.0,1.0,16.0,11.0,3.0,0.0,False,True,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Tristan Boyer,Alex Barrena,US,AR,,,,False,6-2 6-7 6-2,Tristan Boyer,2.0,1.0,18.0,11.0,3.0,1.0,False,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Roman Andres Burruchaga,Ryan Peniston,AR,GB,2,,,False,6-1 6-1,Roman Andres Burruchaga,2.0,0.0,12.0,2.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Nicolas Moreno de Alboran,Vilius Gaubas,US,LT,,17,,False,5-7 3-6,Vilius Gaubas,0.0,2.0,8.0,13.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Yoshihito Nishioka,Nerman Fatic,JP,BA,8,,,False,6-1 6-2,Yoshihito Nishioka,2.0,0.0,12.0,3.0,2.0,0.0,True,False,False,2026-01-11,1,Sunday
+Qualification round 1,Q2,Qualifying,completed,Pablo Llamas Ruiz,Henry Bernet,ES,CH,,,,False,3-6 6-3 7-6,Pablo Llamas Ruiz,2.0,1.0,16.0,15.0,3.0,0.0,False,True,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Matej Dodig,Benjamin Hassan,HR,LB,,,,False,7-5 3-6 2-6,Benjamin Hassan,1.0,2.0,12.0,17.0,3.0,0.0,False,True,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Elmer Moller,Marc Polmans,DK,AU,9,,,False,6-4 7-6,Elmer Moller,2.0,0.0,13.0,10.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Rodrigo Pacheco Mendez,Adolfo Daniel Vallejo,MX,PY,,30,,False,1-6 2-6,Adolfo Daniel Vallejo,0.0,2.0,3.0,12.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Billy Harris,Chris Rodesch,GB,LU,15,,,False,3-6 4-6,Chris Rodesch,0.0,2.0,7.0,12.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Giulio Zeppieri,Dan Added,IT,FR,,,,False,6-3 6-3,Giulio Zeppieri,2.0,0.0,12.0,6.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Daniil Glinka,Clement Tabur,EE,FR,,,,False,5-7 6-3 6-4,Daniil Glinka,2.0,1.0,17.0,14.0,3.0,0.0,False,True,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Luka Pavlovic,Colton Smith,FR,US,,32,,False,6-7 1-6,Colton Smith,0.0,2.0,7.0,13.0,2.0,1.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Vitaliy Sachko,Viktor Durasovic,UA,NO,,,,False,6-3 7-6,Vitaliy Sachko,2.0,0.0,13.0,9.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Pierre-Hugues Herbert,Guy Den Ouden,FR,NL,,,,False,3-6 6-3 6-2,Pierre-Hugues Herbert,2.0,1.0,15.0,11.0,3.0,0.0,False,True,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Jan Choinski,Leandro Riedi,GB,CH,11,,,False,3-6 4-6,Leandro Riedi,0.0,2.0,7.0,12.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Dusan Lajovic,Facundo Diaz Acosta,RS,AR,13,,,False,7-6 5-7 7-6,Dusan Lajovic,2.0,1.0,19.0,19.0,3.0,0.0,False,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Oliver Crawford,Daniel Merida,GB,ES,,,,False,3-6 6-2 3-6,Daniel Merida,1.0,2.0,12.0,14.0,3.0,0.0,False,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Jerome Kym,Juan Carlos Prado Angelo,CH,BO,,,,False,6-3 6-0,Jerome Kym,2.0,0.0,12.0,3.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Justin Engel,George Loffhagen,DE,GB,,,,False,6-7 6-7,George Loffhagen,0.0,2.0,12.0,14.0,2.0,2.0,True,False,False,2026-01-11,1,Sunday
+Qualification round 1,Q2,Qualifying,completed,Otto Virtanen,Nicolas Mejia,FI,CO,12,,,False,3-6 6-3 4-6,Nicolas Mejia,1.0,2.0,13.0,15.0,3.0,0.0,False,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Juan Pablo Ficovich,Jurij Rodionov,AR,AT,,,,False,5-7 3-6,Jurij Rodionov,0.0,2.0,8.0,13.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Daniel Elahi Galan,Hugo Grenier,CO,FR,,,,False,6-7 0-1,Hugo Grenier,0.0,2.0,6.0,8.0,2.0,1.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Sho Shimabukuro,Alex Molcan,JP,SK,,,,False,4-6 6-4 3-6,Alex Molcan,1.0,2.0,13.0,16.0,3.0,0.0,False,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Lloyd Harris,Federico Cina,ZA,IT,,,,False,4-6 7-6 3-6,Federico Cina,1.0,2.0,14.0,18.0,3.0,0.0,False,False,False,2026-01-13,1,Tuesday
+Qualification round 1,Q2,Qualifying,completed,Nikoloz Basilashvili,Gonzalo Bueno,GE,PE,3,,,False,1-6 6-7,Gonzalo Bueno,0.0,2.0,7.0,13.0,2.0,1.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Joao Lucas Reis Da Silva,Henrique Rocha,BR,PT,,,,False,2-6 4-6,Henrique Rocha,0.0,2.0,6.0,12.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Zsombor Piros,Lukas Klein,HU,SK,,28,,False,4-6 4-6,Lukas Klein,0.0,2.0,8.0,12.0,2.0,0.0,True,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Jack Pinnington Jones,Gilles Arnaud Bailly,GB,BE,,,,False,4-6 4-6,Gilles Arnaud Bailly,0.0,2.0,8.0,12.0,2.0,0.0,True,False,False,2026-01-11,1,Sunday
+Qualification round 1,Q2,Qualifying,completed,Philip Sekulic,Marco Trungelliti,AU,AR,,18,,False,2-6 6-1 1-6,Marco Trungelliti,1.0,2.0,9.0,13.0,3.0,0.0,False,False,False,2026-01-12,1,Monday
+Qualification round 1,Q2,Qualifying,completed,Titouan Droguet,Nicolas Jarry,FR,CL,,21,,False,6-4 6-3,Titouan Droguet,2.0,0.0,12.0,7.0,2.0,0.0,True,False,False,2026-01-11,1,Sunday
+Qualification round 2,Q1,Qualifying,completed,Jurij Rodionov,Zachary Svajda,AT,US,,29,,False,1-6 4-6,Zachary Svajda,0.0,2.0,5.0,12.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Marcelo Tomas Barrios Vera,Michael Zheng,CL,US,4,Q,,False,4-6 7-6 2-6,Michael Zheng,1.0,2.0,13.0,18.0,3.0,0.0,False,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,James McCabe,Nicolai Budkov Kjaer,AU,NO,,23,,False,6-4 3-6 6-7,Nicolai Budkov Kjaer,1.0,2.0,15.0,17.0,3.0,1.0,False,True,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Arthur Fery,Bernard Tomic,GB,AU,Q,,,False,6-4 6-2,Arthur Fery,2.0,0.0,12.0,6.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Jason Kubler,Vilius Gaubas,AU,LT,Q,17,,False,7-5 6-2,Jason Kubler,2.0,0.0,13.0,7.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Mackenzie McDonald,Hugo Grenier,US,FR,6,,,False,7-6 6-1,Mackenzie McDonald,2.0,0.0,13.0,7.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Vitaliy Sachko,Liam Draxl,UA,CA,,20,,False,3-6 7-5 6-7,Liam Draxl,1.0,2.0,16.0,18.0,3.0,1.0,False,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Alexander Blockx,Alex Molcan,BE,SK,7,,,False,6-1 6-1,Alexander Blockx,2.0,0.0,12.0,2.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Benjamin Hassan,Jaime Faria,LB,PT,,Q,,False,3-6 4-6,Jaime Faria,0.0,2.0,7.0,12.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Elmer Moller,Elias Ymer,DK,SE,9,Q,,False,6-4 4-6 5-7,Elias Ymer,1.0,2.0,15.0,17.0,3.0,0.0,False,True,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Roman Andres Burruchaga,Arthur Gea,AR,FR,2,Q,,False,2-6 3-6,Arthur Gea,0.0,2.0,5.0,12.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Rei Sakamoto,Colton Smith,JP,US,Q,32,,False,6-4 6-4,Rei Sakamoto,2.0,0.0,12.0,8.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 2,Q1,Qualifying,completed,Chris Rodesch,Rafael Jodar,LU,ES,,Q,,False,6-7 3-6,Rafael Jodar,0.0,2.0,9.0,13.0,2.0,1.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Thiago Seyboth Wild,Francesco Maestrelli,BR,IT,,24,,False,6-7 4-6,Francesco Maestrelli,0.0,2.0,10.0,13.0,2.0,1.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Jerome Kym,Dane Sweeny,CH,AU,,Q,,False,4-6 4-6,Dane Sweeny,0.0,2.0,8.0,12.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Martin Damm Jr,Titouan Droguet,US,FR,Q,,,False,6-4 6-3,Martin Damm Jr,2.0,0.0,12.0,7.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 2,Q1,Qualifying,completed,Nishesh Basavareddy,Sebastian Ofner,US,AT,Q,19,,False,4-6 6-4 7-6,Nishesh Basavareddy,2.0,1.0,17.0,16.0,3.0,0.0,False,True,False,2026-01-13,1,Tuesday
+Qualification round 2,Q1,Qualifying,completed,Nicolas Mejia,Yibing Wu,CO,CN,,Q,,False,4-6 4-6,Yibing Wu,0.0,2.0,8.0,12.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Dino Prizmic,Gustavo Heide,HR,BR,14,,,False,7-5 6-2,Dino Prizmic,2.0,0.0,13.0,7.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Tristan Boyer,Francesco Passaro,US,IT,,27,,False,6-7 6-4 6-2,Tristan Boyer,2.0,1.0,18.0,13.0,3.0,1.0,False,True,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Henrique Rocha,Marco Trungelliti,PT,AR,,18,,False,5-7 6-4 3-6,Marco Trungelliti,1.0,2.0,14.0,17.0,3.0,0.0,False,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Martin Landaluce,Stefano Travaglia,ES,IT,,,,False,6-4 1-6 4-6,Stefano Travaglia,1.0,2.0,11.0,16.0,3.0,0.0,False,True,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Federico Cina,Adolfo Daniel Vallejo,IT,PY,,30,,False,6-4 2-6 3-6,Adolfo Daniel Vallejo,1.0,2.0,11.0,16.0,3.0,0.0,False,True,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Pablo Llamas Ruiz,Coleman Wong,ES,HK,,,,False,6-7 0-6,Coleman Wong,0.0,2.0,6.0,13.0,2.0,1.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Yoshihito Nishioka,George Loffhagen,JP,GB,8,,,False,3-6 1-3,George Loffhagen,0.0,2.0,4.0,9.0,2.0,0.0,True,False,False,2026-01-13,1,Tuesday
+Qualification round 2,Q1,Qualifying,completed,Gonzalo Bueno,Pierre-Hugues Herbert,PE,FR,,,,False,5-7 2-6,Pierre-Hugues Herbert,0.0,2.0,7.0,13.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Daniel Merida,Lukas Klein,ES,SK,,28,,False,3-6 7-6 4-6,Lukas Klein,1.0,2.0,14.0,18.0,3.0,0.0,False,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Dusan Lajovic,Murphy Cassone,RS,US,13,,,False,7-5 6-3,Dusan Lajovic,2.0,0.0,13.0,8.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Daniil Glinka,Luca van Assche,EE,FR,,,,False,3-6 0-6,Luca van Assche,0.0,2.0,3.0,12.0,2.0,0.0,True,False,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Leandro Riedi,Kimmer Coppejans,CH,BE,,,,False,6-3 3-6 4-6,Kimmer Coppejans,1.0,2.0,13.0,15.0,3.0,0.0,False,True,False,2026-01-14,1,Wednesday
+Qualification round 2,Q1,Qualifying,completed,Roberto Carballes Baena,Gilles Arnaud Bailly,ES,BE,16,,,False,6-7 7-6 2-6,Gilles Arnaud Bailly,1.0,2.0,15.0,19.0,3.0,1.0,False,False,False,2026-01-13,1,Tuesday
+Qualification round 2,Q1,Qualifying,completed,Brandon Holt,Giulio Zeppieri,US,IT,5,,,False,7-6 5-7 4-6,Giulio Zeppieri,1.0,2.0,16.0,19.0,3.0,0.0,False,True,False,2026-01-13,1,Tuesday

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "C6. Seed vs Total Games Played — Australian Open (Main Draw)",
+  "description": "Scatterplot of each player's tournament seed (including Q for qualifiers and WC for wildcards as unseeded categories) against total games played across their Main Draw matches. Qualifying-round matches are excluded.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/ao_2026.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": "datum.stage === 'Main Draw'"},
+    {"calculate": "datum.games_won_p1 + datum.games_won_p2", "as": "match_games"},
+    {
+      "fold": ["player_1", "player_2"],
+      "as": ["slot", "player"]
+    },
+    {
+      "calculate": "datum.slot === 'player_1' ? datum.seed_1 : datum.seed_2",
+      "as": "seed"
+    },
+    {"filter": "indexof(['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','Q','WC'], datum.seed) >= 0"},
+    {
+      "aggregate": [{"op": "sum", "field": "match_games", "as": "games_played"}],
+      "groupby": ["player", "seed"]
+    }
+  ],
+  "width": "container",
+  "height": "container",
+  "mark": {
+    "type": "point",
+    "filled": true,
+    "size": 90,
+    "opacity": 0.75
+  },
+  "encoding": {
+    "x": {
+      "field": "seed",
+      "type": "ordinal",
+      "title": "Seed (rank)",
+      "sort": ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","Q","WC"]
+    },
+    "y": {
+      "field": "games_played",
+      "type": "quantitative",
+      "title": "Total games played"
+    },
+    "color": {
+      "field": "games_played",
+      "type": "quantitative",
+      "scale": {"scheme": "teals"},
+      "legend": {"title": "Games played"}
+    },
+    "tooltip": [
+      {"field": "player", "type": "nominal", "title": "Player"},
+      {"field": "seed", "type": "ordinal", "title": "Seed"},
+      {"field": "games_played", "type": "quantitative", "title": "Games played"}
+    ]
+  },
+  "config": {
+    "axis": {"labelFontSize": 11, "titleFontSize": 13},
+    "title": {"fontSize": 16}
+  }
+}

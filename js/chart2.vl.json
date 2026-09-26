@@ -1,22 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "C2. Australian Open Total Attendance, 2000-2025",
-    "subtitle": ["2021–2022 dips reflect COVID-19 crowd capacity restrictions", "Source: The Sporting News / Yahoo Sports, scraped Feb 2026"]
-  },
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart2.csv",
     "format": {"type": "csv"}
   },
   "transform": [
     {"calculate": "toNumber(datum.attendance)", "as": "attendance"},
-    {"calculate": "toNumber(datum.year)", "as": "year"}
+    {"calculate": "toNumber(datum.year)", "as": "year"},
+    {"calculate": "isValid(datum.note) ? trim(datum.note) : ''", "as": "note"}
   ],
   "layer": [
     {
       "mark": {"type": "line", "color": "#0c2b5e", "point": {"filled": true, "size": 40}},
       "encoding": {
-        "x": {"field": "year", "type": "ordinal", "title": "Year", "axis": {"labelAngle": -45}},
+        "x": {
+          "field": "year", "type": "ordinal", "title": "Year",
+          "axis": {"labelAngle": -55, "labelFontSize": 10, "labelOverlap": "greedy"}
+        },
         "y": {"field": "attendance", "type": "quantitative", "title": "Total attendance", "axis": {"format": "~s"}},
         "tooltip": [
           {"field": "year", "type": "ordinal", "title": "Year"},
@@ -26,7 +26,7 @@
       }
     },
     {
-      "transform": [{"filter": "datum.note && datum.note !== ''"}],
+      "transform": [{"filter": "length(datum.note) > 0"}],
       "mark": {"type": "point", "shape": "circle", "filled": true, "size": 90, "color": "#c0392b"},
       "encoding": {
         "x": {"field": "year", "type": "ordinal"},
@@ -39,8 +39,8 @@
       }
     }
   ],
-  "width": 350,
-  "height": 200,
+  "width": "container",
+  "height": "container",
   "config": {
     "view": {"stroke": null},
     "axis": {"domain": false, "ticks": false, "labelFontSize": 11, "titleFontSize": 13, "grid": true, "gridColor": "#e7e2d8"}
