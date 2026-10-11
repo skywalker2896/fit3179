@@ -42,16 +42,10 @@
       </section>
     </header>
 
-    <!--
-      figure-grid puts two chart-cards side by side (each ~half width),
-      stacking to one column under 720px. To add a new chart:
-        1. drop its Vega-Lite spec in /js  (e.g. js/chart3.vl.json)
-        2. add a <div id="chart3" class="chart-vis placeholder-chart"></div>
-           inside a new chart-card (pair it in a figure-grid, or on its
-           own for a full-width chart)
-        3. register it in js/vega_lite_vis.js's chartConfigs array
-      No new <script> tag needed.
-    -->
+    <section class="section-heading">
+      <h2>Section 1 · One Grand Slam 3 Weeks</h2>
+    </section>
+
     <section class="figure-grid">
 
       <div class="chart-card">
@@ -74,7 +68,49 @@
  
     </section>
 
+    <section class="section-heading">
+      <h2>Section 2 · Global Stage</h2>
+    </section>
+
+    <div class="chart-card">
+        <div class="chart-header">
+          <span class="tag">Figure 03 · Chloropleth Map</span>
+          <h1>Title</h1>
+        </div>
+        <div id="chart3" class="chart-vis placeholder-chart"></div>
+        <div class="chart-footer">Source: </div>
+      </div>
+
     <!-- Add further figure-grid sections here as you build C3, C4, ... -->
+
+    <div class="section-break" role="separator" aria-hidden="true"></div>
+
+    <section class="section-heading">
+      <h2>Section 3 · Does Ranking Predict Performance</h2>
+    </section>
+ 
+      <div class="chart-card">
+        <div class="chart-header">
+          <span class="tag">Figure 06 · Scatterplot</span>
+          <h1>Seed vs Total Games Played</h1>
+        </div>
+        <div id="chart6" class="chart-vis placeholder-chart"></div>
+        <div class="chart-footer">Source: Kaggle</div>
+      </div>
+      
+      <section class="figure-grid">
+ 
+      <div class="chart-card" style="grid-column: 1 / -1;">
+        <div class="chart-header">
+          <span class="tag">Figure 08 · Dumbbell Plot</span>
+          <h1>Ranking Gap by Match, per Round</h1>
+        </div>
+        <div id="chart8" class="chart-vis chart-vis--scroll placeholder-chart"></div>
+        <div class="chart-footer">Source: Kaggle</div>
+      </div>
+ 
+    </section>
+   
   </div>
 
 <script src="js/vega_lite_vis.js"></script>

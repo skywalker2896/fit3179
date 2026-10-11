@@ -131,6 +131,28 @@ body {
   .figure-grid { grid-template-columns: 1fr; }
 }
 
+/* --- Section headings (between figure grids) --- */
+.section-heading {
+  max-width: 960px;
+  margin: 0 auto 20px;
+}
+ 
+.section-heading h2 {
+  font-family: 'Platypi', serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--ao-navy);
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ao-navy-light);
+}
+
+.section-break {
+  max-width: 960px;
+  margin: 48px auto;
+  height: 1px;
+  background: var(--border);
+}
  
 .chart-card {
   background: var(--card-bg);
@@ -186,6 +208,33 @@ body {
 .chart-vis .vega-embed,
 .chart-vis .vega-embed .marks {
   width: 100%;
+}
+
+/* --- Scrollable variant: for charts whose height grows with the data
+     (e.g. the dumbbell plot, which can run to 60+ rows at R128) --- */
+.chart-vis--scroll {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px; /* keeps the scrollbar off the plot marks */
+}
+ 
+.chart-vis--scroll .vega-embed,
+.chart-vis--scroll .vega-embed .marks {
+  width: 100%;
+}
+ 
+/* Thin, unobtrusive scrollbar (Webkit browsers) */
+.chart-vis--scroll::-webkit-scrollbar {
+  width: 6px;
+}
+ 
+.chart-vis--scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
 }
 
 .chart-footer {

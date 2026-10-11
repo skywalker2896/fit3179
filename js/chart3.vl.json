@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Where AO players come from",
+  "width": 550,
+  "height": "container",
+  "data": {
+    "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/countries.csv",
+    "format": {"type": "topojson", "feature": "countries"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.ADM0_A3",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart3.csv"
+        },
+        "key": "iso_a3",
+        "fields": ["appearances", "distinct_players"]
+      }
+    }
+  ],
+  "projection": {"type": "equalEarth"},
+  "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.4},
+  "encoding": {
+    "color": {
+      "field": "appearances",
+      "type": "quantitative",
+      "scale": {"type": "log", "scheme": "blues"},
+      "legend": {"title": "AO appearances (log scale)"},
+      "condition": {
+        "test": "!isValid(datum.appearances)",
+        "value": "#e6e6e6"
+      }
+    },
+    "tooltip": [
+      {"field": "properties.ADMIN", "title": "Country"},
+      {"field": "appearances", "title": "Appearances"},
+      {"field": "distinct_players", "title": "Players"}
+    ]
+  }
+}

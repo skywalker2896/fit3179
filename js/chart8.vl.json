@@ -1,0 +1,96 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "C8. Dumbbell Plot — Ranking Gap by Match (R16, Australian Open 2026)",
+  "description": "Each dumbbell spans the two seeds contesting a match in the selected round. Line/end colour shows whether the higher-ranked (lower seed number) or lower-ranked (higher seed number) player won.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/ao_2026.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "SelectedRound",
+      "value": "R16",
+      "bind": {
+        "input": "select",
+        "options": ["R128", "R64", "R32", "R16", "QF", "SF", "F"],
+        "name": "Round: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.stage === 'Main Draw'"},
+    {"filter": "datum.round === SelectedRound"},
+    {"filter": "!isNaN(toNumber(datum.seed_1)) && !isNaN(toNumber(datum.seed_2))"},
+    {"calculate": "toNumber(datum.seed_1)", "as": "seed_1_num"},
+    {"calculate": "toNumber(datum.seed_2)", "as": "seed_2_num"},
+    {"calculate": "min(datum.seed_1_num, datum.seed_2_num)", "as": "higher_ranked_seed"},
+    {"calculate": "max(datum.seed_1_num, datum.seed_2_num)", "as": "lower_ranked_seed"},
+    {"calculate": "datum.seed_1_num < datum.seed_2_num ? datum.player_1 : datum.player_2", "as": "higher_ranked_player"},
+    {"calculate": "datum.seed_1_num < datum.seed_2_num ? datum.player_2 : datum.player_1", "as": "lower_ranked_player"},
+    {"calculate": "datum.winner === datum.higher_ranked_player ? 'Higher-ranked player won' : 'Lower-ranked player won'", "as": "result"},
+    {"calculate": "datum.higher_ranked_player + ' vs ' + datum.lower_ranked_player", "as": "match_label"},
+    {"calculate": "datum.lower_ranked_seed - datum.higher_ranked_seed", "as": "seed_diff"}
+  ],
+  "width": "container",
+  "height": {"step": 34},
+  "encoding": {
+    "y": {
+      "field": "match_label",
+      "type": "nominal",
+      "title": "Match",
+      "sort": {"field": "seed_diff", "order": "descending"}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rule", "strokeWidth": 3},
+      "encoding": {
+        "x": {"field": "higher_ranked_seed", "type": "quantitative", "title": "Seed (rank)"},
+        "x2": {"field": "lower_ranked_seed"},
+        "color": {
+          "field": "result",
+          "type": "nominal",
+          "title": "Match outcome",
+          "scale": {
+            "domain": ["Higher-ranked player won", "Lower-ranked player won"],
+            "range": ["#1f77b4", "#d62728"]
+          }
+        }
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 110, "shape": "circle"},
+      "encoding": {
+        "x": {"field": "higher_ranked_seed", "type": "quantitative"},
+        "color": {"value": "#444444"},
+        "tooltip": [
+          {"field": "higher_ranked_player", "type": "nominal", "title": "Higher-ranked player"},
+          {"field": "higher_ranked_seed", "type": "quantitative", "title": "Seed"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 110, "shape": "circle"},
+      "encoding": {
+        "x": {"field": "lower_ranked_seed", "type": "quantitative"},
+        "color": {
+          "field": "result",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Higher-ranked player won", "Lower-ranked player won"],
+            "range": ["#1f77b4", "#d62728"]
+          }
+        },
+        "tooltip": [
+          {"field": "lower_ranked_player", "type": "nominal", "title": "Lower-ranked player"},
+          {"field": "lower_ranked_seed", "type": "quantitative", "title": "Seed"},
+          {"field": "result", "type": "nominal", "title": "Outcome"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "axis": {"labelFontSize": 11, "titleFontSize": 13},
+    "title": {"fontSize": 16}
+  }
+}

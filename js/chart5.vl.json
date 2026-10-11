@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "C5. Expected vs Actual Exit Round — Australian Open 2024",
+  "description": "Each player's seed-based expected exit round (per the tournament seeding convention) plotted against their actual exit round in the 2024 Australian Open. Colour shows the number of players in each intersection, faceted by Men's and Women's Singles.",
+  "data": {
+    "url": "data/ao24_seed_vs_exit.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "aggregate": [{"op": "count", "as": "num_players"}],
+      "groupby": ["event", "expected_round", "actual_round"]
+    }
+  ],
+  "facet": {
+    "field": "event",
+    "type": "nominal",
+    "title": null,
+    "header": {"labelFontSize": 14, "labelFontWeight": "bold"}
+  },
+  "columns": 2,
+  "spec": {
+    "width": 280,
+    "height": 320,
+    "layer": [
+      {
+        "mark": {"type": "rect", "stroke": "white", "strokeWidth": 1},
+        "encoding": {
+          "x": {
+            "field": "expected_round",
+            "type": "ordinal",
+            "title": "Expected exit round (by seed)",
+            "sort": ["SF", "QF", "R16", "R32", "R1/R2"]
+          },
+          "y": {
+            "field": "actual_round",
+            "type": "ordinal",
+            "title": "Actual exit round",
+            "sort": ["Won", "F", "SF", "QF", "R16", "R32", "R1/R2"]
+          },
+          "color": {
+            "field": "num_players",
+            "type": "quantitative",
+            "title": "Number of players",
+            "scale": {"scheme": "blues"}
+          },
+          "tooltip": [
+            {"field": "expected_round", "type": "ordinal", "title": "Expected exit"},
+            {"field": "actual_round", "type": "ordinal", "title": "Actual exit"},
+            {"field": "num_players", "type": "quantitative", "title": "Players"}
+          ]
+        }
+      },
+      {
+        "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold"},
+        "encoding": {
+          "x": {
+            "field": "expected_round",
+            "type": "ordinal",
+            "sort": ["SF", "QF", "R16", "R32", "R1/R2"]
+          },
+          "y": {
+            "field": "actual_round",
+            "type": "ordinal",
+            "sort": ["Won", "F", "SF", "QF", "R16", "R32", "R1/R2"]
+          },
+          "text": {"field": "num_players", "type": "quantitative"},
+          "color": {
+            "condition": {"test": "datum.num_players > 40", "value": "white"},
+            "value": "black"
+          }
+        }
+      }
+    ]
+  },
+  "resolve": {"scale": {"color": "independent"}},
+  "config": {
+    "axis": {"labelFontSize": 10, "titleFontSize": 12},
+    "title": {"fontSize": 16}
+  }
+}

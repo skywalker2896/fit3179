@@ -1,0 +1,187 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "C7. Slope Chart  Rank Entering AO vs. Rank 4 Weeks Later (2026, Seeded Players)",
+  "description": "Each line tracks one of the 32 seeded AO 2026 men's players from their ATP ranking entering the tournament (week 2, 2026) to their ranking four weeks later (week 6, 2026). Lines sloping down indicate a ranking improvement.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart7.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "fold": [
+        "rank_entering_ao",
+        "rank_4weeks_later"
+      ],
+      "as": [
+        "time_point",
+        "rank"
+      ]
+    },
+    {
+      "calculate": "datum.time_point === 'rank_entering_ao' ? 'Entering AO' : '4 weeks later'",
+      "as": "time_label"
+    },
+    {
+      "calculate": "toNumber(datum.rank)",
+      "as": "rank_num"
+    }
+  ],
+  "width": 260,
+  "height": 600,
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2,
+        "opacity": 0.75
+      },
+      "encoding": {
+        "x": {
+          "field": "time_label",
+          "type": "ordinal",
+          "sort": [
+            "Entering AO",
+            "4 weeks later"
+          ],
+          "title": null,
+          "axis": {
+            "orient": "top",
+            "labelFontSize": 12,
+            "labelFontWeight": "bold"
+          }
+        },
+        "y": {
+          "field": "rank_num",
+          "type": "quantitative",
+          "title": "ATP ranking (lower is better)",
+          "scale": {
+            "reverse": true,
+            "domain": [
+              1,
+              35
+            ]
+          }
+        },
+        "color": {
+          "field": "rank_change",
+          "type": "quantitative",
+          "title": "Rank change",
+          "scale": {
+            "scheme": "redblue",
+            "domainMid": 0
+          }
+        },
+        "detail": {
+          "field": "player",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "player",
+            "type": "nominal",
+            "title": "Player"
+          },
+          {
+            "field": "seed",
+            "type": "quantitative",
+            "title": "Seed"
+          },
+          {
+            "field": "time_label",
+            "type": "nominal",
+            "title": "When"
+          },
+          {
+            "field": "rank_num",
+            "type": "quantitative",
+            "title": "Rank"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 50
+      },
+      "encoding": {
+        "x": {
+          "field": "time_label",
+          "type": "ordinal",
+          "sort": [
+            "Entering AO",
+            "4 weeks later"
+          ]
+        },
+        "y": {
+          "field": "rank_num",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "rank_change",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "redblue",
+            "domainMid": 0
+          }
+        },
+        "detail": {
+          "field": "player",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.time_label === 'Entering AO'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "fontSize": 10
+      },
+      "encoding": {
+        "x": {
+          "field": "time_label",
+          "type": "ordinal",
+          "sort": [
+            "Entering AO",
+            "4 weeks later"
+          ]
+        },
+        "y": {
+          "field": "rank_num",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "player",
+          "type": "nominal"
+        },
+        "detail": {
+          "field": "player",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "config": {
+    "axis": {
+      "labelFontSize": 10,
+      "titleFontSize": 12
+    },
+    "title": {
+      "fontSize": 16
+    }
+  }
+}
