@@ -204,6 +204,14 @@ body {
   width: 100%;
   height: 300px;
 }
+
+.chart-vis--map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+}
  
 .chart-vis .vega-embed,
 .chart-vis .vega-embed .marks {

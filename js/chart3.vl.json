@@ -6,10 +6,7 @@
   "config": {"view": {"stroke": null}},
   "layer": [
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
-        "format": {"type": "topojson", "feature": "ocean"}
-      },
+      "data": {"sphere": true},
       "mark": {"type": "geoshape", "fill": "#dceaf5"}
     },
     {
@@ -48,9 +45,8 @@
           "scale": {"type": "log", "scheme": {"name": "oranges", "extent": [0.25, 1]}},
           "legend": {
             "title": "AO appearances (log scale)",
-            "orient": "bottom",
-            "direction": "horizontal",
-            "gradientLength": 320
+            "orient": "right",
+            "gradientLength": 260
           }
         },
         "tooltip": [

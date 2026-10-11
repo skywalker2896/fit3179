@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": "container",
+  "projection": {"type": "equalEarth"},
+  "config": {"view": {"stroke": null}},
+  "layer": [
+    {
+      "data": {"sphere": true},
+      "mark": {"type": "geoshape", "fill": "#dceaf5"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
+        "format": {"type": "topojson", "feature": "countries"}
+      },
+      "mark": {"type": "geoshape", "fill": "#d6d1c8", "stroke": "white", "strokeWidth": 0.6}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart4.csv"
+      },
+      "mark": {"type": "circle", "opacity": 0.8, "stroke": "white", "strokeWidth": 1},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "titles",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "domain": [0, 12], "range": [0, 1800]},
+          "legend": {"title": "Titles", "orient": "right", "values": [1, 5, 10]}
+        },
+        "color": {
+          "field": "title_type",
+          "type": "nominal",
+          "scale": {"domain": ["Men's", "Women's"], "range": ["#1f4e9c", "#e0603a"]},
+          "legend": {"title": "Title type", "orient": "right"}
+        },
+        "order": {"field": "titles", "sort": "descending"},
+        "tooltip": [
+          {"field": "iso_a3", "title": "Country"},
+          {"field": "title_type", "title": "Draw"},
+          {"field": "titles", "title": "Titles"},
+          {"field": "total_titles", "title": "Total titles (both draws)"}
+        ]
+      }
+    }
+  ]
+}

@@ -3,7 +3,8 @@
 const chartConfigs = [
   { id: "chart1", spec: "js/chart1.vl.json" }, 
   { id: "chart2", spec: "js/chart2.vl.json" },
-  { id: "chart3", spec: "js/chart3.vl.json" }, 
+  { id: "chart3", spec: "js/chart3.vl.json" },
+  { id: "chart4", spec: "js/chart4.vl.json" }, 
   { id: "chart5", spec: "js/chart5.vl.json" },
   { id: "chart6", spec: "js/chart6.vl.json" },
   { id: "chart7", spec: "js/chart7.vl.json" },
