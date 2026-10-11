@@ -1,7 +1,7 @@
 // Vegalite chart loader, used as json files are stored in different directories
 
 const chartConfigs = [
-  { id: "chart1", spec: "js/chart1.vl.json" }, // C1 · Calendar heatmap — AO 2022 matches/day
+  { id: "chart1", spec: "js/chart1.vl.json" }, 
   { id: "chart2", spec: "js/chart2.vl.json" },
   { id: "chart3", spec: "js/chart3.vl.json" }, 
   { id: "chart5", spec: "js/chart5.vl.json" },

@@ -1,41 +1,64 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Where AO players come from",
-  "width": 550,
+  "width": "container",
   "height": "container",
-  "data": {
-    "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/countries.csv",
-    "format": {"type": "topojson", "feature": "countries"}
-  },
-  "transform": [
-    {
-      "lookup": "properties.ADM0_A3",
-      "from": {
-        "data": {
-          "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart3.csv"
-        },
-        "key": "iso_a3",
-        "fields": ["appearances", "distinct_players"]
-      }
-    }
-  ],
   "projection": {"type": "equalEarth"},
-  "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.4},
-  "encoding": {
-    "color": {
-      "field": "appearances",
-      "type": "quantitative",
-      "scale": {"type": "log", "scheme": "blues"},
-      "legend": {"title": "AO appearances (log scale)"},
-      "condition": {
-        "test": "!isValid(datum.appearances)",
-        "value": "#e6e6e6"
+  "config": {"view": {"stroke": null}},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
+        "format": {"type": "topojson", "feature": "ocean"}
+      },
+      "mark": {"type": "geoshape", "fill": "#dceaf5"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
+        "format": {"type": "topojson", "feature": "countries"}
+      },
+      "mark": {"type": "geoshape", "fill": "#d6d1c8", "stroke": "white", "strokeWidth": 0.6},
+      "encoding": {
+        "tooltip": [{"field": "properties.ADMIN", "title": "Country (no AO appearances)"}]
       }
     },
-    "tooltip": [
-      {"field": "properties.ADMIN", "title": "Country"},
-      {"field": "appearances", "title": "Appearances"},
-      {"field": "distinct_players", "title": "Players"}
-    ]
-  }
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
+        "format": {"type": "topojson", "feature": "countries"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.ADM0_A3",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart3.csv"
+            },
+            "key": "iso_a3",
+            "fields": ["appearances", "distinct_players"]
+          }
+        },
+        {"filter": "isValid(datum.appearances)"}
+      ],
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.6},
+      "encoding": {
+        "color": {
+          "field": "appearances",
+          "type": "quantitative",
+          "scale": {"type": "log", "scheme": {"name": "oranges", "extent": [0.25, 1]}},
+          "legend": {
+            "title": "AO appearances (log scale)",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 320
+          }
+        },
+        "tooltip": [
+          {"field": "properties.ADMIN", "title": "Country"},
+          {"field": "appearances", "title": "Appearances"},
+          {"field": "distinct_players", "title": "Players"}
+        ]
+      }
+    }
+  ]
 }

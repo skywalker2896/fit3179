@@ -51,7 +51,7 @@
       ]
     }
   ],
-  "width": 550,
+  "width": "container",
   "height": "container",
   "mark": {
     "type": "point",
