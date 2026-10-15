@@ -57,7 +57,8 @@
     "type": "point",
     "filled": true,
     "size": 90,
-    "opacity": 0.75
+    "opacity": 0.75,
+    "color": "#0c2b5e"
   },
   "encoding": {
     "x": {
@@ -105,16 +106,6 @@
       "field": "games_played",
       "type": "quantitative",
       "title": "Total games played"
-    },
-    "color": {
-      "field": "games_played",
-      "type": "quantitative",
-      "scale": {
-        "scheme": "teals"
-      },
-      "legend": {
-        "title": "Games played"
-      }
     },
     "tooltip": [
       {

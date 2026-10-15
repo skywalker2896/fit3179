@@ -121,7 +121,7 @@ body {
 /* --- Figure grid: two charts side by side, stacking on narrow screens --- */
 .figure-grid {
   max-width: 960px;      
-  margin: 0 auto;
+  margin: 0 auto 60px;
   display: grid;
   grid-template-columns: 1fr 1fr;   
   gap: 28px;
@@ -201,48 +201,46 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   width: 100%;
-  height: 300px;
+  max-width: 960px; 
+  height: 350px;
+}
+
+
+.caption {
+  margin-top: 16px;      /* gap between chart and text */
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  max-width: 700px;
 }
 
 .chart-vis--map {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   width: 100%;
-  height: 400px;
+  max-width: 960px;
+  height: 370px;
+  overflow: hidden;
 }
- 
+
 .chart-vis .vega-embed,
 .chart-vis .vega-embed .marks {
   width: 100%;
 }
 
-/* --- Scrollable variant: for charts whose height grows with the data
-     (e.g. the dumbbell plot, which can run to 60+ rows at R128) --- */
-.chart-vis--scroll {
+.chart-vis--tall {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 420px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 4px; /* keeps the scrollbar off the plot marks */
+  height: 460px;
 }
  
-.chart-vis--scroll .vega-embed,
-.chart-vis--scroll .vega-embed .marks {
+.chart-vis--tall .vega-embed,
+.chart-vis--tall .vega-embed .marks {
   width: 100%;
-}
- 
-/* Thin, unobtrusive scrollbar (Webkit browsers) */
-.chart-vis--scroll::-webkit-scrollbar {
-  width: 6px;
-}
- 
-.chart-vis--scroll::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
 }
 
 .chart-footer {

@@ -1,0 +1,138 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Men's best-of-5 format creates a second peak that women's matches lack",
+    "subtitle": "Total games per completed singles match, by round (Australian Open 2015\u20132026)",
+    "anchor": "start"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart9.csv"
+  },
+  "width": "container",
+  "height": "container",
+  "spacing": -28,
+  "transform": [
+    {
+      "density": "games",
+      "groupby": [
+        "round",
+        "tour"
+      ],
+      "bandwidth": 2.5,
+      "extent": [
+        8,
+        85
+      ],
+      "steps": 155,
+      "as": [
+        "games",
+        "density"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone",
+    "fillOpacity": 0.6,
+    "strokeWidth": 1.2
+  },
+  "encoding": {
+    "x": {
+      "field": "games",
+      "type": "quantitative",
+      "title": "Total games in match",
+      "scale": {
+        "domain": [
+          8,
+          85
+        ]
+      },
+      "axis": {
+        "values": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80
+        ],
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "density",
+      "type": "quantitative",
+      "scale": {
+        "range": [
+          50,
+          -10
+        ]
+      },
+      "axis": null
+    },
+    "color": {
+      "field": "tour",
+      "type": "nominal",
+      "title": "Tour",
+      "scale": {
+        "domain": [
+          "Men",
+          "Women"
+        ],
+        "range": [
+          "#2171b5",
+          "#e6550d"
+        ]
+      },
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal"
+      }
+    },
+    "stroke": {
+      "field": "tour",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": [
+          "Men",
+          "Women"
+        ],
+        "range": [
+          "#08306b",
+          "#a63603"
+        ]
+      }
+    },
+    "row": {
+      "field": "round",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Round 1",
+        "Round 2",
+        "Round 3",
+        "Round of 16",
+        "Quarter-final",
+        "Semi-final",
+        "Final"
+      ],
+      "header": {
+        "labelAngle": 0,
+        "labelAlign": "right",
+        "labelPadding": 6,
+        "labelFontSize": 12
+      }
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false
+    }
+  }
+}

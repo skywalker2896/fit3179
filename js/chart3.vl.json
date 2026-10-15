@@ -32,25 +32,31 @@
               "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart3.csv"
             },
             "key": "iso_a3",
-            "fields": ["appearances", "distinct_players"]
+            "fields": ["appearances", "distinct_players", "share_pct"]
           }
         },
-        {"filter": "isValid(datum.appearances)"}
+        {"filter": "isValid(datum.share_pct)"}
       ],
       "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.6},
       "encoding": {
         "color": {
-          "field": "appearances",
+          "field": "share_pct",
           "type": "quantitative",
-          "scale": {"type": "log", "scheme": {"name": "oranges", "extent": [0.25, 1]}},
+          "scale": {
+            "type": "threshold",
+            "domain": [0.5, 1, 3, 6],
+            "range": ["#fee8c8", "#fdbb84", "#fc8d59", "#e34a33", "#990000"]
+          },
           "legend": {
-            "title": "AO appearances (log scale)",
+            "title": "Share of AO appearances (%)",
+            "titleLimit": 240,
             "orient": "right",
-            "gradientLength": 260
+            "labelExpr": "datum.index==0 ? '< 0.5' : datum.index==4 ? '6+' : datum.label"
           }
         },
         "tooltip": [
           {"field": "properties.ADMIN", "title": "Country"},
+          {"field": "share_pct", "title": "Share of appearances (%)"},
           {"field": "appearances", "title": "Appearances"},
           {"field": "distinct_players", "title": "Players"}
         ]

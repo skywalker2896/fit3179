@@ -1,7 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "C7. Slope Chart  Rank Entering AO vs. Rank 4 Weeks Later (2026, Seeded Players)",
-  "description": "Each line tracks one of the 32 seeded AO 2026 men's players from their ATP ranking entering the tournament (week 2, 2026) to their ranking four weeks later (week 6, 2026). Lines sloping down indicate a ranking improvement.",
+  "title": {"text": "Rank Entering AO vs. 4 Weeks Later (Top 20 Seeds, 2026)","fontSize": 14,
+  "anchor": "start","offset": 12
+  },
+  "description": "Each line tracks one of the top 20 seeded AO 2026 men's players from their ATP ranking entering the tournament (week 2, 2026) to four weeks later (week 6, 2026).",
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart7.csv",
     "format": {
@@ -10,73 +12,120 @@
   },
   "transform": [
     {
+      "filter": "toNumber(datum.seed) <= 20"
+    },
+    {
+      "calculate": "toNumber(datum.rank_entering_ao)",
+      "as": "rank_enter"
+    },
+    {
+      "calculate": "toNumber(datum.rank_4weeks_later)",
+      "as": "rank_later"
+    },
+    {
+      "calculate": "datum.rank_enter > datum.rank_later ? 'Moved up' : (datum.rank_enter < datum.rank_later ? 'Moved down' : 'No change')",
+      "as": "movement"
+    },
+    {
       "fold": [
-        "rank_entering_ao",
-        "rank_4weeks_later"
+        "rank_enter",
+        "rank_later"
       ],
       "as": [
         "time_point",
-        "rank"
+        "rank_num"
       ]
     },
     {
-      "calculate": "datum.time_point === 'rank_entering_ao' ? 'Entering AO' : '4 weeks later'",
+      "calculate": "datum.time_point === 'rank_enter' ? 'Entering AO' : '4 weeks later'",
       "as": "time_label"
-    },
-    {
-      "calculate": "toNumber(datum.rank)",
-      "as": "rank_num"
     }
   ],
-  "width": 260,
-  "height": 600,
+  "width": "container",
+  "height": 400,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "padding": {
+    "left": 150,
+    "right": 12,
+    "top": 5,
+    "bottom": 5
+  },
+  "encoding": {
+    "x": {
+      "field": "time_label",
+      "type": "ordinal",
+      "sort": [
+        "Entering AO",
+        "4 weeks later"
+      ],
+      "title": null,
+      "scale": {
+        "padding": 0.15
+      },
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "labelFontWeight": "bold",
+        "ticks": false,
+        "domain": false,
+        "labelPadding": 8
+      }
+    },
+    "y": {
+      "field": "rank_num",
+      "type": "quantitative",
+      "scale": {
+        "reverse": true,
+        "domain": [
+          0,
+          23
+        ]
+      },
+      "axis": null
+    },
+    "color": {
+      "field": "movement",
+      "type": "nominal",
+      "title": "Rank change",
+      "scale": {
+        "domain": [
+          "Moved up",
+          "No change",
+          "Moved down"
+        ],
+        "range": [
+          "#1f77b4",
+          "#9a9a9a",
+          "#d62728"
+        ]
+      },
+      "legend": {
+        "orient": "right",
+        "direction": "vertical",
+        "titleFontSize": 10,
+        "labelFontSize": 10,
+        "symbolSize": 50,
+        "padding": 0,
+        "offset": 150
+      }
+    },
+    "detail": {
+      "field": "player",
+      "type": "nominal"
+    }
+  },
   "layer": [
     {
       "mark": {
         "type": "line",
         "strokeWidth": 2,
-        "opacity": 0.75
+        "opacity": 0.85
       },
       "encoding": {
-        "x": {
-          "field": "time_label",
-          "type": "ordinal",
-          "sort": [
-            "Entering AO",
-            "4 weeks later"
-          ],
-          "title": null,
-          "axis": {
-            "orient": "top",
-            "labelFontSize": 12,
-            "labelFontWeight": "bold"
-          }
-        },
-        "y": {
-          "field": "rank_num",
-          "type": "quantitative",
-          "title": "ATP ranking (lower is better)",
-          "scale": {
-            "reverse": true,
-            "domain": [
-              1,
-              35
-            ]
-          }
-        },
-        "color": {
-          "field": "rank_change",
-          "type": "quantitative",
-          "title": "Rank change",
-          "scale": {
-            "scheme": "redblue",
-            "domainMid": 0
-          }
-        },
-        "detail": {
-          "field": "player",
-          "type": "nominal"
-        },
         "tooltip": [
           {
             "field": "player",
@@ -105,32 +154,14 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 50
+        "size": 45,
+        "opacity": 1
       },
       "encoding": {
-        "x": {
-          "field": "time_label",
-          "type": "ordinal",
-          "sort": [
-            "Entering AO",
-            "4 weeks later"
-          ]
-        },
-        "y": {
-          "field": "rank_num",
-          "type": "quantitative"
-        },
         "color": {
-          "field": "rank_change",
-          "type": "quantitative",
-          "scale": {
-            "scheme": "redblue",
-            "domainMid": 0
-          }
-        },
-        "detail": {
-          "field": "player",
-          "type": "nominal"
+          "field": "movement",
+          "type": "nominal",
+          "legend": null
         }
       }
     },
@@ -138,50 +169,57 @@
       "transform": [
         {
           "filter": "datum.time_label === 'Entering AO'"
+        },
+        {
+          "calculate": "datum.player + '  ' + datum.rank_num",
+          "as": "left_label"
         }
       ],
       "mark": {
         "type": "text",
         "align": "right",
-        "dx": -8,
+        "dx": -9,
+        "fontSize": 10,
+        "color": "#1b1f24"
+      },
+      "encoding": {
+        "text": {
+          "field": "left_label"
+        },
+        "color": {
+          "value": "#1b1f24"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.time_label === '4 weeks later'"
+        },
+        {
+          "calculate": "datum.rank_num + '  ' + datum.player",
+          "as": "right_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 9,
         "fontSize": 10
       },
       "encoding": {
-        "x": {
-          "field": "time_label",
-          "type": "ordinal",
-          "sort": [
-            "Entering AO",
-            "4 weeks later"
-          ]
-        },
-        "y": {
-          "field": "rank_num",
-          "type": "quantitative"
-        },
         "text": {
-          "field": "player",
-          "type": "nominal"
+          "field": "right_label"
         },
-        "detail": {
-          "field": "player",
-          "type": "nominal"
+        "color": {
+          "value": "#1b1f24"
         }
       }
     }
   ],
-  "resolve": {
-    "scale": {
-      "color": "independent"
-    }
-  },
   "config": {
-    "axis": {
-      "labelFontSize": 10,
-      "titleFontSize": 12
-    },
-    "title": {
-      "fontSize": 16
+    "view": {
+      "stroke": null
     }
   }
 }
