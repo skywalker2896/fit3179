@@ -100,7 +100,12 @@
         "32",
         "Q",
         "WC"
-      ]
+      ],
+      "axis": {
+      "labelAngle": -45,
+      "labelAlign": "right",
+      "labelBaseline": "middle"
+  }
     },
     "y": {
       "field": "games_played",

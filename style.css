@@ -94,6 +94,11 @@ body {
   flex-wrap: wrap;
 }
 
+.hero-body > div {
+  flex: 1;          
+  min-width: 0;
+}
+
 .hero-title {
   font-family: 'Platypi', sans-serif;
   font-weight: 600;
@@ -113,17 +118,20 @@ body {
 }
 
 .hero-intro {
-  color: var(--text-muted);
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 480px;
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #4a3f35;   /* warm brown like your sample, replaces var(--text-muted) */
+  max-width: none;  /* was 480px */
+  width: 100%;
   margin: 0;
 }
 
 /* --- Figure grid: two charts side by side, stacking on narrow screens --- */
 .figure-grid {
   max-width: 960px;      
-  margin: 0 auto 60px;
+  margin: 0 auto 30px;
   display: grid;
   grid-template-columns: 1fr 1fr;   
   gap: 28px;
@@ -160,7 +168,7 @@ body {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 26px 26px 18px;
+  padding: 26px 26px 16px;
   box-shadow: 0 4px 18px rgba(12, 43, 94, 0.06);
   width: 100%;
   display: flex;
@@ -215,11 +223,15 @@ body {
 }
 
 .caption {
-  margin-top: 16px;      /* gap between chart and text */
-  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  padding: 0;
+
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  font-size: 13px;
   line-height: 1.6;
   color: #444;
-  max-width: 700px;
+  width: 100%;
 }
 
 .chart-vis--map {

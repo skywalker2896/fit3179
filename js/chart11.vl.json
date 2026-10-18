@@ -7,7 +7,7 @@
     "offset": 14
   },
   "width": "container",
-  "height": 420,
+  "height": "container",
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -51,6 +51,7 @@
       }
     },
     {
+      "description": "Standard arcs (all except furthest/shortest)",
       "data": {
         "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart11.geojson",
         "format": {
@@ -60,6 +61,31 @@
       "transform": [
         {
           "filter": "datum.properties.kind === 'arc' && datum.properties.draw === drawSel"
+        },
+        {
+          "calculate": "toNumber(datum.properties.distance_km)",
+          "as": "dist"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "max",
+              "field": "dist",
+              "as": "maxd"
+            },
+            {
+              "op": "min",
+              "field": "dist",
+              "as": "mind"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.dist === datum.maxd ? 'Furthest' : (datum.dist === datum.mind ? 'Shortest' : 'Other')",
+          "as": "status"
+        },
+        {
+          "filter": "datum.status === 'Other'"
         }
       ],
       "mark": {
@@ -121,6 +147,101 @@
       }
     },
     {
+      "description": "Highlighted arcs: furthest and shortest travel",
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart11.geojson",
+        "format": {
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.kind === 'arc' && datum.properties.draw === drawSel"
+        },
+        {
+          "calculate": "toNumber(datum.properties.distance_km)",
+          "as": "dist"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "max",
+              "field": "dist",
+              "as": "maxd"
+            },
+            {
+              "op": "min",
+              "field": "dist",
+              "as": "mind"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.dist === datum.maxd ? 'Furthest' : (datum.dist === datum.mind ? 'Shortest' : 'Other')",
+          "as": "status"
+        },
+        {
+          "filter": "datum.status !== 'Other'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "strokeWidth": 4,
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "stroke": {
+          "field": "status",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Furthest",
+              "Shortest"
+            ],
+            "range": [
+              "#7b3fe4",
+              "#2ca02c"
+            ]
+          },
+          "legend": {
+            "title": "Highlighted",
+            "orient": "bottom-right",
+            "direction": "horizontal",
+            "labelExpr": "datum.label === 'Furthest' ? 'Furthest travel' : 'Shortest travel'"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "status",
+            "title": "Highlight"
+          },
+          {
+            "field": "properties.name",
+            "title": "Player"
+          },
+          {
+            "field": "properties.country",
+            "title": "Country"
+          },
+          {
+            "field": "properties.seed",
+            "title": "Seed"
+          },
+          {
+            "field": "properties.rank",
+            "title": "Ranking"
+          },
+          {
+            "field": "properties.distance_km",
+            "title": "Distance to Melbourne (km)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "description": "Origin dots, coloured to match highlighted arcs",
       "data": {
         "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart11.geojson",
         "format": {
@@ -130,16 +251,58 @@
       "transform": [
         {
           "filter": "datum.properties.kind === 'origin' && datum.properties.draw === drawSel"
+        },
+        {
+          "calculate": "toNumber(datum.properties.distance_km)",
+          "as": "dist"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "max",
+              "field": "dist",
+              "as": "maxd"
+            },
+            {
+              "op": "min",
+              "field": "dist",
+              "as": "mind"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.dist === datum.maxd ? 'Furthest' : (datum.dist === datum.mind ? 'Shortest' : 'Other')",
+          "as": "status"
         }
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "#1f4e8c",
         "stroke": "white",
         "strokeWidth": 1
       },
       "encoding": {
+        "fill": {
+          "field": "status",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Furthest",
+              "Shortest",
+              "Other"
+            ],
+            "range": [
+              "#7b3fe4",
+              "#2ca02c",
+              "#1f4e8c"
+            ]
+          },
+          "legend": null
+        },
         "fillOpacity": {
+          "condition": {
+            "test": "datum.status !== 'Other'",
+            "value": 1
+          },
           "field": "properties.seed",
           "type": "quantitative",
           "scale": {
