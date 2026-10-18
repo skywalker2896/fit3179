@@ -30,8 +30,8 @@
         <div class="hero-body">
           <div>
             <h1 class="hero-title">
-              Australian Open
-              <span class="hero-subtitle">A grand slam tournament</span>
+              Beating the Odds at Australian Open
+              <span class="hero-subtitle">Does ranking predicts who wins? From draw to the final point</span>
             </h1>
             <p class="hero-intro">
               Intro paragraph placeholder
@@ -39,7 +39,40 @@
           </div>
         </div>
 
-      </section>
+        <!-- <div class="story-guide" aria-label="Story guide: eight sections">
+            <div class="story-guide-label">
+              <div class="label-tag">Story Guide</div>
+              <div class="font-display serif-note" style="font-size:15px;margin-top:4px;color:var(--ink-soft)">Eight stops, one cup.</div>
+            </div>
+            <ol class="story-guide-stops">
+              <li class="guide-stop"><span class="guide-dot" style="background:var(--coral)"></span>
+                <div class="label-tag guide-stop-label">01</div>
+                <div class="guide-stop-name font-display">Taste</div>
+              </li>
+              <li class="guide-stop"><span class="guide-dot" style="background:var(--caramel)"></span>
+                <div class="label-tag guide-stop-label">02</div>
+                <div class="guide-stop-name font-display">Benefits</div>
+              </li>
+              <li class="guide-stop"><span class="guide-dot" style="background:var(--sage)"></span>
+                <div class="label-tag guide-stop-label">03</div>
+                <div class="guide-stop-name font-display">Trade</div>
+              </li>
+              <li class="guide-stop"><span class="guide-dot" style="background:var(--blue-ink)"></span>
+                <div class="label-tag guide-stop-label">04</div>
+                <div class="guide-stop-name font-display">Price</div>
+              </li>
+              <li class="guide-stop"><span class="guide-dot" style="background:var(--gold)"></span>
+                <div class="label-tag guide-stop-label">05</div>
+                <div class="guide-stop-name font-display">Places</div>
+              </li>
+              <li class="guide-stop"><span class="guide-dot" style="background:var(--teal)"></span>
+                <div class="label-tag guide-stop-label">06</div>
+                <div class="guide-stop-name font-display">Global</div>
+              </li>
+            </ol>
+          </div> -->
+
+      <!-- </section> -->
     </header>
 
     <section class="section-heading">
@@ -59,7 +92,7 @@
     <div class="chart-card">
         <div class="chart-header">
           <span class="tag">Figure 02 · Line Chart</span>
-          <h1>Total Attendance, 2000-2025</h1>
+          <h1>Total Crowd Attendance, 2000-2025</h1>
         </div>
         <div id="chart2" class="chart-vis placeholder-chart"></div>
         <div class="chart-footer">Source: Yahoo Sports</div>
@@ -90,6 +123,7 @@
           <h1>AO Titles by Country</h1>
         </div>
         <div id="chart4" class="chart-vis--map placeholder-chart"></div>
+        <div id="chart4-controls" class="map-controls"></div>
         <div class="chart-footer">Source: Tennis My Life</div>
       </div>
     </section>
@@ -107,7 +141,7 @@
           <h1>Seed vs Total Games Played</h1>
         </div>
         <div id="chart6" class="chart-vis placeholder-chart"></div>
-        <!-- <div class="chart-footer">Source: Kaggle</div> -->
+        <div class="chart-footer">Source: Kaggle</div>
       </div>
     </section>
       
@@ -117,7 +151,7 @@
           <span class="tag">Figure 06 · Dumbbell Plot</span>
           <h1>Ranking Gap by Match, per Round</h1>
         </div>
-        <div id="chart8" class="chart-vis placeholder-chart"></div>
+        <div id="chart8" class="chart-vis--tall placeholder-chart"></div>
         <div class="chart-footer">Source: Kaggle</div>
       </div>
     </section>  
@@ -125,7 +159,7 @@
     <section class="figure-grid">
       <div class="chart-card" style="grid-column: 1 / -1;">
         <div class="chart-header">
-          <span class="tag">Figure 07 · Dumbbell Plot</span>
+          <span class="tag">Figure 07 · Bump Chart </span>
           <h1>Ranking Gap by Match, per Round</h1>
         </div>
         <div id="chart7" class="chart-vis--tall placeholder-chart"></div>
@@ -133,15 +167,23 @@
       </div>
     </section>  
 
-    <section class="figure-grid">
-      <div class="chart-card">
+    <section class="figure-grid figure-grid--two-thirds">
+
+        <div class="chart-card">
         <div class="chart-header">
-          <span class="tag">Figure 07 · Calendar Heatmap</span>
-          <h1>Men's Singles Matches per Day</h1>
+          <span class="tag">Figure 08 · Heatmap Matrix</span>
+          <h1>Players Expected vs Actual Exit Round</h1>
         </div>
         <div id="chart5" class="chart-vis placeholder-chart"></div>
-        <div class="chart-footer">Source: Kaggle</div>
+        <div class="chart-footer">Source: Tennis My Life</div>
       </div>
+
+      <aside class="chart-note">
+        <h2>How to read this</h2>
+        <p>Each player is placed in the column for the round their seed predicts they will reach (seeds 1–4: SF, 5–8: QF, 9–16: R16, 17–32: R32, unseeded: R1/R2) and the row for the round they actually exited.</p>
+        <p>Players in a row above their column's round outperformed their seed; players below it underperformed.</p>
+      </aside>
+
     </section>
 
     <div class="section-break" role="separator" aria-hidden="true"></div>
@@ -151,27 +193,35 @@
     </section>
 
     <section class="figure-grid">
+      <div class="chart-card">
+        <div class="chart-header">
+          <span class="tag">Figure 09 · Ridgeline Plot</span>
+        </div>
+        <div id="chart9" class="chart-vis placeholder-chart"></div>
+        <div class="chart-footer">Source: </div>
+      </div>
 
       <div class="chart-card">
         <div class="chart-header">
-          <span class="tag">Figure 01 · Calendar Heatmap</span>
-          <h1>Men's Singles Matches per Day</h1>
+          <span class="tag">Figure 10 · Violin Plot</span>
         </div>
-        <div id="chart9" class="chart-vis placeholder-chart"></div>
+        <div id="chart10" class="chart-vis placeholder-chart"></div>
         <div class="chart-footer">Source: Kaggle</div>
       </div>
 
-    <div class="chart-card">
+    <section class="figure-grid">
+      <div class="chart-card" style="grid-column: 1 / -1;">
         <div class="chart-header">
-          <span class="tag">Figure 02 · Line Chart</span>
-          <h1>Total Attendance, 2000-2025</h1>
+          <span class="tag">Figure 011 · Arc Map</span>
+          <h1>Top 10 Seeded Players Travel Distance</h1>
         </div>
-        <div id="chart10" class="chart-vis placeholder-chart"></div>
-        <div class="chart-footer">Source: Yahoo Sports</div>
+        <div id="chart11" class="chart-vis--map placeholder-chart"></div>
+        <div class="chart-footer">Source: Tennis My Life</div>
       </div>
     </section>
 
-  </div>
+    </section>
+
 
 <script src="js/vega_lite_vis.js"></script>
 </body>

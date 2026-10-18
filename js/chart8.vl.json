@@ -113,7 +113,6 @@
           "type": "quantitative",
           "title": "Seed (rank)",
           "axis": {
-            "title": "Seed (rank) \u2014 33 = unseeded",
             "values": [
               1,
               5,

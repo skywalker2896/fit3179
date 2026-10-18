@@ -1,24 +1,272 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Winners win more of their first-serve points in every round",
-    "subtitle": "First-serve points won (%) per player per match, Australian Open 2015–2026",
-    "anchor": "start", "offset": 14
+    "text": "First serve points winner vs loser",
+    "subtitle": "Median first-serve points won (%)",
+    "anchor": "start",
+    "offset": 14
   },
-  "data": {"url": "ao_first_serve_won.csv"},
-  "width": 70,
-  "height": 170,
-  "spacing": 4,
-  "transform": [
-    {"density": "fs_won", "groupby": ["tour", "round", "result"], "bandwidth": 3, "extent": [30, 100], "steps": 71, "as": ["fs_won", "density"]}
+  "data": {
+    "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart10.csv"
+  },
+  "width": "container",
+  "height": 330,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "params": [
+    {
+      "name": "tourSel",
+      "value": "Men",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Men",
+          "Women"
+        ],
+        "name": "Tour: "
+      }
+    }
   ],
-  "mark": {"type": "area", "orient": "horizontal", "opacity": 0.85},
-  "encoding": {
-    "y": {"field": "fs_won", "type": "quantitative", "title": "First-serve points won (%)", "scale": {"domain": [30, 100]}, "axis": {"values": [40, 60, 80, 100]}},
-    "x": {"field": "density", "type": "quantitative", "stack": "center", "impute": null, "title": null, "axis": {"labels": false, "values": [0], "grid": false, "ticks": false}},
-    "color": {"field": "result", "type": "nominal", "title": "Match result", "scale": {"domain": ["Winner", "Loser"], "range": ["#2171b5", "#e6550d"]}, "legend": {"orient": "bottom", "direction": "horizontal"}},
-    "column": {"field": "round", "type": "nominal", "title": "Round", "sort": ["R1", "R2", "R3", "R16", "QF", "SF", "F"], "header": {"titleOrient": "bottom", "labelOrient": "bottom", "labelPadding": 4}},
-    "row": {"field": "tour", "type": "nominal", "title": null, "header": {"labelFontSize": 13, "labelOrient": "left", "labelAngle": -90}}
-  },
-  "config": {"view": {"stroke": null}, "axis": {"domain": false}}
+  "transform": [
+    {
+      "filter": "datum.tour === tourSel"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "q1",
+          "field": "fs_won",
+          "as": "q1"
+        },
+        {
+          "op": "median",
+          "field": "fs_won",
+          "as": "med"
+        },
+        {
+          "op": "q3",
+          "field": "fs_won",
+          "as": "q3"
+        },
+        {
+          "op": "count",
+          "as": "n"
+        }
+      ],
+      "groupby": [
+        "tour",
+        "round",
+        "result"
+      ]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "opacity": 0.18,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "round",
+          "type": "ordinal",
+          "sort": [
+            "R1",
+            "R2",
+            "R3",
+            "R16",
+            "QF",
+            "SF",
+            "F"
+          ],
+          "title": "Round",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "q1",
+          "type": "quantitative",
+          "title": "First-serve points won (%)",
+          "scale": {
+            "domain": [
+              40,
+              90
+            ]
+          }
+        },
+        "y2": {
+          "field": "q3"
+        },
+        "color": {
+          "field": "result",
+          "type": "nominal",
+          "title": "Match result",
+          "scale": {
+            "domain": [
+              "Winner",
+              "Loser"
+            ],
+            "range": [
+              "#2171b5",
+              "#e6550d"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "round",
+          "type": "ordinal",
+          "sort": [
+            "R1",
+            "R2",
+            "R3",
+            "R16",
+            "QF",
+            "SF",
+            "F"
+          ],
+          "title": "Round",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "med",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              40,
+              90
+            ]
+          }
+        },
+        "color": {
+          "field": "result",
+          "type": "nominal",
+          "title": "Match result",
+          "scale": {
+            "domain": [
+              "Winner",
+              "Loser"
+            ],
+            "range": [
+              "#2171b5",
+              "#e6550d"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 70
+      },
+      "encoding": {
+        "x": {
+          "field": "round",
+          "type": "ordinal",
+          "sort": [
+            "R1",
+            "R2",
+            "R3",
+            "R16",
+            "QF",
+            "SF",
+            "F"
+          ],
+          "title": "Round",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "med",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              40,
+              90
+            ]
+          }
+        },
+        "color": {
+          "field": "result",
+          "type": "nominal",
+          "title": "Match result",
+          "scale": {
+            "domain": [
+              "Winner",
+              "Loser"
+            ],
+            "range": [
+              "#2171b5",
+              "#e6550d"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "round",
+            "title": "Round"
+          },
+          {
+            "field": "result",
+            "title": "Result"
+          },
+          {
+            "field": "med",
+            "title": "Median (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "q1",
+            "title": "Lower quartile (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "q3",
+            "title": "Upper quartile (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "n",
+            "title": "Players"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#e7e2d8",
+      "domain": false
+    }
+  }
 }

@@ -2,46 +2,189 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": "container",
-  "projection": {"type": "equalEarth"},
-  "config": {"view": {"stroke": null}},
+  "params": [
+    {
+      "name": "region",
+      "value": "World",
+      "bind": {
+        "input": "select",
+        "options": [
+          "World",
+          "Europe",
+          "North America",
+          "Asia-Pacific"
+        ],
+        "name": "Centre on: ",
+        "element": "#chart4-controls"
+      }
+    },
+    {
+      "name": "zoom",
+      "value": 1,
+      "bind": {
+        "input": "range",
+        "min": 1,
+        "max": 8,
+        "step": 0.1,
+        "name": "Zoom: ",
+        "element": "#chart4-controls"
+      }
+    },
+    {
+      "name": "pan_lon",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": -90,
+        "max": 90,
+        "step": 1,
+        "name": "Pan left/right: ",
+        "element": "#chart4-controls"
+      }
+    },
+    {
+      "name": "pan_lat",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": -45,
+        "max": 45,
+        "step": 1,
+        "name": "Pan up/down: ",
+        "element": "#chart4-controls"
+      }
+    }
+  ],
+  "projection": {
+    "type": "equalEarth",
+    "center": {
+      "expr": "[{'World':[0,12],'Europe':[14,52],'North America':[-98,40],'Asia-Pacific':[120,8]}[region][0] + pan_lon, {'World':[0,12],'Europe':[14,52],'North America':[-98,40],'Asia-Pacific':[120,8]}[region][1] + pan_lat]"
+    },
+    "scale": {
+      "expr": "min(width/5.45, height/2.5) * zoom"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  },
   "layer": [
     {
-      "data": {"sphere": true},
-      "mark": {"type": "geoshape", "fill": "#dceaf5"}
+      "data": {
+        "sphere": true
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#dceaf5",
+        "clip": true
+      }
     },
     {
       "data": {
         "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
-        "format": {"type": "topojson", "feature": "countries"}
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
       },
-      "mark": {"type": "geoshape", "fill": "#d6d1c8", "stroke": "white", "strokeWidth": 0.6}
+      "mark": {
+        "type": "geoshape",
+        "fill": "#d6d1c8",
+        "stroke": "white",
+        "strokeWidth": 0.6,
+        "clip": true
+      }
     },
     {
       "data": {
         "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart4.csv"
       },
-      "mark": {"type": "circle", "opacity": 0.8, "stroke": "white", "strokeWidth": 1},
+      "transform": [
+        {
+          "calculate": "{'USA':'United States','SRB':'Serbia','CHE':'Switzerland','BLR':'Belarus','ESP':'Spain','BEL':'Belgium','ITA':'Italy','JPN':'Japan','RUS':'Russia','SWE':'Sweden','AUS':'Australia','DNK':'Denmark','DEU':'Germany','CHN':'China','FRA':'France'}[datum.iso_a3]",
+          "as": "country"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.8,
+        "stroke": "white",
+        "strokeWidth": 1,
+        "clip": true
+      },
       "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude": {"field": "lat", "type": "quantitative"},
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
         "size": {
           "field": "titles",
           "type": "quantitative",
-          "scale": {"type": "sqrt", "domain": [0, 12], "range": [0, 1800]},
-          "legend": {"title": "Titles", "orient": "right", "values": [1, 5, 10]}
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              12
+            ],
+            "range": [
+              0,
+              600
+            ]
+          },
+          "legend": {
+            "title": "Titles",
+            "orient": "right",
+            "values": [
+              1,
+              5,
+              10
+            ]
+          }
         },
         "color": {
           "field": "title_type",
           "type": "nominal",
-          "scale": {"domain": ["Men's", "Women's"], "range": ["#1f4e9c", "#e0603a"]},
-          "legend": {"title": "Title type", "orient": "right"}
+          "scale": {
+            "domain": [
+              "Men's",
+              "Women's"
+            ],
+            "range": [
+              "#1f4e9c",
+              "#e0603a"
+            ]
+          },
+          "legend": {
+            "title": "Title type",
+            "orient": "right"
+          }
         },
-        "order": {"field": "titles", "sort": "descending"},
+        "order": {
+          "field": "titles",
+          "sort": "descending"
+        },
         "tooltip": [
-          {"field": "iso_a3", "title": "Country"},
-          {"field": "title_type", "title": "Draw"},
-          {"field": "titles", "title": "Titles"},
-          {"field": "total_titles", "title": "Total titles (both draws)"}
+          {
+            "field": "country",
+            "title": "Country"
+          },
+          {
+            "field": "title_type",
+            "title": "Draw"
+          },
+          {
+            "field": "titles",
+            "title": "Titles"
+          },
+          {
+            "field": "total_titles",
+            "title": "Total titles (both draws)"
+          }
         ]
       }
     }

@@ -1,0 +1,260 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Top seeds travel up to 17,000 km to reach Melbourne",
+    "subtitle": "Home country to Melbourne for the top 10 seeds, Australian Open 2026 (taller, darker arc = higher seed)",
+    "anchor": "start",
+    "offset": 14
+  },
+  "width": "container",
+  "height": 420,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "params": [
+    {
+      "name": "drawSel",
+      "value": "Men's Singles",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Men's Singles",
+          "Women's Singles"
+        ],
+        "name": "Draw: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "equalEarth",
+    "rotate": [
+      -134,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e9edf2",
+        "stroke": "white",
+        "strokeWidth": 0.4
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart11.geojson",
+        "format": {
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.kind === 'arc' && datum.properties.draw === drawSel"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "strokeWidth": 2.5,
+        "strokeCap": "round",
+        "stroke": "#1f4e8c"
+      },
+      "encoding": {
+        "strokeOpacity": {
+          "field": "properties.seed",
+          "type": "quantitative",
+          "title": "Seed (higher arc = higher seed)",
+          "scale": {
+            "domain": [
+              1,
+              10
+            ],
+            "range": [
+              1,
+              0.3
+            ]
+          },
+          "legend": {
+            "orient": "bottom-left",
+            "values": [
+              1,
+              4,
+              7,
+              10
+            ],
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "title": "Player"
+          },
+          {
+            "field": "properties.country",
+            "title": "Country"
+          },
+          {
+            "field": "properties.seed",
+            "title": "Seed"
+          },
+          {
+            "field": "properties.rank",
+            "title": "Ranking"
+          },
+          {
+            "field": "properties.distance_km",
+            "title": "Distance to Melbourne (km)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart11.geojson",
+        "format": {
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.kind === 'origin' && datum.properties.draw === drawSel"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#1f4e8c",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "fillOpacity": {
+          "field": "properties.seed",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1,
+              10
+            ],
+            "range": [
+              1,
+              0.3
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "title": "Player"
+          },
+          {
+            "field": "properties.country",
+            "title": "Country"
+          },
+          {
+            "field": "properties.seed",
+            "title": "Seed"
+          },
+          {
+            "field": "properties.rank",
+            "title": "Ranking"
+          },
+          {
+            "field": "properties.distance_km",
+            "title": "Distance to Melbourne (km)",
+            "format": ","
+          },
+          {
+            "field": "properties.origin_city",
+            "title": "Origin (capital)"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lat": -37.81,
+            "lon": 144.96,
+            "label": "Melbourne"
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "diamond",
+        "size": 160,
+        "filled": true,
+        "fill": "#d62728",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "label",
+            "title": "Destination"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lat": -37.81,
+            "lon": 144.96,
+            "label": "Melbourne"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": 16,
+        "dx": -26,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#d62728"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}
