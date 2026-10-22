@@ -4,14 +4,16 @@ const chartConfigs = [
   { id: "chart1", spec: "js/chart1.vl.json" }, 
   { id: "chart2", spec: "js/chart2.vl.json" },
   { id: "chart3", spec: "js/chart3.vl.json" },
-  { id: "chart4", spec: "js/chart4.vl.json" }, 
+  { id: "chart4", spec: "js/chart4.vg.json" }, 
   { id: "chart5", spec: "js/chart5.vl.json" },
   { id: "chart6", spec: "js/chart6.vl.json" },
   { id: "chart7", spec: "js/chart7.vl.json" },
   { id: "chart8", spec: "js/chart8.vl.json" },
   { id: "chart9", spec: "js/chart9.vl.json" },
   { id: "chart10", spec: "js/chart10.vl.json" },
-  { id: "chart11", spec: "js/chart11.vl.json" }
+  { id: "chart11", spec: "js/chart11.vl.json" },
+  { id: "chart12", spec: "js/chart12.vl.json" },
+  { id: "chart13", spec: "js/chart12.vg.json" }
   // { id: "chart3", spec: "js/chart3.vl.json" }, // C3 · ...
 ];
  

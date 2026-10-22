@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Proportional symbol map of Australian Open titles by country. Drag to pan, Ctrl/Cmd + scroll to zoom, double-click to reset.",
+  "autosize": "none",
+  "padding": {"left": 0, "top": 0, "bottom": 0, "right": 130},
+
+  "signals": [
+    {"name": "width",
+     "init": "isFinite(containerSize()[0]) ? containerSize()[0] - 130 : 780",
+     "on": [{"events": "window:resize", "update": "isFinite(containerSize()[0]) ? containerSize()[0] - 130 : 780"}]},
+    {"name": "height",
+     "init": "isFinite(containerSize()[1]) ? containerSize()[1] : 370",
+     "on": [{"events": "window:resize", "update": "isFinite(containerSize()[1]) ? containerSize()[1] : 370"}]},
+
+    {"name": "baseScale", "update": "min(width / 5.42, height / 2.64)"},
+
+    {"name": "zoom", "value": 1,
+     "on": [
+       {"events": {"type": "wheel", "consume": true, "filter": "event.ctrlKey || event.metaKey"},
+        "update": "clamp(zoom * pow(1.002, -event.deltaY * pow(16, event.deltaMode)), 1, 8)"},
+       {"events": "dblclick", "update": "1"}
+     ]},
+
+    {"name": "down", "value": null,
+     "on": [
+       {"events": "mousedown", "update": "[x(), y(), panX, panY]"},
+       {"events": "window:mouseup", "update": "null"}
+     ]},
+
+    {"name": "panX", "value": 0,
+     "on": [
+       {"events": {"source": "window", "type": "mousemove",
+                   "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]},
+        "update": "clamp(down[2] + (x() - down[0]) / zoom, -(zoom - 1) * width / (2 * zoom), (zoom - 1) * width / (2 * zoom))"},
+       {"events": {"signal": "zoom"},
+        "update": "clamp(panX, -(zoom - 1) * width / (2 * zoom), (zoom - 1) * width / (2 * zoom))"},
+       {"events": "dblclick", "update": "0"}
+     ]},
+
+    {"name": "panY", "value": 0,
+     "on": [
+       {"events": {"source": "window", "type": "mousemove",
+                   "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]},
+        "update": "clamp(down[3] + (y() - down[1]) / zoom, -(zoom - 1) * height / (2 * zoom), (zoom - 1) * height / (2 * zoom))"},
+       {"events": {"signal": "zoom"},
+        "update": "clamp(panY, -(zoom - 1) * height / (2 * zoom), (zoom - 1) * height / (2 * zoom))"},
+       {"events": "dblclick", "update": "0"}
+     ]},
+
+    {"name": "mapCursor", "update": "down ? 'grabbing' : (zoom > 1 ? 'grab' : 'default')"}
+  ],
+
+  "data": [
+    {"name": "sphere", "values": [{"type": "Sphere"}]},
+    {"name": "world",
+     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
+     "format": {"type": "topojson", "feature": "countries"}},
+    {"name": "titles",
+     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart4.csv",
+     "format": {"type": "csv", "parse": {"lon": "number", "lat": "number", "titles": "number", "total_titles": "number"}},
+     "transform": [{"type": "collect", "sort": {"field": "titles", "order": "descending"}}]}
+  ],
+
+  "projections": [
+    {"name": "projection",
+     "type": "equalEarth",
+     "scale": {"signal": "baseScale * zoom"},
+     "translate": {"signal": "[width / 2 + panX * zoom, height / 2 + panY * zoom]"}}
+  ],
+
+  "scales": [
+    {"name": "size", "type": "sqrt", "domain": [0, 12], "range": [0, 500]},
+    {"name": "color", "type": "ordinal",
+     "domain": ["Men's", "Women's"], "range": ["#1f4e9c", "#e0603a"]}
+  ],
+
+  "legends": [
+    {"size": "size", "title": "Titles", "orient": "right", "values": [1, 5, 10],
+     "symbolType": "circle", "symbolFillColor": "#bbbbbb", "symbolStrokeColor": "white"},
+    {"fill": "color", "title": "Title type", "orient": "right",
+     "symbolType": "circle", "symbolSize": 120}
+  ],
+
+  "marks": [
+    {
+      "type": "group",
+      "encode": {"update": {
+        "x": {"value": 0}, "y": {"value": 0},
+        "width": {"signal": "width"}, "height": {"signal": "height"},
+        "clip": {"value": true}
+      }},
+      "marks": [
+        {"type": "shape", "from": {"data": "sphere"},
+         "encode": {"update": {"fill": {"value": "#dceaf5"}, "cursor": {"signal": "mapCursor"}}},
+         "transform": [{"type": "geoshape", "projection": "projection"}]},
+
+        {"type": "shape", "from": {"data": "world"},
+         "encode": {"update": {
+           "fill": {"value": "#d6d1c8"}, "stroke": {"value": "white"}, "strokeWidth": {"value": 0.6},
+           "cursor": {"signal": "mapCursor"}}},
+         "transform": [{"type": "geoshape", "projection": "projection"}]},
+
+        {"type": "symbol", "from": {"data": "titles"},
+         "encode": {"update": {
+           "size": {"scale": "size", "field": "titles"},
+           "fill": {"scale": "color", "field": "title_type"},
+           "fillOpacity": {"value": 0.8},
+           "stroke": {"value": "white"}, "strokeWidth": {"value": 1},
+           "cursor": {"signal": "mapCursor"},
+           "tooltip": {"signal": "{'Country': datum.iso_a3, 'Draw': datum.title_type, 'Titles': datum.titles, 'Total titles (both draws)': datum.total_titles}"}
+         }},
+         "transform": [{"type": "geopoint", "projection": "projection", "fields": ["datum.lon", "datum.lat"]}]}
+      ]
+    }
+  ]
+}

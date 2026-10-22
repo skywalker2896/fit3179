@@ -44,46 +44,57 @@
               ranking. In theory, seeding protects the favourites from leaving early but in practice, upsets happen 
               and that tension to whether ranking predicts who wins.
               </p>
+            </div>
           </div>
         </div>
+          </div>  
+        </div>    
+        </div>    
 
-        <!-- <div class="story-guide" aria-label="Story guide: eight sections">
-            <div class="story-guide-label">
-              <div class="label-tag">Story Guide</div>
-              <div class="font-display serif-note" style="font-size:15px;margin-top:4px;color:var(--ink-soft)">Eight stops, one cup.</div>
-            </div>
-            <ol class="story-guide-stops">
-              <li class="guide-stop"><span class="guide-dot" style="background:var(--coral)"></span>
-                <div class="label-tag guide-stop-label">01</div>
-                <div class="guide-stop-name font-display">Taste</div>
-              </li>
-              <li class="guide-stop"><span class="guide-dot" style="background:var(--caramel)"></span>
-                <div class="label-tag guide-stop-label">02</div>
-                <div class="guide-stop-name font-display">Benefits</div>
-              </li>
-              <li class="guide-stop"><span class="guide-dot" style="background:var(--sage)"></span>
-                <div class="label-tag guide-stop-label">03</div>
-                <div class="guide-stop-name font-display">Trade</div>
-              </li>
-              <li class="guide-stop"><span class="guide-dot" style="background:var(--blue-ink)"></span>
-                <div class="label-tag guide-stop-label">04</div>
-                <div class="guide-stop-name font-display">Price</div>
-              </li>
-              <li class="guide-stop"><span class="guide-dot" style="background:var(--gold)"></span>
-                <div class="label-tag guide-stop-label">05</div>
-                <div class="guide-stop-name font-display">Places</div>
-              </li>
-              <li class="guide-stop"><span class="guide-dot" style="background:var(--teal)"></span>
-                <div class="label-tag guide-stop-label">06</div>
-                <div class="guide-stop-name font-display">Global</div>
-              </li>
-            </ol>
-          </div> -->
+      </section>
 
-      <!-- </section> -->
+      <nav class="story-guide" aria-label="Story guide: four sections">
+        <div class="story-guide-label">
+          <div class="label-tag">Story Guide</div>
+          <div class="guide-note">Four stops, one tournament.</div>
+        </div>
+        <ol class="story-guide-stops">
+          <li class="guide-stop">
+            <a href="#section-1">
+              <span class="guide-dot guide-dot--1" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+              </span>
+              <span class="label-tag guide-stop-label">01</span>
+              <span class="guide-stop-name">One Grand Slam, 3 Weeks</span>
+            </a>
+          </li>
+          <li class="guide-stop">
+            <a href="#section-2">
+              <span class="guide-dot" style="background:var(--guide-2)"></span>
+              <span class="label-tag guide-stop-label">02</span>
+              <span class="guide-stop-name">Global Stage</span>
+            </a>
+          </li>
+          <li class="guide-stop">
+            <a href="#section-3">
+              <span class="guide-dot" style="background:var(--guide-3)"></span>
+              <span class="label-tag guide-stop-label">03</span>
+              <span class="guide-stop-name">Does Ranking Predict Performance?</span>
+            </a>
+          </li>
+          <li class="guide-stop">
+            <a href="#section-4">
+              <span class="guide-dot" style="background:var(--guide-4)"></span>
+              <span class="label-tag guide-stop-label">04</span>
+              <span class="guide-stop-name">Inside the Match</span>
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </header>
     </header>
 
-    <section class="section-heading">
+    <section class="section-heading" id="section-1">
       <h2>Section 1 · One Grand Slam 3 Weeks</h2>
     </section>
 
@@ -123,7 +134,7 @@
 
     <div class="section-break" role="separator" aria-hidden="true"></div>
 
-    <section class="section-heading">
+    <section class="section-heading" id="section-2">
       <h2>Section 2 · Global Stage</h2>
     </section>
 
@@ -151,7 +162,6 @@
           <h1>AO Titles by Country</h1>
         </div>
         <div id="chart4" class="chart-vis--map placeholder-chart"></div>
-        <div id="chart4-controls" class="map-controls"></div>
         <div class="chart-footer">Source: Tennis My Life</div>
       </div>
     </section>
@@ -248,9 +258,33 @@
         <div class="chart-footer">Source: Tennis My Life</div>
       </div>
     </section>
-
     </section>
 
+    <section class="section-heading">
+      <h2>Section 5 · Multi Stat Profile</h2>
+    </section>
+
+    <!-- <section class="figure-grid">
+      <div class="chart-card" style="grid-column: 1 / -1;">
+        <div class="chart-header">
+          <span class="tag">Figure 12 · Arc Map</span>
+          <h1>Top 10 Seeded Players Travel Distance</h1>
+        </div>
+        <div id="chart12" class="chart-vis placeholder-chart"></div>
+        <div class="chart-footer">Source: Tennis My Life</div>
+      </div>
+    </section> -->
+
+    <section class="figure-grid">
+      <div class="chart-card" style="grid-column: 1 / -1;">
+        <div class="chart-header">
+          <span class="tag">Figure 13 · Multiples</span>
+          <h1>Top 10 Seeded Players Travel Distance</h1>
+        </div>
+        <div id="chart13" class="chart-vis--tall placeholder-chart"></div>
+        <div class="chart-footer">Source: Tennis My Life</div>
+      </div>
+    </section>
 
 <script src="js/vega_lite_vis.js"></script>
 </body>

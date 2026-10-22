@@ -1,0 +1,531 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Sankey diagram of how the Australian Open 2026 men's singles field thinned out round by round, split into seed groups. Flow width equals the number of players who advanced.",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "height": 400,
+  "padding": {
+    "left": 100,
+    "right": 130,
+    "top": 34,
+    "bottom": 44
+  },
+  "signals": [
+    {
+      "name": "width",
+      "init": "isFinite(containerSize()[0]) ? containerSize()[0] - 230 : 640",
+      "on": [
+        {
+          "events": "window:resize",
+          "update": "isFinite(containerSize()[0]) ? containerSize()[0] - 230 : 640"
+        }
+      ]
+    },
+    {
+      "name": "nodeW",
+      "value": 20
+    },
+    {
+      "name": "hoverTier",
+      "value": null,
+      "on": [
+        {
+          "events": "@link:mouseover, @node:mouseover",
+          "update": "datum.tier"
+        },
+        {
+          "events": "@link:mouseout, @node:mouseout",
+          "update": "null"
+        }
+      ]
+    }
+  ],
+  "data": [
+    {
+      "name": "main",
+      "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/ao_2026.csv",
+      "format": {
+        "type": "csv"
+      },
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.stage === 'Main Draw'"
+        }
+      ]
+    },
+    {
+      "name": "entrants",
+      "source": "main",
+      "transform": [
+        {
+          "type": "fold",
+          "fields": [
+            "player_1",
+            "player_2"
+          ],
+          "as": [
+            "slot",
+            "player"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "seed",
+          "expr": "datum.slot === 'player_1' ? datum.seed_1 : datum.seed_2"
+        },
+        {
+          "type": "formula",
+          "as": "tier",
+          "expr": "(!isValid(datum.seed) || datum.seed === '' || isNaN(+datum.seed)) ? 'Unseeded' : (+datum.seed <= 8 ? 'Seeds 1–8' : (+datum.seed <= 16 ? 'Seeds 9–16' : 'Seeds 17–32'))"
+        },
+        {
+          "type": "formula",
+          "as": "tier_idx",
+          "expr": "indexof(['Seeds 1-8', 'Seeds 9-16', 'Seeds 17-32', 'Unseeded'], datum.tier)"
+        },
+        {
+          "type": "formula",
+          "as": "round_idx",
+          "expr": "indexof(['R128', 'R64', 'R32', 'R16', 'QF', 'SF', 'F'], datum.round)"
+        },
+        {
+          "type": "aggregate",
+          "groupby": [
+            "round",
+            "round_idx",
+            "tier",
+            "tier_idx"
+          ],
+          "ops": [
+            "count"
+          ],
+          "as": [
+            "players"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "champRow",
+      "source": "main",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.round === 'F'"
+        },
+        {
+          "type": "formula",
+          "as": "name",
+          "expr": "datum.winner"
+        },
+        {
+          "type": "formula",
+          "as": "seed",
+          "expr": "datum.winner === datum.player_1 ? datum.seed_1 : datum.seed_2"
+        },
+        {
+          "type": "formula",
+          "as": "tier",
+          "expr": "(!isValid(datum.seed) || datum.seed === '' || isNaN(+datum.seed)) ? 'Unseeded' : (+datum.seed <= 8 ? 'Seeds 1–8' : (+datum.seed <= 16 ? 'Seeds 9–16' : 'Seeds 17–32'))"
+        },
+        {
+          "type": "formula",
+          "as": "tier_idx",
+          "expr": "indexof(['Seeds 1-8', 'Seeds 9-16', 'Seeds 17-32', 'Unseeded'], datum.tier)"
+        },
+        {
+          "type": "formula",
+          "as": "round",
+          "expr": "'Champion'"
+        },
+        {
+          "type": "formula",
+          "as": "round_idx",
+          "expr": "7"
+        },
+        {
+          "type": "formula",
+          "as": "players",
+          "expr": "1"
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "source": [
+        "entrants",
+        "champRow"
+      ],
+      "transform": [
+        {
+          "type": "formula",
+          "as": "key",
+          "expr": "datum.round_idx + '-' + datum.tier_idx"
+        },
+        {
+          "type": "stack",
+          "groupby": [
+            "round_idx"
+          ],
+          "field": "players",
+          "sort": {
+            "field": "tier_idx"
+          },
+          "offset": "center",
+          "as": [
+            "y0",
+            "y1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "source": "nodes",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.round_idx < 7"
+        },
+        {
+          "type": "formula",
+          "as": "nkey",
+          "expr": "(datum.round_idx + 1) + '-' + datum.tier_idx"
+        },
+        {
+          "type": "lookup",
+          "from": "nodes",
+          "key": "key",
+          "fields": [
+            "nkey"
+          ],
+          "as": [
+            "target"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum.target)"
+        }
+      ]
+    },
+    {
+      "name": "labels",
+      "values": [
+        {
+          "i": 0,
+          "t": "Round 1"
+        },
+        {
+          "i": 1,
+          "t": "Round 2"
+        },
+        {
+          "i": 2,
+          "t": "Round 3"
+        },
+        {
+          "i": 3,
+          "t": "Round of 16"
+        },
+        {
+          "i": 4,
+          "t": "Quarter-finals"
+        },
+        {
+          "i": 5,
+          "t": "Semi-finals"
+        },
+        {
+          "i": 6,
+          "t": "Final"
+        },
+        {
+          "i": 7,
+          "t": "Champion"
+        }
+      ]
+    },
+    {
+      "name": "tierStart",
+      "source": "nodes",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.round_idx === 0"
+        }
+      ]
+    },
+    {
+      "name": "champ",
+      "source": "nodes",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.round_idx === 7"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "linear",
+      "domain": [
+        0,
+        7
+      ],
+      "range": [
+        0,
+        {
+          "signal": "width - nodeW"
+        }
+      ]
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": [
+        0,
+        128
+      ],
+      "range": [
+        0,
+        {
+          "signal": "height"
+        }
+      ]
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "Seeds 1–8",
+        "Seeds 9–16",
+        "Seeds 17–32",
+        "Unseeded"
+      ],
+      "range": [
+        "#0c2b5e",
+        "#2171b5",
+        "#9ecae1",
+        "#e6550d"
+      ]
+    }
+  ],
+  "legends": [
+    {
+      "fill": "color",
+      "title": "seed",
+      "orient": "none",
+      "direction": "horizontal",
+      "legendX": 0,
+      "legendY": 418,
+      "titleFontSize": 11,
+      "labelFontSize": 11,
+      "symbolType": "square",
+      "columns": 4,
+      "columnPadding": 14
+    }
+  ],
+  "marks": [
+    {
+      "type": "text",
+      "from": {
+        "data": "labels"
+      },
+      "encode": {
+        "enter": {
+          "text": {
+            "field": "t"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#1b1f24"
+          }
+        },
+        "update": {
+          "x": {
+            "signal": "scale('x', datum.i) + (datum.i === 7 ? nodeW : nodeW / 2)"
+          },
+          "align": {
+            "signal": "datum.i === 7 ? 'right' : 'center'"
+          },
+          "y": {
+            "value": -8
+          }
+        }
+      }
+    },
+    {
+      "type": "path",
+      "name": "link",
+      "from": {
+        "data": "links"
+      },
+      "encode": {
+        "update": {
+          "path": {
+            "signal": "'M' + (scale('x', datum.round_idx) + nodeW) + ',' + scale('y', datum.y0) + 'C' + ((scale('x', datum.round_idx) + nodeW + scale('x', datum.round_idx + 1)) / 2) + ',' + scale('y', datum.y0) + ' ' + ((scale('x', datum.round_idx) + nodeW + scale('x', datum.round_idx + 1)) / 2) + ',' + scale('y', datum.target.y0) + ' ' + scale('x', datum.round_idx + 1) + ',' + scale('y', datum.target.y0) + 'L' + scale('x', datum.round_idx + 1) + ',' + scale('y', datum.target.y1) + 'C' + ((scale('x', datum.round_idx) + nodeW + scale('x', datum.round_idx + 1)) / 2) + ',' + scale('y', datum.target.y1) + ' ' + ((scale('x', datum.round_idx) + nodeW + scale('x', datum.round_idx + 1)) / 2) + ',' + scale('y', datum.y0 + datum.target.players) + ' ' + (scale('x', datum.round_idx) + nodeW) + ',' + scale('y', datum.y0 + datum.target.players) + 'Z'"
+          },
+          "fill": {
+            "scale": "color",
+            "field": "tier"
+          },
+          "fillOpacity": {
+            "signal": "hoverTier === null ? 0.45 : (hoverTier === datum.tier ? 0.75 : 0.12)"
+          },
+          "tooltip": {
+            "signal": "{'Seed group': datum.tier, 'From': datum.round + ' → ' + datum.target.round, 'Players advancing': datum.target.players + ' of ' + datum.players}"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "name": "node",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "scale('x', datum.round_idx)"
+          },
+          "width": {
+            "signal": "nodeW"
+          },
+          "y": {
+            "signal": "scale('y', datum.y0)"
+          },
+          "y2": {
+            "signal": "scale('y', datum.y1)"
+          },
+          "fill": {
+            "scale": "color",
+            "field": "tier"
+          },
+          "fillOpacity": {
+            "signal": "hoverTier === null || hoverTier === datum.tier ? 1 : 0.3"
+          },
+          "tooltip": {
+            "signal": "{'Seed group': datum.tier, 'Stage': datum.round, 'Players': datum.players}"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "nodes"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "scale('x', datum.round_idx) + nodeW / 2"
+          },
+          "y": {
+            "signal": "(scale('y', datum.y0) + scale('y', datum.y1)) / 2"
+          },
+          "text": {
+            "signal": "datum.players"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 10
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "signal": "datum.tier === 'Seeds 17-32' ? '#0c2b5e' : '#ffffff'"
+          },
+          "opacity": {
+            "signal": "scale('y', datum.y1) - scale('y', datum.y0) >= 12 ? 1 : 0"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "tierStart"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "value": -8
+          },
+          "align": {
+            "value": "right"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "y": {
+            "signal": "(scale('y', datum.y0) + scale('y', datum.y1)) / 2"
+          },
+          "text": {
+            "field": "tier"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "#1b1f24"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "champ"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "scale('x', 7) + nodeW + 8"
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "y": {
+            "signal": "(scale('y', datum.y0) + scale('y', datum.y1)) / 2"
+          },
+          "text": {
+            "signal": "datum.name + ' (' + datum.seed + ')'"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#0c2b5e"
+          }
+        }
+      }
+    }
+  ]
+}
