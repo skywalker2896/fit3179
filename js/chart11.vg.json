@@ -1,0 +1,173 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Arc map of the top 10 seeded players' travel to Melbourne. Drag to pan, Ctrl/Cmd + scroll to zoom, double-click to reset.",
+  "autosize": "none",
+  "padding": 0,
+
+  "signals": [
+    {"name": "drawSel", "value": "Men's Singles",
+     "bind": {"input": "select", "options": ["Men's Singles", "Women's Singles"], "name": "Draw: "}},
+
+    {"name": "width",
+     "init": "isFinite(containerSize()[0]) ? containerSize()[0] : 900",
+     "on": [{"events": "window:resize", "update": "isFinite(containerSize()[0]) ? containerSize()[0] : 900"}]},
+    {"name": "height",
+     "init": "isFinite(containerSize()[1]) ? containerSize()[1] - 36 : 420",
+     "on": [{"events": "window:resize", "update": "isFinite(containerSize()[1]) ? containerSize()[1] - 36 : 420"}]},
+
+    {"name": "baseScale", "update": "min(width / 5.42, height / 2.64)"},
+
+    {"name": "zoom", "value": 1,
+     "on": [
+       {"events": {"type": "wheel", "consume": true, "filter": "event.ctrlKey || event.metaKey"},
+        "update": "clamp(zoom * pow(1.002, -event.deltaY * pow(16, event.deltaMode)), 1, 8)"},
+       {"events": "dblclick", "update": "1"}
+     ]},
+
+    {"name": "down", "value": null,
+     "on": [
+       {"events": "mousedown", "update": "[x(), y(), panX, panY]"},
+       {"events": "window:mouseup", "update": "null"}
+     ]},
+
+    {"name": "panX", "value": 0,
+     "on": [
+       {"events": {"source": "window", "type": "mousemove",
+                   "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]},
+        "update": "clamp(down[2] + (x() - down[0]) / zoom, -(zoom - 1) * width / (2 * zoom), (zoom - 1) * width / (2 * zoom))"},
+       {"events": {"signal": "zoom"},
+        "update": "clamp(panX, -(zoom - 1) * width / (2 * zoom), (zoom - 1) * width / (2 * zoom))"},
+       {"events": "dblclick", "update": "0"}
+     ]},
+
+    {"name": "panY", "value": 0,
+     "on": [
+       {"events": {"source": "window", "type": "mousemove",
+                   "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]},
+        "update": "clamp(down[3] + (y() - down[1]) / zoom, -(zoom - 1) * height / (2 * zoom), (zoom - 1) * height / (2 * zoom))"},
+       {"events": {"signal": "zoom"},
+        "update": "clamp(panY, -(zoom - 1) * height / (2 * zoom), (zoom - 1) * height / (2 * zoom))"},
+       {"events": "dblclick", "update": "0"}
+     ]},
+
+    {"name": "mapCursor", "update": "down ? 'grabbing' : (zoom > 1 ? 'grab' : 'default')"}
+  ],
+
+  "data": [
+    {"name": "world",
+     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
+     "format": {"type": "topojson", "feature": "countries"}},
+
+    {"name": "features",
+     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart11.geojson",
+     "format": {"type": "json", "property": "features"},
+     "transform": [
+       {"type": "filter", "expr": "datum.properties.draw === drawSel"},
+       {"type": "formula", "expr": "toNumber(datum.properties.distance_km)", "as": "dist"},
+       {"type": "formula", "expr": "toNumber(datum.properties.seed)", "as": "seed"},
+       {"type": "joinaggregate", "groupby": ["properties.kind"],
+        "fields": ["dist", "dist"], "ops": ["max", "min"], "as": ["maxd", "mind"]},
+       {"type": "formula",
+        "expr": "datum.dist === datum.maxd ? 'Furthest' : (datum.dist === datum.mind ? 'Shortest' : 'Other')",
+        "as": "status"}
+     ]},
+
+    {"name": "arcsOther", "source": "features",
+     "transform": [{"type": "filter", "expr": "datum.properties.kind === 'arc' && datum.status === 'Other'"}]},
+    {"name": "arcsHighlight", "source": "features",
+     "transform": [{"type": "filter", "expr": "datum.properties.kind === 'arc' && datum.status !== 'Other'"}]},
+    {"name": "origins", "source": "features",
+     "transform": [{"type": "filter", "expr": "datum.properties.kind === 'origin'"}]},
+
+    {"name": "melbourne", "values": [{"lat": -37.81, "lon": 144.96, "label": "Melbourne"}]}
+  ],
+
+  "projections": [
+    {"name": "projection", "type": "equalEarth", "rotate": [-134, 0, 0],
+     "scale": {"signal": "baseScale * zoom"},
+     "translate": {"signal": "[width / 2 + panX * zoom, height / 2 + panY * zoom]"}}
+  ],
+
+  "scales": [
+    {"name": "seedOpacity", "type": "linear", "domain": [1, 10], "range": [1, 0.3], "clamp": true},
+    {"name": "highlight", "type": "ordinal", "domain": ["Furthest", "Shortest"], "range": ["#7b3fe4", "#2ca02c"]},
+    {"name": "originFill", "type": "ordinal", "domain": ["Furthest", "Shortest", "Other"],
+     "range": ["#7b3fe4", "#2ca02c", "#1f4e8c"]}
+  ],
+
+  "legends": [
+    {"opacity": "seedOpacity", "title": "Seed (higher arc = higher seed)", "titleLimit": 320,
+     "orient": "bottom-left", "direction": "horizontal", "values": [1, 4, 7, 10],
+     "symbolType": "stroke", "symbolStrokeColor": "#1f4e8c", "symbolStrokeWidth": 2.5,
+     "fillColor": "rgba(255,255,255,0.85)", "padding": 6, "offset": 6},
+    {"stroke": "highlight", "title": "Highlighted",
+     "orient": "bottom-right", "direction": "horizontal",
+     "symbolType": "stroke", "symbolStrokeWidth": 4,
+     "fillColor": "rgba(255,255,255,0.85)", "padding": 6, "offset": 6,
+     "encode": {"labels": {"update": {
+       "text": {"signal": "datum.value === 'Furthest' ? 'Furthest travel' : 'Shortest travel'"}}}}}
+  ],
+
+  "marks": [
+    {
+      "type": "group",
+      "encode": {"update": {
+        "x": {"value": 0}, "y": {"value": 0},
+        "width": {"signal": "width"}, "height": {"signal": "height"},
+        "clip": {"value": true}
+      }},
+      "marks": [
+        {"type": "shape", "from": {"data": "world"},
+         "encode": {"update": {
+           "fill": {"value": "#e9edf2"}, "stroke": {"value": "white"}, "strokeWidth": {"value": 0.4},
+           "cursor": {"signal": "mapCursor"}}},
+         "transform": [{"type": "geoshape", "projection": "projection"}]},
+
+        {"type": "shape", "from": {"data": "arcsOther"},
+         "encode": {"update": {
+           "fill": {"value": null},
+           "stroke": {"value": "#1f4e8c"}, "strokeWidth": {"value": 2.5}, "strokeCap": {"value": "round"},
+           "strokeOpacity": {"scale": "seedOpacity", "field": "seed"},
+           "cursor": {"signal": "mapCursor"},
+           "tooltip": {"signal": "{'Player': datum.properties.name, 'Country': datum.properties.country, 'Seed': datum.properties.seed, 'Ranking': datum.properties.rank, 'Distance to Melbourne (km)': format(datum.dist, ',')}"}}},
+         "transform": [{"type": "geoshape", "projection": "projection"}]},
+
+        {"type": "shape", "from": {"data": "arcsHighlight"},
+         "encode": {"update": {
+           "fill": {"value": null},
+           "stroke": {"scale": "highlight", "field": "status"}, "strokeWidth": {"value": 4}, "strokeCap": {"value": "round"},
+           "cursor": {"signal": "mapCursor"},
+           "tooltip": {"signal": "{'Highlight': datum.status, 'Player': datum.properties.name, 'Country': datum.properties.country, 'Seed': datum.properties.seed, 'Ranking': datum.properties.rank, 'Distance to Melbourne (km)': format(datum.dist, ',')}"}}},
+         "transform": [{"type": "geoshape", "projection": "projection"}]},
+
+        {"type": "shape", "from": {"data": "origins"},
+         "encode": {"update": {
+           "fill": {"scale": "originFill", "field": "status"},
+           "fillOpacity": [
+             {"test": "datum.status !== 'Other'", "value": 1},
+             {"scale": "seedOpacity", "field": "seed"}
+           ],
+           "stroke": {"value": "white"}, "strokeWidth": {"value": 1},
+           "cursor": {"signal": "mapCursor"},
+           "tooltip": {"signal": "{'Player': datum.properties.name, 'Country': datum.properties.country, 'Seed': datum.properties.seed, 'Ranking': datum.properties.rank, 'Distance to Melbourne (km)': format(datum.dist, ','), 'Origin (capital)': datum.properties.origin_city}"}}},
+         "transform": [{"type": "geoshape", "projection": "projection", "pointRadius": 5}]},
+
+        {"type": "symbol", "from": {"data": "melbourne"},
+         "encode": {"update": {
+           "shape": {"value": "diamond"}, "size": {"value": 160},
+           "fill": {"value": "#d62728"}, "stroke": {"value": "white"}, "strokeWidth": {"value": 1.5},
+           "cursor": {"signal": "mapCursor"},
+           "tooltip": {"signal": "{'Destination': datum.label}"}}},
+         "transform": [{"type": "geopoint", "projection": "projection", "fields": ["datum.lon", "datum.lat"]}]},
+
+        {"type": "text", "from": {"data": "melbourne"},
+         "encode": {"update": {
+           "text": {"field": "label"},
+           "dx": {"value": -26}, "dy": {"value": 16},
+           "fontSize": {"value": 12}, "fontWeight": {"value": "bold"},
+           "fill": {"value": "#d62728"}}},
+         "transform": [{"type": "geopoint", "projection": "projection", "fields": ["datum.lon", "datum.lat"]}]}
+      ]
+    }
+  ]
+}

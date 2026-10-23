@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "C6. Seed vs Total Games Played \u2014 Australian Open (Main Draw)",
   "description": "Scatterplot of each player's tournament seed (including Q for qualifiers and WC for wildcards as unseeded categories) against total games played across their Main Draw matches. Qualifying-round matches are excluded.",
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/ao_2026.csv",

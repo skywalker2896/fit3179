@@ -11,9 +11,10 @@ const chartConfigs = [
   { id: "chart8", spec: "js/chart8.vl.json" },
   { id: "chart9", spec: "js/chart9.vl.json" },
   { id: "chart10", spec: "js/chart10.vl.json" },
-  { id: "chart11", spec: "js/chart11.vl.json" },
+  { id: "chart11", spec: "js/chart11.vg.json" },
   { id: "chart12", spec: "js/chart12.vl.json" },
-  { id: "chart13", spec: "js/chart12.vg.json" }
+  { id: "chart13", spec: "js/chart13.vg.json" },
+  { id: "chart14", spec: "js/chart14.vl.json" }
   // { id: "chart3", spec: "js/chart3.vl.json" }, // C3 · ...
 ];
  

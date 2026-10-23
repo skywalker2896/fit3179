@@ -1,59 +1,157 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Semi-finalists compared: serve stats and rank",
-    "subtitle": "Aces, double faults and break points saved are from each player's semi-final match",
-    "fontSize": 14, "anchor": "start", "offset": 14
-  },
-  "description": "Grouped bar chart of the four Australian Open semi-finalists in the selected year and draw, compared on aces, double faults, break points saved and ranking.",
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart12.csv",
-    "format": {"type": "csv"}
+    "format": {
+      "type": "csv"
+    }
   },
   "params": [
     {
-      "name": "SelectedEvent", "value": "Men's Singles",
-      "bind": {"input": "select", "options": ["Men's Singles", "Women's Singles"], "name": "Draw: "}
+      "name": "SelectedEvent",
+      "value": "Men's Singles",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Men's Singles",
+          "Women's Singles"
+        ],
+        "name": "Draw: "
+      }
     },
     {
-      "name": "SelectedYear", "value": 2025,
-      "bind": {"input": "select", "options": [2025,2024,2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000], "name": "Year: "}
+      "name": "SelectedStat",
+      "value": "Aces",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "Aces",
+          "Double faults",
+          "Break points saved",
+          "Rank"
+        ],
+        "name": "Stat: "
+      }
     }
   ],
   "transform": [
-    {"filter": "datum.event === SelectedEvent && toNumber(datum.year) === SelectedYear"},
-    {"calculate": "toNumber(datum.aces)", "as": "Aces"},
-    {"calculate": "toNumber(datum.double_faults)", "as": "Double faults"},
-    {"calculate": "toNumber(datum.bp_saved)", "as": "Break points saved"},
-    {"calculate": "toNumber(datum.rank)", "as": "Rank (lower = better)"},
-    {"fold": ["Aces", "Double faults", "Break points saved", "Rank (lower = better)"], "as": ["measure", "value"]}
+    {
+      "filter": "datum.event === SelectedEvent"
+    },
+    {
+      "calculate": "toNumber(datum.year)",
+      "as": "year"
+    },
+    {
+      "filter": "datum.year >= 2016"
+    },
+    {
+      "calculate": "SelectedStat === 'Aces' ? toNumber(datum.aces) : (SelectedStat === 'Double faults' ? toNumber(datum.double_faults) : (SelectedStat === 'Break points saved' ? toNumber(datum.bp_saved) : toNumber(datum.rank)))",
+      "as": "value"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "slot"
+        }
+      ],
+      "groupby": [
+        "year"
+      ],
+      "sort": [
+        {
+          "field": "result",
+          "order": "descending"
+        },
+        {
+          "field": "player",
+          "order": "ascending"
+        }
+      ]
+    }
   ],
   "width": "container",
-  "height": "container",
-  "mark": {"type": "bar", "cornerRadiusTopLeft": 2, "cornerRadiusTopRight": 2},
+  "height": 200,
+  "mark": {
+    "type": "bar",
+    "cornerRadiusTopLeft": 2,
+    "cornerRadiusTopRight": 2
+  },
   "encoding": {
-    "column": {
-      "field": "measure", "type": "nominal", "title": null,
-      "sort": ["Aces", "Double faults", "Break points saved", "Rank (lower = better)"],
-      "header": {"labelOrient": "bottom", "labelFontSize": 12, "labelFontWeight": "bold", "labelPadding": 6}
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 11
+      }
     },
-    "x": {"field": "player", "type": "nominal", "axis": null, "sort": {"field": "result"}},
-    "y": {"field": "value", "type": "quantitative", "title": null, "axis": {"tickMinStep": 1}},
+    "xOffset": {
+      "field": "slot",
+      "type": "nominal"
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": null,
+      "axis": {
+        "tickMinStep": 1
+      }
+    },
     "color": {
-      "field": "player", "type": "nominal", "title": "Semi-finalist",
-      "scale": {"range": ["#0c2b5e", "#2171b5", "#e6550d", "#fd8d3c"]},
-      "legend": {"orient": "top", "direction": "horizontal", "labelFontSize": 11, "titleFontSize": 11}
+      "field": "result",
+      "type": "nominal",
+      "title": "Semi-final result",
+      "scale": {
+        "domain": [
+          "Won semi-final",
+          "Lost semi-final"
+        ],
+        "range": [
+          "#0c2b5e",
+          "#e6550d"
+        ]
+      },
+      "legend": {
+        "orient": "top",
+        "direction": "horizontal"
+      }
     },
     "tooltip": [
-      {"field": "player", "type": "nominal", "title": "Player"},
-      {"field": "result", "type": "nominal", "title": "Result"},
-      {"field": "measure", "type": "nominal", "title": "Measure"},
-      {"field": "value", "type": "quantitative", "title": "Value"}
+      {
+        "field": "player",
+        "type": "nominal",
+        "title": "Player"
+      },
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "result",
+        "type": "nominal",
+        "title": "Result"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Selected stat"
+      }
     ]
   },
-  "resolve": {"scale": {"y": "independent"}},
   "config": {
-    "view": {"stroke": null},
-    "axis": {"domain": false, "ticks": false, "labelFontSize": 10, "gridColor": "#e7e2d8"}
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 13,
+      "gridColor": "#e7e2d8"
+    }
   }
 }

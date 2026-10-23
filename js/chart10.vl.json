@@ -1,11 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "First serve points winner vs loser",
-    "subtitle": "Median first-serve points won (%)",
-    "anchor": "start",
-    "offset": 14
-  },
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart10.csv"
   },

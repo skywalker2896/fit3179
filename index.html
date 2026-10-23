@@ -53,10 +53,10 @@
 
       </section>
 
-      <nav class="story-guide" aria-label="Story guide: four sections">
+      <nav class="story-guide" aria-label="Story guide: six sections">
         <div class="story-guide-label">
           <div class="label-tag">Story Guide</div>
-          <div class="guide-note">Four stops, one tournament.</div>
+          <div class="guide-note">Six stops, one tournament.</div>
         </div>
         <ol class="story-guide-stops">
           <li class="guide-stop">
@@ -70,25 +70,49 @@
           </li>
           <li class="guide-stop">
             <a href="#section-2">
-              <span class="guide-dot" style="background:var(--guide-2)"></span>
+              <span class="guide-dot guide-dot--2" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+              </span>
               <span class="label-tag guide-stop-label">02</span>
               <span class="guide-stop-name">Global Stage</span>
             </a>
           </li>
           <li class="guide-stop">
             <a href="#section-3">
-              <span class="guide-dot" style="background:var(--guide-3)"></span>
+              <span class="guide-dot guide-dot--3" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 21V13h5v8M9.5 21V7h5v14M16 21V10h5v11M2 21h20"/></svg>
+              </span>
               <span class="label-tag guide-stop-label">03</span>
               <span class="guide-stop-name">Does Ranking Predict Performance?</span>
             </a>
           </li>
           <li class="guide-stop">
             <a href="#section-4">
-              <span class="guide-dot" style="background:var(--guide-4)"></span>
+              <span class="guide-dot guide-dot--4" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M5 5.5c3.5 3.5 3.5 9.5 0 13M19 5.5c-3.5 3.5-3.5 9.5 0 13"/></svg>
+              </span>
               <span class="label-tag guide-stop-label">04</span>
               <span class="guide-stop-name">Inside the Match</span>
             </a>
           </li>
+          <li class="guide-stop">
+            <a href="#section-5">
+              <span class="guide-dot guide-dot--5" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+              </span>
+              <span class="label-tag guide-stop-label">05</span>
+              <span class="guide-stop-name">Multi-Stat Profile</span>
+            </a>
+          </li>
+          <li class="guide-stop">
+          <a href="#section-6">
+            <span class="guide-dot guide-dot--6" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-9M15 6h6v6"/></svg>
+            </span>
+            <span class="label-tag guide-stop-label">06</span>
+            <span class="guide-stop-name">The Long View</span>
+          </a>
+        </li>
         </ol>
       </nav>
     </header>
@@ -151,7 +175,9 @@
 
     <div class="caption">
     <p>
-        Some caption
+        From local beginnings to a global stage: Explore which countries have 
+        contributed the most players to the Australian Open, and how widely participation extends across the world. 
+        The map shows the distribution of where players are from across the globe.
     </p>
     </div>
 
@@ -160,56 +186,40 @@
         <div class="chart-header">
           <span class="tag">Figure 04 · Proportional Symbol Map</span>
           <h1>AO Titles by Country</h1>
+          <p class="chart-hint">
+        <strong>Explore the map:</strong> hold <kbd>Ctrl</kbd> (or <kbd>⌘</kbd> on Mac) and scroll to zoom,
+          drag to move around, double-click to reset. Hover a circle for details.
+        </p>
         </div>
+        
         <div id="chart4" class="chart-vis--map placeholder-chart"></div>
         <div class="chart-footer">Source: Tennis My Life</div>
       </div>
     </section>
 
+    <div class="caption">
+    <p>
+        Tracing Australian Open champions by nationality reveals the countries that 
+        have produced the tournament's singles winners. 
+
+        From the map, Europe is the continent that produced the most champions in both Men’s and Women’s singles, 
+        followed by America. Although there are some Champions from Austrasia continents, we can also see that tennis 
+        is a predominantly Western sport even at a Grand Slam Level
+
+    </p>
+    </div>
+
     <div class="section-break" role="separator" aria-hidden="true"></div>
 
-    <section class="section-heading">
+    <section class="section-heading" id="section-3">
       <h2>Section 3 · Does Ranking Predict Performance</h2>
     </section>
- 
-    <section class="figure-grid">
-      <div class="chart-card" style="grid-column: 1 / -1;">
-        <div class="chart-header">
-          <span class="tag">Figure 05 · Scatterplot</span>
-          <h1>Seed vs Total Games Played</h1>
-        </div>
-        <div id="chart6" class="chart-vis placeholder-chart"></div>
-        <div class="chart-footer">Source: Kaggle</div>
-      </div>
-    </section>
-      
-    <section class="figure-grid">
-      <div class="chart-card" style="grid-column: 1 / -1;">
-        <div class="chart-header">
-          <span class="tag">Figure 06 · Dumbbell Plot</span>
-          <h1>Ranking Gap by Match, per Round</h1>
-        </div>
-        <div id="chart8" class="chart-vis--tall placeholder-chart"></div>
-        <div class="chart-footer">Source: Kaggle</div>
-      </div>
-    </section>  
-
-    <section class="figure-grid">
-      <div class="chart-card" style="grid-column: 1 / -1;">
-        <div class="chart-header">
-          <span class="tag">Figure 07 · Bump Chart </span>
-          <h1>Ranking Gap by Match, per Round</h1>
-        </div>
-        <div id="chart7" class="chart-vis--tall placeholder-chart"></div>
-        <div class="chart-footer">Source: Kaggle</div>
-      </div>
-    </section>  
 
     <section class="figure-grid figure-grid--two-thirds">
 
         <div class="chart-card">
         <div class="chart-header">
-          <span class="tag">Figure 08 · Heatmap Matrix</span>
+          <span class="tag">Figure 05 · Heatmap Matrix</span>
           <h1>Players Expected vs Actual Exit Round</h1>
         </div>
         <div id="chart5" class="chart-vis placeholder-chart"></div>
@@ -218,15 +228,88 @@
 
       <aside class="chart-note">
         <h2>How to read this</h2>
-        <p>Each player is placed in the column for the round their seed predicts they will reach (seeds 1–4: SF, 5–8: QF, 9–16: R16, 17–32: R32, unseeded: R1/R2) and the row for the round they actually exited.</p>
-        <p>Players in a row above their column's round outperformed their seed; players below it underperformed.</p>
+        <p>Each player is placed in the column for the round their seed predicts they will reach 
+          (seeds 1–4: SF, 5–8: QF, 9–16: R16, 17–32: R32, unseeded: R1/R2) and the row for the round they actually exited.</p>
+        <p>
+          Rankings set expectations, but tournament results tell a different story. 
+          Did the favourites live up to expectations? The diagonal represents players who performed 
+          as expected; cells away from the diagonal reveal early exits and unexpected runs.
+        </p>
       </aside>
 
     </section>
+ 
+    <section class="figure-grid">
+      <div class="chart-card" style="grid-column: 1 / -1;">
+        <div class="chart-header">
+          <span class="tag">Figure 06 · Scatterplot</span>
+          <h1>Seed vs Total Games Played 2026 Main Draw</h1>
+          <p class="chart-hint">
+        <strong>Q = Qualifier WC = Wildcard</strong>
+        </p>
+        </div>
+        <div id="chart6" class="chart-vis placeholder-chart"></div>
+        <div class="chart-footer">Source: Kaggle</div>
+      </div>
+    </section>
+
+    <div class="caption">
+    <p>
+        A player's ranking usually reflects their standings in the tournament, but how closely does it correspond with
+         on court time? The scatter plot explores the number of total games played by each player including unseeded and
+        wild card players.
+
+        Although we would expect the number 1 seed to play the most games since they are the topic to win the 
+        tournament, a highly ranked player is most likely to win in straight sets in the first 3-4 rounds.
+    </p>
+    </div>
+      
+    <section class="figure-grid">
+      <div class="chart-card" style="grid-column: 1 / -1;">
+        <div class="chart-header">
+          <span class="tag">Figure 07 · Dumbbell Plot</span>
+          <h1>Ranking Gap vs Who Wins by Round 2026</h1>
+        </div>
+        <div id="chart8" class="chart-vis--tall placeholder-chart"></div>
+        <div class="chart-footer">Source: Kaggle</div>
+      </div>
+    </section>  
+
+    <div class="caption">
+    <p>
+        Every match is a test of expectation, the crowd are more likely to support highly ranked favourites
+        than unseeded players. 
+      How often does the underdog win? This chart shows the rank gaps between matches from round 16 onwards 
+      showing interesting match ups. Revealing moments when tournament results defy expectations
+
+    </p>
+    </div>
+
+    <section class="figure-grid">
+      <div class="chart-card" style="grid-column: 1 / -1;">
+        <div class="chart-header">
+          <span class="tag">Figure 08 · Bump Chart </span>
+          <h1>Ranking Change Before vs After AO</h1>
+        </div>
+        <div id="chart7" class="chart-vis--tall placeholder-chart"></div>
+        <div class="chart-footer">Source: Kaggle</div>
+      </div>
+    </section>  
+
+    <div class="caption">
+    <p>
+        Every match is a test of expectation, the crowd are more likely to support highly ranked favourites
+        than unseeded players. 
+      How often does the underdog win? This chart shows the rank gaps between matches from round 16 onwards 
+      showing interesting match ups. Revealing moments when tournament results defy expectations
+
+    </p>
+    </div>
+
 
     <div class="section-break" role="separator" aria-hidden="true"></div>
 
-    <section class="section-heading">
+    <section class="section-heading" id="section-4">
       <h2>Section 4 · Inside the Match</h2>
     </section>
 
@@ -234,25 +317,37 @@
       <div class="chart-card">
         <div class="chart-header">
           <span class="tag">Figure 09 · Ridgeline Plot</span>
+          <h1>Density of Total Matches</h1>
         </div>
         <div id="chart9" class="chart-vis placeholder-chart"></div>
-        <div class="chart-footer">Source: </div>
+        <div class="chart-footer">Source: Tennis My Life</div>
       </div>
 
       <div class="chart-card">
         <div class="chart-header">
-          <span class="tag">Figure 10 · Violin Plot</span>
+          <span class="tag">Figure 10 · Multiline Plot</span>
+          <h1>1st Serve Points Winners vs Loswers</h1>
         </div>
         <div id="chart10" class="chart-vis placeholder-chart"></div>
         <div class="chart-footer">Source: Kaggle</div>
       </div>
     </section>
 
+    <div class="caption">
+    <p>
+        Some Caption
+    </p>
+    </div>
+
     <section class="figure-grid">
       <div class="chart-card" style="grid-column: 1 / -1;">
         <div class="chart-header">
-          <span class="tag">Figure 011 · Arc Map</span>
+          <span class="tag">Figure 11 · Arc Map</span>
           <h1>Top 10 Seeded Players Travel Distance</h1>
+          <p class="chart-hint">
+        <strong>Explore the map:</strong> hold <kbd>Ctrl</kbd> (or <kbd>⌘</kbd> on Mac) and scroll to zoom,
+          drag to move around, double-click to reset. Hover a circle for details.
+        </p>
         </div>
         <div id="chart11" class="chart-vis--tall placeholder-chart"></div>
         <div class="chart-footer">Source: Tennis My Life</div>
@@ -260,28 +355,43 @@
     </section>
     </section>
 
-    <section class="section-heading">
+    <section class="section-heading" id="section-5">
       <h2>Section 5 · Multi Stat Profile</h2>
     </section>
-
-    <!-- <section class="figure-grid">
-      <div class="chart-card" style="grid-column: 1 / -1;">
-        <div class="chart-header">
-          <span class="tag">Figure 12 · Arc Map</span>
-          <h1>Top 10 Seeded Players Travel Distance</h1>
-        </div>
-        <div id="chart12" class="chart-vis placeholder-chart"></div>
-        <div class="chart-footer">Source: Tennis My Life</div>
-      </div>
-    </section> -->
 
     <section class="figure-grid">
       <div class="chart-card" style="grid-column: 1 / -1;">
         <div class="chart-header">
-          <span class="tag">Figure 13 · Multiples</span>
-          <h1>Top 10 Seeded Players Travel Distance</h1>
+          <span class="tag">Figure 12 · Multi Bar Chart</span>
+          <h1>Semifinalist Match Statistics</h1>
+        </div>
+        <div id="chart12" class="chart-vis placeholder-chart"></div>
+        <div class="chart-footer">Source: Tennis My Life</div>
+      </div>
+    </section>
+
+    <section class="figure-grid">
+      <div class="chart-card" style="grid-column: 1 / -1;">
+        <div class="chart-header">
+          <span class="tag">Figure 13 · Sankey Diagram</span>
+          <h1>Tournament Advancement Seeded vs Unseeded</h1>
         </div>
         <div id="chart13" class="chart-vis--tall placeholder-chart"></div>
+        <div class="chart-footer">Source: Tennis My Life</div>
+      </div>
+    </section>
+
+    <section class="section-heading" id="section-6">
+      <h2>Section 6 · Takeaway</h2>
+    </section>
+
+    <section class="figure-grid">
+      <div class="chart-card" style="grid-column: 1 / -1;">
+        <div class="chart-header">
+          <span class="tag">Figure 14 · Tile Map</span>
+          <h1>Tournament Advancement Seeded vs Unseeded</h1>
+        </div>
+        <div id="chart14" class="chart-vis--map placeholder-chart"></div>
         <div class="chart-footer">Source: Tennis My Life</div>
       </div>
     </section>

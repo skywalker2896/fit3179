@@ -1,11 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Sankey diagram of how the Australian Open 2026 men's singles field thinned out round by round, split into seed groups. Flow width equals the number of players who advanced.",
-  "autosize": {
-    "type": "fit-x",
-    "contains": "padding"
-  },
-  "height": 400,
+  "autosize": "pad",
+  "height": 350,
   "padding": {
     "left": 100,
     "right": 130,
@@ -15,11 +12,11 @@
   "signals": [
     {
       "name": "width",
-      "init": "isFinite(containerSize()[0]) ? containerSize()[0] - 230 : 640",
+      "init": "max(420, (isFinite(windowSize()[0]) ? min(windowSize()[0] - 130, 900) : 900) - 230)",
       "on": [
         {
           "events": "window:resize",
-          "update": "isFinite(containerSize()[0]) ? containerSize()[0] - 230 : 640"
+          "update": "max(420, (isFinite(windowSize()[0]) ? min(windowSize()[0] - 130, 900) : 900) - 230)"
         }
       ]
     },
@@ -79,12 +76,12 @@
         {
           "type": "formula",
           "as": "tier",
-          "expr": "(!isValid(datum.seed) || datum.seed === '' || isNaN(+datum.seed)) ? 'Unseeded' : (+datum.seed <= 8 ? 'Seeds 1–8' : (+datum.seed <= 16 ? 'Seeds 9–16' : 'Seeds 17–32'))"
+          "expr": "(!isValid(datum.seed) || datum.seed === '' || isNaN(+datum.seed)) ? 'Unseeded' : (+datum.seed <= 8 ? 'Seeds 1-8' : (+datum.seed <= 16 ? 'Seeds 9-16' : 'Seeds 17-32'))"
         },
         {
           "type": "formula",
           "as": "tier_idx",
-          "expr": "indexof(['Seeds 1-8', 'Seeds 9-16', 'Seeds 17-32', 'Unseeded'], datum.tier)"
+          "expr": "(!isValid(datum.seed) || datum.seed === '' || isNaN(+datum.seed)) ? 3 : (+datum.seed <= 8 ? 0 : (+datum.seed <= 16 ? 1 : 2))"
         },
         {
           "type": "formula",
@@ -129,12 +126,12 @@
         {
           "type": "formula",
           "as": "tier",
-          "expr": "(!isValid(datum.seed) || datum.seed === '' || isNaN(+datum.seed)) ? 'Unseeded' : (+datum.seed <= 8 ? 'Seeds 1–8' : (+datum.seed <= 16 ? 'Seeds 9–16' : 'Seeds 17–32'))"
+          "expr": "(!isValid(datum.seed) || datum.seed === '' || isNaN(+datum.seed)) ? 'Unseeded' : (+datum.seed <= 8 ? 'Seeds 1-8' : (+datum.seed <= 16 ? 'Seeds 9-16' : 'Seeds 17-32'))"
         },
         {
           "type": "formula",
           "as": "tier_idx",
-          "expr": "indexof(['Seeds 1-8', 'Seeds 9-16', 'Seeds 17-32', 'Unseeded'], datum.tier)"
+          "expr": "(!isValid(datum.seed) || datum.seed === '' || isNaN(+datum.seed)) ? 3 : (+datum.seed <= 8 ? 0 : (+datum.seed <= 16 ? 1 : 2))"
         },
         {
           "type": "formula",
@@ -303,9 +300,9 @@
       "name": "color",
       "type": "ordinal",
       "domain": [
-        "Seeds 1–8",
-        "Seeds 9–16",
-        "Seeds 17–32",
+        "Seeds 1-8",
+        "Seeds 9-16",
+        "Seeds 17-32",
         "Unseeded"
       ],
       "range": [
@@ -319,7 +316,7 @@
   "legends": [
     {
       "fill": "color",
-      "title": "seed",
+      "title": "Seed group",
       "orient": "none",
       "direction": "horizontal",
       "legendX": 0,

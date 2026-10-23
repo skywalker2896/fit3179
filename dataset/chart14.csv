@@ -1,0 +1,79 @@
+iso_a3,country,players,sf_players,titles,tile_x,tile_y
+USA,"United States of America",161,17,15,216,81
+AUS,"Australia",111,3,1,675,270
+FRA,"France",108,6,1,405,81
+ESP,"Spain",79,7,2,378,81
+DEU,"Germany",74,5,1,432,54
+RUS,"Russia",72,10,2,540,27
+CZE,"Czechia",63,6,0,432,81
+ITA,"Italy",59,2,2,405,54
+ARG,"Argentina",55,1,0,270,297
+CHN,"China",32,3,1,621,81
+GBR,"United Kingdom",32,3,0,378,54
+JPN,"Japan",31,1,2,675,108
+SVK,"Slovakia",29,2,0,459,54
+NLD,"Netherlands",27,0,0,405,27
+BEL,"Belgium",26,3,2,432,27
+UKR,"Ukraine",25,1,0,459,81
+CHE,"Switzerland",24,4,7,405,108
+ROU,"Romania",24,1,0,459,108
+CAN,"Canada",23,2,0,243,54
+AUT,"Austria",22,1,0,459,27
+HRV,"Croatia",22,2,0,432,108
+SRB,"Republic of Serbia",21,3,10,486,81
+SWE,"Sweden",19,2,1,432,0
+HUN,"Hungary",18,0,0,486,54
+BRA,"Brazil",17,0,0,270,243
+KAZ,"Kazakhstan",16,1,0,513,54
+BLR,"Belarus",14,2,4,486,27
+POL,"Poland",14,3,0,459,0
+SVN,"Slovenia",14,0,0,378,108
+PRT,"Portugal",10,0,0,351,81
+ZAF,"South Africa",10,1,0,459,297
+ISR,"Israel",9,0,0,486,108
+TWN,"Taiwan",9,0,0,648,135
+CHL,"Chile",8,1,0,243,297
+COL,"Colombia",8,1,0,243,189
+DNK,"Denmark",8,1,1,378,27
+BGR,"Bulgaria",6,1,0,459,135
+IND,"India",6,0,0,567,135
+KOR,"South Korea",6,1,0,648,108
+MAR,"Morocco",6,0,0,378,135
+THA,"Thailand",5,0,0,621,162
+EST,"Estonia",4,0,0,405,0
+FIN,"Finland",4,0,0,486,0
+GEO,"Georgia",4,0,0,513,81
+GRC,"Greece",4,1,0,432,135
+LUX,"Luxembourg",4,0,0,351,54
+TUN,"Tunisia",4,0,0,405,135
+ZWE,"Zimbabwe",4,0,0,459,243
+BIH,"Bosnia and Herzegovina",3,0,0,486,135
+LVA,"Latvia",3,0,0,378,0
+MEX,"Mexico",3,0,0,189,135
+NZL,"New Zealand",3,0,0,729,324
+PER,"Peru",3,0,0,243,216
+PRY,"Paraguay",3,0,0,270,270
+TUR,"Turkey",3,0,0,513,108
+UZB,"Uzbekistan",3,0,0,540,81
+ARM,"Armenia",2,0,0,513,135
+ECU,"Ecuador",2,0,0,216,216
+EGY,"Egypt",2,0,0,459,162
+IDN,"Indonesia",2,0,0,648,189
+MDA,"Moldova",2,0,0,513,27
+PRI,"Puerto Rico",2,0,0,243,135
+VEN,"Venezuela",2,0,0,270,189
+BOL,"Bolivia",1,0,0,243,243
+CRI,"Costa Rica",1,0,0,216,162
+CYP,"Cyprus",1,1,0,486,162
+DOM,"Dominican Republic",1,0,0,243,162
+HTI,"Haiti",1,0,0,216,135
+IRL,"Ireland",1,0,0,351,27
+JAM,"Jamaica",1,0,0,270,135
+LBN,"Lebanon",1,0,0,540,108
+LTU,"Lithuania",1,0,0,432,-27
+MCO,"MCO",1,0,0,351,108
+MDG,"Madagascar",1,0,0,513,270
+MNE,"Montenegro",1,0,0,432,162
+NOR,"Norway",1,0,0,405,-27
+PHL,"Philippines",1,0,0,675,162
+URY,"Uruguay",1,0,0,297,297

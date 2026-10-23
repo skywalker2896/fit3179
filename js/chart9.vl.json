@@ -1,13 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Men's best-of-5 format creates a second peak that women's matches lack",
-    "subtitle": {
-      "expr": "'Total games per completed match, AO 2015–2026 · ' + ['All rounds','Round 1','Round 2','Round 3','Round of 16','Quarter-final','Semi-final','Final'][roundIdx]"
-    },
-    "anchor": "start",
-    "offset": 14
-  },
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart9.csv"
   },

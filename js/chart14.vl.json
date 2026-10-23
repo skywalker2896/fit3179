@@ -1,0 +1,64 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Tile grid map: each square is a country placed near its real position over a faint world.json base map. Colour shows how many distinct players from that country reached an Australian Open singles semi-final (2000-2025); grey tiles had players but no semi-finalists.",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "equalEarth", "scale": 147.785, "translate": [400, 200]},
+  "config": {"view": {"stroke": null}},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
+        "format": {"type": "topojson", "feature": "countries"}
+      },
+      "mark": {"type": "geoshape", "fill": "#eef1f4", "stroke": "white", "strokeWidth": 0.5}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart14.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {"calculate": "toNumber(datum.players)", "as": "players"},
+        {"calculate": "toNumber(datum.sf_players)", "as": "sf_players"},
+        {"calculate": "toNumber(datum.titles)", "as": "titles"},
+        {"calculate": "toNumber(datum.tile_x)", "as": "tx"},
+        {"calculate": "toNumber(datum.tile_y)", "as": "ty"},
+        {"calculate": "datum.sf_players === 0 ? '0' : datum.sf_players <= 2 ? '1-2' : datum.sf_players <= 5 ? '3-5' : datum.sf_players <= 10 ? '6-10' : '11+'", "as": "sf_band"}
+      ],
+      "encoding": {
+        "x": {"field": "tx", "type": "quantitative", "scale": null},
+        "y": {"field": "ty", "type": "quantitative", "scale": null}
+      },
+      "layer": [
+        {
+          "mark": {"type": "square", "size": 600, "stroke": "white", "strokeWidth": 1.5},
+          "encoding": {
+            "color": {
+              "field": "sf_band", "type": "ordinal",
+              "title": "Semi-finalists (2000-2025)",
+              "scale": {
+                "domain": ["0", "1-2", "3-5", "6-10", "11+"],
+                "range": ["#d6d1c8", "#9ecae1", "#4292c6", "#08519c", "#08306b"]
+              },
+              "legend": {"orient": "bottom", "direction": "horizontal", "titleLimit": 260}
+            },
+            "tooltip": [
+              {"field": "country", "type": "nominal", "title": "Country"},
+              {"field": "players", "type": "quantitative", "title": "Players in main draw"},
+              {"field": "sf_players", "type": "quantitative", "title": "Players reaching semi-final"},
+              {"field": "titles", "type": "quantitative", "title": "Titles (both draws)"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "text", "fontSize": 9, "fontWeight": "bold"},
+          "encoding": {
+            "text": {"field": "iso_a3", "type": "nominal"},
+            "color": {"condition": {"test": "datum.sf_players >= 3", "value": "white"}, "value": "#1b1f24"}
+          }
+        }
+      ]
+    }
+  ]
+}

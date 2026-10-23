@@ -1,11 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Top seeds travel up to 17,000 km to reach Melbourne",
-    "subtitle": "Home country to Melbourne for the top 10 seeds, Australian Open 2026 (taller, darker arc = higher seed)",
-    "anchor": "start",
-    "offset": 14
-  },
+
   "width": "container",
   "height": "container",
   "autosize": {
