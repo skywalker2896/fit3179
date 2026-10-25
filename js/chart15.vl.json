@@ -1,0 +1,256 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Rankings call about 7 in 10 matches, more reliably for men than for women",
+    "subtitle": "% of singles matches won by the higher-ranked player, by round (Australian Open 2000\u20132025)",
+    "anchor": "start",
+    "offset": 14,
+    "fontSize": 14,
+    "subtitleFontSize": 11
+  },
+  "description": "Small-multiples line chart: share of matches won by the higher-ranked player in each round, for men and women, split into two eras. The dashed line at 50% is a coin flip.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart15.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "toNumber(datum.matches)",
+      "as": "matches"
+    },
+    {
+      "calculate": "toNumber(datum.higher_ranked_wins)",
+      "as": "wins"
+    },
+    {
+      "calculate": "toNumber(datum.pct_higher_wins)",
+      "as": "pct"
+    }
+  ],
+  "spacing": 24,
+  "facet": {
+    "column": {
+      "field": "era",
+      "type": "ordinal",
+      "title": null,
+      "sort": [
+        "2000-12",
+        "2013-25"
+      ],
+      "header": {
+        "labelFontSize": 12,
+        "labelFontWeight": "bold",
+        "labelOrient": "top"
+      }
+    }
+  },
+  "spec": {
+    "layer": [
+      {
+        "mark": {
+          "type": "rule",
+          "strokeDash": [
+            4,
+            4
+          ],
+          "color": "#6b6459"
+        },
+        "encoding": {
+          "y": {
+            "datum": 50,
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                40,
+                100
+              ],
+              "zero": false
+            }
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "text": "coin flip",
+          "dx": 0,
+          "dy": 12,
+          "fontSize": 10,
+          "color": "#6b6459",
+          "align": "right"
+        },
+        "encoding": {
+          "x": {
+            "value": 354
+          },
+          "y": {
+            "datum": 50,
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                40,
+                100
+              ],
+              "zero": false
+            }
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "strokeWidth": 2.5
+        },
+        "encoding": {
+          "x": {
+            "field": "round",
+            "type": "ordinal",
+            "title": "Round",
+            "sort": [
+              "R128",
+              "R64",
+              "R32",
+              "R16",
+              "QF",
+              "SF",
+              "F"
+            ],
+            "axis": {
+              "labelAngle": 0,
+              "labelFontSize": 10
+            }
+          },
+          "y": {
+            "field": "pct",
+            "type": "quantitative",
+            "title": "Higher-ranked player wins (%)",
+            "scale": {
+              "domain": [
+                40,
+                100
+              ],
+              "zero": false
+            },
+            "axis": {
+              "values": [
+                40,
+                50,
+                60,
+                70,
+                80,
+                90,
+                100
+              ]
+            }
+          },
+          "color": {
+            "field": "tour",
+            "type": "nominal",
+            "title": "Tour",
+            "scale": {
+              "domain": [
+                "Men",
+                "Women"
+              ],
+              "range": [
+                "#2171b5",
+                "#e6550d"
+              ]
+            },
+            "legend": {
+              "orient": "bottom",
+              "direction": "horizontal"
+            }
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "point",
+          "filled": true,
+          "size": 60,
+          "opacity": 1
+        },
+        "encoding": {
+          "x": {
+            "field": "round",
+            "type": "ordinal",
+            "sort": [
+              "R128",
+              "R64",
+              "R32",
+              "R16",
+              "QF",
+              "SF",
+              "F"
+            ]
+          },
+          "y": {
+            "field": "pct",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                40,
+                100
+              ],
+              "zero": false
+            }
+          },
+          "color": {
+            "field": "tour",
+            "type": "nominal",
+            "legend": null
+          },
+          "tooltip": [
+            {
+              "field": "tour",
+              "type": "nominal",
+              "title": "Tour"
+            },
+            {
+              "field": "era",
+              "type": "nominal",
+              "title": "Years"
+            },
+            {
+              "field": "round",
+              "type": "nominal",
+              "title": "Round"
+            },
+            {
+              "field": "pct",
+              "type": "quantitative",
+              "title": "Higher-ranked won (%)"
+            },
+            {
+              "field": "wins",
+              "type": "quantitative",
+              "title": "Higher-ranked wins"
+            },
+            {
+              "field": "matches",
+              "type": "quantitative",
+              "title": "Matches"
+            }
+          ]
+        }
+      }
+    ],
+    "width": 360,
+    "height": 260
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "ticks": false,
+      "gridColor": "#e7e2d8",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    }
+  }
+}

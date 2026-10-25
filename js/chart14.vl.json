@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Tile grid map: each square is a country placed near its real position over a faint world.json base map. Colour shows how many distinct players from that country reached an Australian Open singles semi-final (2000-2025); grey tiles had players but no semi-finalists.",
-  "width": 800,
-  "height": 400,
+  "width": "container",
+  "height": "container",
   "projection": {"type": "equalEarth", "scale": 147.785, "translate": [400, 200]},
   "config": {"view": {"stroke": null}},
   "layer": [

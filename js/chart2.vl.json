@@ -1,48 +1,193 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart2.csv",
-    "format": {"type": "csv"}
+    "url": "https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/data/ao_attendance_20yr.csv",
+    "format": {
+      "type": "csv"
+    }
   },
   "transform": [
-    {"calculate": "toNumber(datum.attendance)", "as": "attendance"},
-    {"calculate": "toNumber(datum.year)", "as": "year"},
-    {"calculate": "isValid(datum.note) ? trim(datum.note) : ''", "as": "note"}
+    {
+      "calculate": "toNumber(datum.attendance)",
+      "as": "attendance"
+    },
+    {
+      "calculate": "toNumber(datum.year)",
+      "as": "year"
+    }
   ],
   "layer": [
     {
-      "mark": {"type": "line", "color": "#0c2b5e", "point": {"filled": true, "size": 40}},
+      "mark": {
+        "type": "line",
+        "color": "#0c2b5e",
+        "point": {
+          "filled": true,
+          "size": 40
+        }
+      },
       "encoding": {
         "x": {
-          "field": "year", "type": "ordinal", "title": "Year",
-          "axis": {"labelAngle": -55, "labelFontSize": 10, "labelOverlap": "greedy"}
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {
+            "labelAngle": -55,
+            "labelFontSize": 10,
+            "labelOverlap": "greedy"
+          }
         },
-        "y": {"field": "attendance", "type": "quantitative", "title": "Total attendance", "axis": {"format": "~s"}},
+        "y": {
+          "field": "attendance",
+          "type": "quantitative",
+          "title": "Total attendance",
+          "axis": {
+            "format": "~s"
+          }
+        },
         "tooltip": [
-          {"field": "year", "type": "ordinal", "title": "Year"},
-          {"field": "attendance", "type": "quantitative", "title": "Attendance", "format": ","},
-          {"field": "note", "type": "nominal", "title": "Note"}
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "attendance",
+            "type": "quantitative",
+            "title": "Attendance",
+            "format": ","
+          }
         ]
       }
     },
     {
-      "transform": [{"filter": "length(datum.note) > 0"}],
-      "mark": {"type": "point", "shape": "circle", "filled": true, "size": 90, "color": "#c0392b"},
+      "transform": [
+        {
+          "filter": "datum.year === 2021 || datum.year === 2022"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "size": 90,
+        "color": "#c0392b"
+      },
       "encoding": {
-        "x": {"field": "year", "type": "ordinal"},
-        "y": {"field": "attendance", "type": "quantitative"},
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "attendance",
+          "type": "quantitative"
+        },
         "tooltip": [
-          {"field": "year", "type": "ordinal", "title": "Year"},
-          {"field": "attendance", "type": "quantitative", "title": "Attendance", "format": ","},
-          {"field": "note", "type": "nominal", "title": "Note"}
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "attendance",
+            "type": "quantitative",
+            "title": "Attendance",
+            "format": ","
+          }
         ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year === 2021"
+        },
+        {
+          "calculate": "['2021: ' + format(datum.attendance / 1000, ',.0f') + 'K', 'COVID-19 capacity limits']",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 10,
+        "color": "#c0392b",
+        "lineHeight": 12,
+        "dy": -6
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "attendance",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year === 2022"
+        },
+        {
+          "calculate": "['2022: ' + format(datum.attendance / 1000, ',.0f') + 'K', '50% capacity']",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 10,
+        "fontSize": 10,
+        "color": "#c0392b",
+        "lineHeight": 12
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "attendance",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
       }
     }
   ],
   "width": "container",
   "height": "container",
   "config": {
-    "view": {"stroke": null},
-    "axis": {"domain": false, "ticks": false, "labelFontSize": 11, "titleFontSize": 13, "grid": true, "gridColor": "#e7e2d8"}
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 13,
+      "grid": true,
+      "gridColor": "#e7e2d8"
+    }
+  },
+  "padding": {
+    "left": 5,
+    "top": 5,
+    "bottom": 5,
+    "right": 40
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
   }
 }
