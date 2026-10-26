@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Grouped bar chart of the four Australian Open semi-finalists each year, 2016-2025, for a selected stat (aces, double faults, break points saved or rank) and a selected draw.",
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart12.csv",
     "format": {
@@ -72,11 +73,13 @@
     }
   ],
   "width": "container",
-  "height": 200,
+  "height": "container",
   "mark": {
     "type": "bar",
     "cornerRadiusTopLeft": 2,
-    "cornerRadiusTopRight": 2
+    "cornerRadiusTopRight": 2,
+    "stroke": "#ffffff",
+    "strokeWidth": 1.5
   },
   "encoding": {
     "x": {

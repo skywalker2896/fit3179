@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/data/ao_attendance_20yr.csv",
+    "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart2.csv",
     "format": {
       "type": "csv"
     }

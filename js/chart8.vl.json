@@ -113,6 +113,7 @@
           "type": "quantitative",
           "title": "Seed (rank)",
           "axis": {
+            "title": "Seed (rank) \u2014 33 = unseeded",
             "values": [
               1,
               5,
@@ -188,18 +189,7 @@
           "type": "quantitative"
         },
         "color": {
-          "field": "result",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Higher-ranked player won",
-              "Lower-ranked player won"
-            ],
-            "range": [
-              "#1f77b4",
-              "#d62728"
-            ]
-          }
+          "value": "#444444"
         },
         "tooltip": [
           {
@@ -277,8 +267,8 @@
     "contains": "padding"
   },
   "padding": {
-    "left": 135,
-    "right": 135,
+    "left": 150,
+    "right": 150,
     "top": 5,
     "bottom": 5
   }

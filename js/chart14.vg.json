@@ -1,0 +1,166 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Tile grid map of Australian Open semi-finalists by country (2000-2025). Click a tile to highlight it. Drag to pan, Ctrl/Cmd + scroll to zoom, double-click to reset.",
+  "autosize": "none",
+  "padding": 0,
+
+  "signals": [
+    {"name": "width",
+     "init": "isFinite(containerSize()[0]) ? containerSize()[0] : 900",
+     "on": [{"events": "window:resize", "update": "isFinite(containerSize()[0]) ? containerSize()[0] : 900"}]},
+    {"name": "height",
+     "init": "isFinite(containerSize()[1]) ? containerSize()[1] : 370",
+     "on": [{"events": "window:resize", "update": "isFinite(containerSize()[1]) ? containerSize()[1] : 370"}]},
+
+    {"name": "baseScale", "update": "min(width / 800, height / 440) * 147.785"},
+    {"name": "k", "update": "baseScale * zoom / 147.785"},
+    {"name": "tileSide", "update": "24.5 * baseScale / 147.785 * pow(zoom, 0.6)"},
+    {"name": "labelSize", "update": "max(7, 9 * baseScale / 147.785 * pow(zoom, 0.6))"},
+
+    {"name": "zoom", "value": 1,
+     "on": [
+       {"events": {"type": "wheel", "consume": true, "filter": "event.ctrlKey || event.metaKey"},
+        "update": "clamp(zoom * pow(1.002, -event.deltaY * pow(16, event.deltaMode)), 1, 8)"},
+       {"events": "dblclick", "update": "1"}
+     ]},
+
+    {"name": "down", "value": null,
+     "on": [
+       {"events": "mousedown", "update": "[x(), y(), panX, panY]"},
+       {"events": "window:mouseup", "update": "null"}
+     ]},
+
+    {"name": "moved", "value": false,
+     "on": [
+       {"events": "mousedown", "update": "false"},
+       {"events": {"source": "window", "type": "mousemove",
+                   "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]},
+        "update": "moved || abs(x() - down[0]) > 3 || abs(y() - down[1]) > 3"}
+     ]},
+
+    {"name": "panX", "value": 0,
+     "on": [
+       {"events": {"source": "window", "type": "mousemove",
+                   "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]},
+        "update": "clamp(down[2] + (x() - down[0]) / zoom, -(zoom - 1) * width / (2 * zoom), (zoom - 1) * width / (2 * zoom))"},
+       {"events": {"signal": "zoom"},
+        "update": "clamp(panX, -(zoom - 1) * width / (2 * zoom), (zoom - 1) * width / (2 * zoom))"},
+       {"events": "dblclick", "update": "0"}
+     ]},
+
+    {"name": "panY", "value": 0,
+     "on": [
+       {"events": {"source": "window", "type": "mousemove",
+                   "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]},
+        "update": "clamp(down[3] + (y() - down[1]) / zoom, -(zoom - 1) * height / (2 * zoom), (zoom - 1) * height / (2 * zoom))"},
+       {"events": {"signal": "zoom"},
+        "update": "clamp(panY, -(zoom - 1) * height / (2 * zoom), (zoom - 1) * height / (2 * zoom))"},
+       {"events": "dblclick", "update": "0"}
+     ]},
+
+    {"name": "hover", "value": null,
+     "on": [
+       {"events": "@tile:mouseover", "update": "datum.iso_a3"},
+       {"events": "@tile:mouseout", "update": "null"}
+     ]},
+    {"name": "selected", "value": null,
+     "on": [
+       {"events": "@tile:click", "update": "moved ? selected : (datum.iso_a3 === selected ? null : datum.iso_a3)"},
+       {"events": "@bg:click", "update": "moved ? selected : null"},
+       {"events": "dblclick", "update": "null"}
+     ]},
+    {"name": "focus", "update": "selected ? selected : hover"},
+
+    {"name": "mapCursor", "update": "down ? 'grabbing' : (zoom > 1 ? 'grab' : 'default')"}
+  ],
+
+  "data": [
+    {"name": "world",
+     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/world.json",
+     "format": {"type": "topojson", "feature": "countries"}},
+
+    {"name": "tiles",
+     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart14.csv",
+     "format": {"type": "csv", "parse": {"players": "number", "sf_players": "number", "titles": "number", "tile_x": "number", "tile_y": "number"}},
+     "transform": [
+       {"type": "formula",
+        "expr": "datum.sf_players === 0 ? '0' : datum.sf_players <= 2 ? '1-2' : datum.sf_players <= 5 ? '3-5' : datum.sf_players <= 10 ? '6-10' : '11+'",
+        "as": "sf_band"}
+     ]},
+
+    {"name": "focusTile", "source": "tiles",
+     "transform": [{"type": "filter", "expr": "focus && datum.iso_a3 === focus"}]}
+  ],
+
+  "projections": [
+    {"name": "projection", "type": "equalEarth",
+     "scale": {"signal": "baseScale * zoom"},
+     "translate": {"signal": "[width / 2 + panX * zoom, height / 2 + panY * zoom + 21.5 * k]"}}
+  ],
+
+  "scales": [
+    {"name": "band", "type": "ordinal",
+     "domain": ["0", "1-2", "3-5", "6-10", "11+"],
+     "range": ["#d6d1c8", "#9ecae1", "#4292c6", "#08519c", "#08306b"]}
+  ],
+
+  "legends": [
+    {"fill": "band", "title": "Semi-finalists (2000-2025)", "titleLimit": 280,
+     "orient": "bottom-left", "direction": "horizontal",
+     "symbolType": "square", "symbolSize": 140,
+     "fillColor": "rgba(255,255,255,0.85)", "padding": 6, "offset": 6}
+  ],
+
+  "marks": [
+    {
+      "type": "group",
+      "encode": {"update": {
+        "x": {"value": 0}, "y": {"value": 0},
+        "width": {"signal": "width"}, "height": {"signal": "height"},
+        "clip": {"value": true}
+      }},
+      "marks": [
+        {"type": "shape", "name": "bg", "from": {"data": "world"},
+         "encode": {"update": {
+           "fill": {"value": "#eef1f4"}, "stroke": {"value": "white"}, "strokeWidth": {"value": 0.5},
+           "cursor": {"signal": "mapCursor"}}},
+         "transform": [{"type": "geoshape", "projection": "projection"}]},
+
+        {"type": "rect", "name": "tile", "from": {"data": "tiles"},
+         "encode": {"update": {
+           "x": {"signal": "width / 2 + panX * zoom + (datum.tile_x - 400) * k - tileSide / 2"},
+           "y": {"signal": "height / 2 + panY * zoom + (datum.tile_y - 178.5) * k - tileSide / 2"},
+           "width": {"signal": "tileSide"}, "height": {"signal": "tileSide"},
+           "fill": {"scale": "band", "field": "sf_band"},
+           "fillOpacity": {"signal": "focus && datum.iso_a3 !== focus ? 0.3 : 1"},
+           "stroke": {"value": "white"}, "strokeWidth": {"value": 1.5},
+           "cursor": {"signal": "down ? 'grabbing' : 'pointer'"},
+           "tooltip": {"signal": "{'Country': datum.country, 'Players in main draw': datum.players, 'Players reaching semi-final': datum.sf_players, 'Titles (both draws)': datum.titles}"}}}},
+
+        {"type": "rect", "from": {"data": "focusTile"}, "interactive": false,
+         "encode": {"update": {
+           "x": {"signal": "width / 2 + panX * zoom + (datum.tile_x - 400) * k - tileSide / 2 - 2"},
+           "y": {"signal": "height / 2 + panY * zoom + (datum.tile_y - 178.5) * k - tileSide / 2 - 2"},
+           "width": {"signal": "tileSide + 4"}, "height": {"signal": "tileSide + 4"},
+           "fill": {"scale": "band", "field": "sf_band"},
+           "stroke": {"value": "#d62728"}, "strokeWidth": {"value": 3}}}},
+
+        {"type": "text", "from": {"data": "tiles"}, "interactive": false,
+         "encode": {"update": {
+           "x": {"signal": "width / 2 + panX * zoom + (datum.tile_x - 400) * k"},
+           "y": {"signal": "height / 2 + panY * zoom + (datum.tile_y - 178.5) * k"},
+           "text": {"field": "iso_a3"},
+           "align": {"value": "center"}, "baseline": {"value": "middle"},
+           "fontSize": {"signal": "labelSize"}, "fontWeight": {"value": "bold"},
+           "fill": {"signal": "datum.sf_players >= 3 ? 'white' : '#1b1f24'"},
+           "opacity": {"signal": "focus && datum.iso_a3 !== focus ? 0.4 : 1"}}}},
+
+        {"type": "text", "from": {"data": "focusTile"}, "interactive": false,
+         "encode": {"update": {
+           "x": {"value": 10}, "y": {"value": 16},
+           "text": {"signal": "datum.country + ' · ' + datum.sf_players + ' semi-finalist' + (datum.sf_players === 1 ? '' : 's') + ' · ' + datum.players + ' players · ' + datum.titles + ' title' + (datum.titles === 1 ? '' : 's')"},
+           "fontSize": {"value": 12}, "fontWeight": {"value": "bold"}, "fill": {"value": "#d62728"}}}}
+      ]
+    }
+  ]
+}
