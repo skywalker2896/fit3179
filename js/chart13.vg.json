@@ -265,6 +265,72 @@
           "expr": "datum.round_idx === 7"
         }
       ]
+    },
+    {
+      "name": "annos",
+      "values": [
+        {
+          "key": "1-3",
+          "side": "right",
+          "text": "Only {n} of the 96 unseeded|players win their opener",
+          "off": 45
+        },
+        {
+          "key": "2-3",
+          "side": "right",
+          "text": "The last {n} unseeded players|are out in Round 3",
+          "off": 14
+        },
+        {
+          "key": "3-0",
+          "side": "above",
+          "text": "{n} of the top 8 seeds|reach the last 16",
+          "off": 34
+        },
+        {
+          "key": "5-0",
+          "side": "above",
+          "text": "All {n} semi-finalists|are top-8 seeds",
+          "off": 24
+        }
+      ],
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "nodes",
+          "key": "key",
+          "fields": [
+            "key"
+          ],
+          "as": [
+            "node"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum.node)"
+        },
+        {
+          "type": "formula",
+          "as": "lines",
+          "expr": "split(replace(datum.text, '{n}', datum.node.players), '|')"
+        },
+        {
+          "type": "formula",
+          "as": "cx",
+          "expr": "scale('x', datum.node.round_idx) + nodeW / 2"
+        },
+        {
+          "type": "formula",
+          "as": "ytop",
+          "expr": "scale('y', datum.node.y0)"
+        },
+        {
+          "type": "formula",
+          "as": "ymid",
+          "expr": "(scale('y', datum.node.y0) + scale('y', datum.node.y1)) / 2"
+        }
+      ]
     }
   ],
   "scales": [
@@ -520,6 +586,73 @@
           },
           "fill": {
             "value": "#0c2b5e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "from": {
+        "data": "annos"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.side === 'above' ? datum.cx : datum.cx + nodeW / 2 + 2"
+          },
+          "x2": {
+            "signal": "datum.side === 'above' ? datum.cx : datum.cx + nodeW / 2 + 10"
+          },
+          "y": {
+            "signal": "datum.side === 'above' ? datum.ytop - 2 : datum.ymid"
+          },
+          "y2": {
+            "signal": "datum.side === 'above' ? datum.ytop - datum.off + 2 : datum.ymid + datum.off"
+          },
+          "stroke": {
+            "value": "#6b6459"
+          },
+          "strokeWidth": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "annos"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.side === 'above' ? datum.cx : datum.cx + nodeW / 2 + 12"
+          },
+          "y": {
+            "signal": "datum.side === 'above' ? datum.ytop - datum.off - 8 : datum.ymid + datum.off"
+          },
+          "text": {
+            "field": "lines"
+          },
+          "align": {
+            "signal": "datum.side === 'above' ? 'center' : 'left'"
+          },
+          "baseline": {
+            "signal": "datum.side === 'above' ? 'bottom' : 'middle'"
+          },
+          "lineHeight": {
+            "value": 12
+          },
+          "fontSize": {
+            "value": 10
+          },
+          "fontStyle": {
+            "value": "italic"
+          },
+          "fill": {
+            "value": "#4a4a4a"
           }
         }
       }

@@ -52,83 +52,6 @@
   ],
   "width": "container",
   "height": "container",
-  "mark": {
-    "type": "point",
-    "filled": true,
-    "size": 90,
-    "opacity": 0.75,
-    "color": "#0c2b5e"
-  },
-  "encoding": {
-    "x": {
-      "field": "seed",
-      "type": "ordinal",
-      "title": "Seed (rank)",
-      "sort": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "17",
-        "18",
-        "19",
-        "20",
-        "21",
-        "22",
-        "23",
-        "24",
-        "25",
-        "26",
-        "27",
-        "28",
-        "29",
-        "30",
-        "31",
-        "32",
-        "Q",
-        "WC"
-      ],
-      "axis": {
-      "labelAngle": -45,
-      "labelAlign": "right",
-      "labelBaseline": "middle"
-  }
-    },
-    "y": {
-      "field": "games_played",
-      "type": "quantitative",
-      "title": "Total games played"
-    },
-    "tooltip": [
-      {
-        "field": "player",
-        "type": "nominal",
-        "title": "Player"
-      },
-      {
-        "field": "seed",
-        "type": "ordinal",
-        "title": "Seed"
-      },
-      {
-        "field": "games_played",
-        "type": "quantitative",
-        "title": "Games played"
-      }
-    ]
-  },
   "config": {
     "axis": {
       "labelFontSize": 11,
@@ -137,5 +60,372 @@
     "title": {
       "fontSize": 16
     }
-  }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 90,
+        "opacity": 0.75,
+        "color": "#0c2b5e"
+      },
+      "encoding": {
+        "x": {
+          "field": "seed",
+          "type": "ordinal",
+          "title": "Seed (rank)",
+          "sort": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "Q",
+            "WC"
+          ]
+        },
+        "y": {
+          "field": "games_played",
+          "type": "quantitative",
+          "title": "Total games played",
+          "scale": {
+            "domainMax": 270
+          }
+        },
+        "tooltip": [
+          {
+            "field": "player",
+            "type": "nominal",
+            "title": "Player"
+          },
+          {
+            "field": "seed",
+            "type": "ordinal",
+            "title": "Seed"
+          },
+          {
+            "field": "games_played",
+            "type": "quantitative",
+            "title": "Games played"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "indexof(['Carlos Alcaraz'], datum.player) >= 0"
+        },
+        {
+          "calculate": "datum.player + ' \u00b7 Champion'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "dy": -12,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1b1f24"
+      },
+      "encoding": {
+        "x": {
+          "field": "seed",
+          "type": "ordinal",
+          "sort": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "Q",
+            "WC"
+          ]
+        },
+        "y": {
+          "field": "games_played",
+          "type": "quantitative",
+          "scale": {
+            "domainMax": 270
+          }
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "indexof(['Alexander Zverev'], datum.player) >= 0"
+        },
+        {
+          "calculate": "datum.player + ' \u00b7 Out in SF'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 14,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1b1f24"
+      },
+      "encoding": {
+        "x": {
+          "field": "seed",
+          "type": "ordinal",
+          "sort": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "Q",
+            "WC"
+          ]
+        },
+        "y": {
+          "field": "games_played",
+          "type": "quantitative",
+          "scale": {
+            "domainMax": 270
+          }
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "indexof(['Learner Tien'], datum.player) >= 0"
+        },
+        {
+          "calculate": "datum.player + ' \u00b7 Out in QF'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -9,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1b1f24"
+      },
+      "encoding": {
+        "x": {
+          "field": "seed",
+          "type": "ordinal",
+          "sort": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "Q",
+            "WC"
+          ]
+        },
+        "y": {
+          "field": "games_played",
+          "type": "quantitative",
+          "scale": {
+            "domainMax": 270
+          }
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "indexof(['Felix Auger-Aliassime'], datum.player) >= 0"
+        },
+        {
+          "calculate": "datum.player + ' \u00b7 Out in R1'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 9,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1b1f24"
+      },
+      "encoding": {
+        "x": {
+          "field": "seed",
+          "type": "ordinal",
+          "sort": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "Q",
+            "WC"
+          ]
+        },
+        "y": {
+          "field": "games_played",
+          "type": "quantitative",
+          "scale": {
+            "domainMax": 270
+          }
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ]
 }

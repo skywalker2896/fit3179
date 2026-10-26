@@ -1,10 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Expected vs Actual Exit Round (Australian Open 2024)",
-    "fontSize": 14,
-    "anchor": "start"
-  },
   "description": "Each player's seed-based expected exit round (per the tournament seeding convention) plotted against their actual exit round in the 2024 Australian Open. Colour shows the number of players in each intersection, faceted by Men's and Women's Singles.",
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart5.csv",
@@ -44,7 +39,7 @@
     }
   ],
   "width": "container",
-  "height": 300,
+  "height": 280,
   "autosize": {
     "type": "fit-x",
     "contains": "padding"

@@ -1,8 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text": "Rank Entering AO vs. 4 Weeks Later (Top 20 Seeds, 2026)","fontSize": 14,
-  "anchor": "start","offset": 12
-  },
+
   "description": "Each line tracks one of the top 20 seeded AO 2026 men's players from their ATP ranking entering the tournament (week 2, 2026) to four weeks later (week 6, 2026).",
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart7.csv",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Grouped bar chart of the four Australian Open semi-finalists each year, 2016-2025, for a selected stat (aces, double faults, break points saved or rank) and a selected draw.",
+  "description": "Grouped bar chart of the four Australian Open semi-finalists each year, 2016-2025, for a selected stat (aces, double faults or break points saved) and a selected draw.",
   "data": {
     "url": "https://raw.githubusercontent.com/skywalker2896/fit3179/refs/heads/main/dataset/chart12.csv",
     "format": {
@@ -28,8 +28,7 @@
         "options": [
           "Aces",
           "Double faults",
-          "Break points saved",
-          "Rank"
+          "Break points saved"
         ],
         "name": "Stat: "
       }
@@ -47,7 +46,7 @@
       "filter": "datum.year >= 2016"
     },
     {
-      "calculate": "SelectedStat === 'Aces' ? toNumber(datum.aces) : (SelectedStat === 'Double faults' ? toNumber(datum.double_faults) : (SelectedStat === 'Break points saved' ? toNumber(datum.bp_saved) : toNumber(datum.rank)))",
+      "calculate": "SelectedStat === 'Aces' ? toNumber(datum.aces) : (SelectedStat === 'Double faults' ? toNumber(datum.double_faults) : toNumber(datum.bp_saved))",
       "as": "value"
     },
     {
@@ -73,7 +72,7 @@
     }
   ],
   "width": "container",
-  "height": "container",
+  "height": 240,
   "mark": {
     "type": "bar",
     "cornerRadiusTopLeft": 2,

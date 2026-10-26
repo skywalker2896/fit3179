@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="hero-issue label-tag">
-            <span>October 2026</span>
+            <span>Naomi Tung October 2026</span>
           </div>
         </div>
 
@@ -291,10 +291,10 @@
       <div class="chart-card" style="grid-column: 1 / -1;">
         <div class="chart-header">
           <span class="tag">Figure 08 · Bump Chart </span>
-          <h1>Ranking Change Before vs After AO</h1>
+          <h1>Ranking Change Before vs After AO 2026</h1>
         </div>
         <div id="chart7" class="chart-vis--tall placeholder-chart"></div>
-        <div class="chart-footer">Source: Kaggle</div>
+        <div class="chart-footer">Source: Tennis Majors</div>
       </div>
     </section>  
 
@@ -319,7 +319,7 @@
       <div class="chart-card">
         <div class="chart-header">
           <span class="tag">Figure 09 · Ridgeline Plot</span>
-          <h1>Density of Total Matches</h1>
+          <h1>Density of Total Matches 2015-2026</h1>
         </div>
         <div id="chart9" class="chart-vis placeholder-chart"></div>
         <div class="chart-footer">Source: Tennis My Life</div>
@@ -328,7 +328,7 @@
       <div class="chart-card">
         <div class="chart-header">
           <span class="tag">Figure 10 · Multiline Plot</span>
-          <h1>1st Serve Points Winners vs Loswers</h1>
+          <h1>1st Serve Points Winners vs Losers 2026</h1>
         </div>
         <div id="chart10" class="chart-vis placeholder-chart"></div>
         <div class="chart-footer">Source: Kaggle</div>
@@ -353,7 +353,7 @@
       <div class="chart-card" style="grid-column: 1 / -1;">
         <div class="chart-header">
           <span class="tag">Figure 11 · Arc Map</span>
-          <h1>Top 10 Seeded Players Travel Distance</h1>
+          <h1>2026 Top 10 Seeded Players Travel Distance</h1>
           <p class="chart-hint">
         <strong>Explore the map:</strong> hold <kbd>Ctrl</kbd> (or <kbd>⌘</kbd> on Mac) and scroll to zoom,
           drag to move around, double-click to reset. Hover a circle for details.
@@ -404,7 +404,7 @@
       <div class="chart-card" style="grid-column: 1 / -1;">
         <div class="chart-header">
           <span class="tag">Figure 13 · Sankey Diagram</span>
-          <h1>Tournament Advancement Seeded vs Unseeded</h1>
+          <h1>2026 Men's Single Tournament Advancement Seeded vs Unseeded</h1>
         </div>
         <div id="chart13" class="chart-vis--tall placeholder-chart"></div>
         <div class="chart-footer">Source: Tennis My Life</div>
@@ -459,11 +459,53 @@
         <div class="big-figure"><span class="num">1,404</span><span class="lbl">different players</span></div>
       </aside>
     </div>
-    <div class="chart-footer">Source: Kaggle</div>
+    <div class="chart-footer">Source: Tennis My Life</div>
   </div>
 </section>
 
+<div class="caption">
+  <p>
+    The Australian Open is a global tournament that keeps widening. Since 2000, the main draws have welcomed 
+    1,404 different players from 78 nationalities, with the number of countries climbing quickly in the early 
+    2000s before levelling off, while the number of new players has grown steadily every year. Yet the evidence 
+    across this dashboard points to a familiar pattern. Seeds mostly deliver: favourites usually win, higher seeds 
+    spend more time on court, and rankings barely shift after the tournament. 
+  </p>
+  <p>
+    Upsets do happen, though, and 
+    winning first-serve points is what most reliably separates the winners from the losers. Format shapes the 
+    contest too, as the men’s best-of-five matches run far longer than the women’s. A handful of nations still 
+    supply most of the semi-finalists and champions. So ranking is a strong guide to who will win at the Australian 
+    Open, but never a guarantee.
+  </p>
+</div>
 
+<footer class="references" id="references">
+  <h2 class="references-title">References</h2>
+  <ul class="references-list">
+  <li>
+    Ehab, M. (2026, February 8). Australian Open 2026 Dataset. Kaggle. https://www.kaggle.com/datasets/mahmoudehab6677/australian-open-2026-dataset?resource=download
+  </li>
+  <li>
+    Francis, K. (2026, February). Australian open crowd numbers 2026. Yahoo Sports. https://www.sportingnews.com/us/tennis/news/australian-open-crowd-numbers-2026-court-capacity-attendance/e078e7bd1f5c431855d03525
+  </li>
+  <li>
+    Natural Earth Data. (n.d.). Natural Earth. Retrieved 15 October 2026, from https://www.naturalearthdata.com/downloads/
+  </li>
+  <li>
+    Tennis Australia. (2026). Australian Open 2026 By the numbers. In tennis.com.au. https://www.tennis.com.au/content/dam/tennisaustralia/documents/reports/ao-by-the-numbers/AO26-By-the-Numbers.pdf 
+  </li>
+   <li>
+    Tennis My Life. (2026). Tennis match database. Tennis My Life. https://stats.tennismylife.org/tennis-match-database
+  </li>
+  <li>
+    Tennis Majors. (2026, February 7). ATP world tour - singles week 6 2026. Tennis Majors. https://www.tennismajors.com/rankings/atp-world-tour-singles-week-6-2026
+  </li>
+</ul>
+  <p class="references-note">Charts built with Vega and Vega-Lite via Vega-Embed. MapShaper.org was used to create map json and 
+    Natural Earth was used to create map layers.
+  </p>
+</footer>
 
 <script src="js/vega_lite_vis.js"></script>
 </body>

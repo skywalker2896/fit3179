@@ -16,7 +16,6 @@ const chartConfigs = [
   { id: "chart13", spec: "js/chart13.vg.json" },
   { id: "chart14", spec: "js/chart14.vg.json" },
   { id: "chart15", spec: "js/chart15.vl.json" }
-  // { id: "chart3", spec: "js/chart3.vl.json" }, // C3 · ...
 ];
  
 chartConfigs.forEach(({ id, spec }) => {
